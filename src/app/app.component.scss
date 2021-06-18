@@ -37,6 +37,10 @@ a:active {
   color: #000000;
 }
 
+.mg_btm_md {
+  margin-bottom: 1.5em;
+}
+
 /*font-family: 'Courier New', monospace;*/
 /*font-family: "europa", sans-serif;*/
 
@@ -107,6 +111,32 @@ a:active {
 
 .border-right {
   border-right: 1px solid #dde2ed;
+}
+
+.skill_row {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-right: 10%;
+  margin-top: 15px;
+  height: 30px;
+}
+
+.skill_header {
+  width: 100px;
+  font-weight: bold;
+  padding-top: 3px;
+}
+
+.exp_box {
+  border: 1px solid black;
+  width: 12px;
+  height: 12px;
+  margin-left: 1em;
+}
+
+.fill_box {
+  background-color: #ffd700;
 }
 
 @media screen and (max-width: 600px) {

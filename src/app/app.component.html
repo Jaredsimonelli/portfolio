@@ -37,15 +37,59 @@
 
       <div class="box flex-grid center-txt">
         <div class="col border-right">
-          This little piggy went to market.
+          <h3 class="mg_btm_md">Front End</h3>
+          <ng-container *ngFor="let skill of fontEndSkills">
+            <div class="skill_row">
+              <div class="skill_header">{{skill.name}} &nbsp;</div>
+
+              <ng-container *ngFor="let item of createRange(skill.exp)">
+                <div class="exp_box fill_box"></div>
+              </ng-container>
+
+              <!-- TODO: implement half's -->
+              <ng-container *ngIf="skill.exp % 1 !== 0">
+                <div class="exp_box"></div>
+              </ng-container>
+
+              <ng-container *ngFor="let item of createRange(5 - skill.exp)">
+                <div class="exp_box"></div>
+              </ng-container>
+            </div>
+          </ng-container>
         </div>
 
         <div class="col border-right">
-          This little piggy went to market.
+          <h3 class="mg_btm_md">General</h3>
+          <ng-container *ngFor="let skill of generalSkills">
+            <div class="skill_row">
+              <div class="skill_header">{{skill.name}} &nbsp;</div>
+
+              <ng-container *ngFor="let item of createRange(skill.exp)">
+                <div class="exp_box fill_box"></div>
+              </ng-container>
+
+              <ng-container *ngFor="let item of createRange(5 - skill.exp)">
+                <div class="exp_box"></div>
+              </ng-container>
+            </div>
+          </ng-container>
         </div>
 
         <div class="col">
-          This little piggy went to market.
+          <h3 class="mg_btm_md">Game Development</h3>
+          <ng-container *ngFor="let skill of gameDevSkills">
+            <div class="skill_row">
+              <div class="skill_header">{{skill.name}} &nbsp;</div>
+
+              <ng-container *ngFor="let item of createRange(skill.exp)">
+                <div class="exp_box fill_box"></div>
+              </ng-container>
+
+              <ng-container *ngFor="let item of createRange(5 - skill.exp)">
+                <div class="exp_box"></div>
+              </ng-container>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>

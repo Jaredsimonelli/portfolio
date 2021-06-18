@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Skill } from './data/models';
+import { frontEndSkillList, gameDevSkillList, generalSkillList } from './data/constants';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +13,24 @@ export class AppComponent implements OnInit {
 
   min: Number;
 
+  fontEndSkills: Skill[] = frontEndSkillList;
+  gameDevSkills: Skill[] = gameDevSkillList;
+  generalSkills: Skill[] = generalSkillList;
+
   ngOnInit() {
-    this.c = document.getElementById("responsive-canvas") as HTMLCanvasElement;
-    this.ctx = this.c.getContext("2d");
+    console.log(this.fontEndSkills);
+    console.log(this.gameDevSkills);
+    console.log(this.generalSkills);
 
-    this.min = Math.min(this.c.height, this.c.width);
+    //this.c = document.getElementById("responsive-canvas") as HTMLCanvasElement;
+    //this.ctx = this.c.getContext("2d");
 
-    this.setUpCanvas();
+    //this.min = Math.min(this.c.height, this.c.width);
+
+    //this.setUpCanvas();
   }
 
-  setUpCanvas = () => {
+  setUpCanvas() {
     // Feed the size back to the canvas.
     this.c.width = this.c.clientWidth;
     this.c.height = this.c.clientHeight;
@@ -81,6 +91,13 @@ export class AppComponent implements OnInit {
     this.ctx.lineTo(1125, 250);
     this.ctx.closePath();
     this.ctx.stroke();
-
   };
+
+  createRange(num: number) {
+    const items: number[] = [];
+    for (var i = 1; i <= num; i++) {
+      items.push(i);
+    }
+    return items;
+  }
 }
