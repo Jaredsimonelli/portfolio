@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Skill } from './data/models';
 import { frontEndSkillList, gameDevSkillList, generalSkillList } from './data/constants';
+
+import { faLaptopCode, faGamepad, faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +10,13 @@ import { frontEndSkillList, gameDevSkillList, generalSkillList } from './data/co
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  // Icons
+  fontEndImg = faLaptopCode;
+  gameDevIcon = faGamepad;
+  generalIcon = faCodeBranch;
+
   c: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
-
   min: Number;
 
   fontEndSkills: Skill[] = frontEndSkillList;
@@ -18,10 +24,6 @@ export class AppComponent implements OnInit {
   generalSkills: Skill[] = generalSkillList;
 
   ngOnInit() {
-    console.log(this.fontEndSkills);
-    console.log(this.gameDevSkills);
-    console.log(this.generalSkills);
-
     //this.c = document.getElementById("responsive-canvas") as HTMLCanvasElement;
     //this.ctx = this.c.getContext("2d");
 

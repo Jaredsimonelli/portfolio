@@ -1,3 +1,5 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
 canvas#responsive-canvas {
   width: 100%;
   height: 100%;
@@ -8,32 +10,15 @@ canvas#responsive-canvas {
   background-color: cadetblue;
 }
 
-.nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.nav_menu a {
-  display: block;
-  margin-right: 1em;
-  text-decoration: none;
-}
-
-.nav_menu ul li {
-  float: right;
-}
-
-a:visited {
+.nav-link:visited {
   color: #a6a6a6;
 }
 
-a:hover {
+.nav-link:hover {
   color: #4d4d4d;
 }
 
-a:active {
+.nav-link:active {
   color: #000000;
 }
 
@@ -51,11 +36,8 @@ a:active {
 .home {
   margin-top: 5em;
   height: 100vh;
-  width: 100vw;
-}
-
-.center-txt {
-  text-align: center;
+  min-height: 800px;
+  // width: 100vw;
 }
 
 .about_me {
@@ -64,7 +46,8 @@ a:active {
   height: 50%;
   display: block;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
+  padding-top: 20px;
 }
 
 .profile_img {
@@ -78,12 +61,13 @@ a:active {
 
 .skills {
   height: 100vh;
+  min-height: 800px;
   background-color: cadetblue;
   position: relative;
 }
 
 .skills_container {
-  padding-top: 50px;
+  padding-top: 9%;
   position: absolute;
   height: 90%;
   width: 100%;
@@ -98,6 +82,7 @@ a:active {
   border-radius: 25px;
   border: 2px solid white;
   background-color: white;
+  box-shadow: 4px 4px #e6ecf8;
 }
 
 .flex-grid {
@@ -111,6 +96,10 @@ a:active {
 
 .border-right {
   border-right: 1px solid #dde2ed;
+}
+
+.skill_icon {
+  margin-top: 2em;
 }
 
 .skill_row {
@@ -128,15 +117,40 @@ a:active {
   padding-top: 3px;
 }
 
-.exp_box {
+h4 {
+  text-decoration: underline;
+}
+
+.rating_box {
   border: 1px solid black;
+  border-radius: 25%;
   width: 12px;
   height: 12px;
   margin-left: 1em;
 }
 
 .fill_box {
-  background-color: #ffd700;
+  background-color: #FFCC00;
+}
+
+.experience {
+  height: 100vh;
+  min-height: 800px;
+  background-color: #DBE8F9;
+  position: relative;
+}
+
+.exp_box {
+  display: block;
+  margin-top: 9%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 500px;
+  width: 20vw;
+  border-radius: 25px;
+  border: 2px solid #fff;
+  background-color: #fff;
+  box-shadow: 4px 4px #e6ecf8;
 }
 
 @media screen and (max-width: 600px) {
