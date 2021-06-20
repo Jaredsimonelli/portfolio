@@ -10,7 +10,7 @@ canvas#responsive-canvas {
   background-color: cadetblue;
 }
 
-.nav-link:visited {
+.nav-item a:visited {
   color: #a6a6a6;
 }
 
@@ -18,12 +18,21 @@ canvas#responsive-canvas {
   color: #4d4d4d;
 }
 
-.nav-link:active {
-  color: #000000;
+.nav-item a:active {
+  // color: #000000;
+  color: pink;
 }
 
-.mg_btm_md {
-  margin-bottom: 1.5em;
+.nav-link:link {
+  color: pink;
+}
+
+.nav {
+  background: white;
+}
+
+h4 {
+  text-decoration: underline;
 }
 
 /*font-family: 'Courier New', monospace;*/
@@ -33,15 +42,18 @@ canvas#responsive-canvas {
   font-family: 'Courier New', monospace;
 }
 
+.header {
+  padding-top: 3rem;
+}
+
+// --- HOME SECTION ---
 .home {
-  margin-top: 5em;
   height: 100vh;
   min-height: 800px;
   // width: 100vw;
 }
 
 .about_me {
-  /*padding: 2em 15em;*/
   width: 50%;
   height: 50%;
   display: block;
@@ -59,6 +71,7 @@ canvas#responsive-canvas {
   margin-right: auto
 }
 
+// --- SKILLS SECTION ---
 .skills {
   height: 100vh;
   min-height: 800px;
@@ -67,7 +80,6 @@ canvas#responsive-canvas {
 }
 
 .skills_container {
-  padding-top: 9%;
   position: absolute;
   height: 90%;
   width: 100%;
@@ -82,7 +94,7 @@ canvas#responsive-canvas {
   border-radius: 25px;
   border: 2px solid white;
   background-color: white;
-  box-shadow: 4px 4px #e6ecf8;
+  box-shadow: 4px 4px #e6f0f0;
 }
 
 .flex-grid {
@@ -117,10 +129,6 @@ canvas#responsive-canvas {
   padding-top: 3px;
 }
 
-h4 {
-  text-decoration: underline;
-}
-
 .rating_box {
   border: 1px solid black;
   border-radius: 25%;
@@ -133,6 +141,7 @@ h4 {
   background-color: #FFCC00;
 }
 
+// --- EXPERIENCE SECTION ---
 .experience {
   height: 100vh;
   min-height: 800px;
@@ -142,7 +151,6 @@ h4 {
 
 .exp_box {
   display: block;
-  margin-top: 9%;
   margin-left: auto;
   margin-right: auto;
   height: 500px;
@@ -151,6 +159,80 @@ h4 {
   border: 2px solid #fff;
   background-color: #fff;
   box-shadow: 4px 4px #e6ecf8;
+}
+
+.exp_box p {
+  // font-size: smaller;
+  font-size: 0.9vw;
+}
+
+.img_wrap:hover img {
+  opacity: 0.3;
+  transition: .5s ease;
+  cursor: pointer;
+}
+
+.img_desc {
+  position: relative;
+  bottom: 100px;
+  color: black;
+  visibility: hidden;
+  opacity: 0;
+  text-decoration: none;
+  transition: opacity .2s, visibility .2s;
+  cursor: pointer;
+  font-size: larger !important;
+}
+
+.img_wrap:hover .img_desc {
+  visibility: visible;
+  opacity: 1;
+}
+
+.img_border {
+  border: 1px solid #F0F0F0;
+}
+
+// --- CONTACT SECTION ---
+.contact {
+  height: 100vh;
+  min-height: 800px;
+  background-color: #252934;
+  position: relative;
+}
+
+.form-control {
+  background-color: #1e242c;
+  // border: none !important;
+  color: white;
+}
+
+.form-control:focus {
+  background-color: #1e242c;
+  // border: none !important;
+  color: white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #1e242c inset !important;
+  -webkit-text-fill-color: white !important;
+}
+
+div.form {
+  display: block;
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 35vw;
+  max-width: 600px;
 }
 
 @media screen and (max-width: 600px) {

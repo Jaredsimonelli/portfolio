@@ -1,4 +1,6 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 import { Skill } from './data/models';
 import { frontEndSkillList, gameDevSkillList, generalSkillList } from './data/constants';
 
@@ -23,13 +25,48 @@ export class AppComponent implements OnInit {
   gameDevSkills: Skill[] = gameDevSkillList;
   generalSkills: Skill[] = generalSkillList;
 
+  contactForm: FormGroup;
+
   ngOnInit() {
+    this.contactForm = new FormGroup({
+      name: new FormControl("", Validators.required),
+      email: new FormControl("", [
+        Validators.required,
+        Validators.email,
+      ]),
+      message: new FormControl("", Validators.required)
+    });
     //this.c = document.getElementById("responsive-canvas") as HTMLCanvasElement;
     //this.ctx = this.c.getContext("2d");
 
     //this.min = Math.min(this.c.height, this.c.width);
 
     //this.setUpCanvas();
+  }
+
+  onSubmit() {
+    if (this.contactForm.valid) {
+      console.log(this.contactForm.value);
+    } else {
+      this.contactForm.markAllAsTouched();
+    }
+  }
+
+  openLink(type: string) {
+    if (type === 'pod') {
+      window.open(
+        "https://www.medicaldaily.com/new-virtual-relaxation-pod-uses-oculus-rift-technology-enhance-mindfulness-370494", "_blank");
+    } else if (type === 'cfc') {
+      window.open("https://cigna.globalfitnesschallenge.com/", "_blank");
+    }
+  }
+
+  createRange(num: number) {
+    const items: number[] = [];
+    for (var i = 1; i <= num; i++) {
+      items.push(i);
+    }
+    return items;
   }
 
   setUpCanvas() {
@@ -95,11 +132,7 @@ export class AppComponent implements OnInit {
     this.ctx.stroke();
   };
 
-  createRange(num: number) {
-    const items: number[] = [];
-    for (var i = 1; i <= num; i++) {
-      items.push(i);
-    }
-    return items;
-  }
+  get name() { return this.contactForm.get('name'); }
+  get email() { return this.contactForm.get('email'); }
+  get message() { return this.contactForm.get('message'); }
 }

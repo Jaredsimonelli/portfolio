@@ -1,10 +1,10 @@
 <div class="container-fluid">
   <!--<canvas id="responsive-canvas"></canvas>-->
 
-  <ul id="navbar" class="nav justify-content-end">
-    <!--<li class="nav-item">
-      <a class="nav-link active" href="#scollToHome">Home</a>
-    </li>-->
+  <ul id="navbar" class="nav fixed-top justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" href="#scollToHome" active>Home</a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="#scollToSkills">Skills</a>
     </li>
@@ -12,41 +12,44 @@
       <a class="nav-link" href="#scollToExperience">Experience</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Contact</a>
+      <a class="nav-link" href="#scollToContact">Contact</a>
     </li>
   </ul>
 
-  <section class="home" data-bs-spy="scroll" data-bs-target="#navbar">
-    <div class="text-center" id="scollToHome">
+  <ng-container data-bs-spy="scroll" data-bs-target="#navbar">
+    <section class="home pt-5" id="scollToHome">
+      <div class="text-center">
 
-      <img src="assets/img/profile_pic_1.jpg" alt="profile_picture" class="profile_img">
-      <p>Jared Simonelli</p>
-      <span>Web Developer / Software Engineer</span>
-      <!--<p>Cigna: Software Engineer Advisor </p>-->
+        <img src="assets/img/profile_pic_1.jpg" alt="profile_picture" class="profile_img">
+        <p>Jared Simonelli</p>
+        <span>Web Developer / Software Engineer</span>
+        <!--<p>Cigna: Software Engineer Advisor </p>-->
 
-      <div class="about_me">
-        <h2>Get to know my ass:</h2>
-        <span>
-          Hello! My name is Jared and currently I develop web applications for Cigna with my role being Software Engineer Advisor. My love for coding started in Game Development while in college.
-          The power to create an interactive experience using the skills I learned captivated me. I took that love and started my career as a young professional at Cigna utilizing my Game Dev knowledge
-          to help develop a Virtual Reality relaxation experience. While working on VR I was tasked to learn web development specializing in the Front End using Angular and the NgRx framework.
-          Shortly after I transitioned into a full time web developer, working closely with the backend and pipeline gaining valuable experience in Spring Boot and GitLab CI. My goal as a software
-          engineer is to become a competent full stack developer.
-        </span>
+        <div class="about_me">
+          <h2>Get to know my ass:</h2>
+          <span>
+            Hello! My name is Jared and currently I develop web applications for Cigna with my role being Software Engineer Advisor. My love for coding started in Game Development while in college.
+            The power to create an interactive experience using the skills I learned captivated me. I took that love and started my career as a young professional at Cigna utilizing my Game Dev knowledge
+            to help develop a Virtual Reality relaxation experience. While working on VR I was tasked to learn web development specializing in the Front End using Angular and the NgRx framework.
+            Shortly after I transitioned into a full time web developer, working closely with the backend and pipeline gaining valuable experience in Spring Boot and GitLab CI. My goal as a software
+            engineer is to become a competent full stack developer.
+          </span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </ng-container>
 
   <section class="skills" data-bs-spy="scroll" data-bs-target="#navbar">
-    <div class="skills_container" id="scollToSkills">
+    <div class="skills_container text-center" id="scollToSkills">
+      <h2 class="header pb-4"><u>SKILLS</u></h2>
 
-      <div class="box flex-grid text-center">
+      <div class="box flex-grid">
         <div class="col border-right">
           <div class="skill_icon">
             <fa-icon class="fa-3x" [icon]="fontEndImg"></fa-icon>
           </div>
 
-          <h4 class="mg_btm_md">Front End</h4>
+          <h4 class="mb-4">Front End</h4>
           <ng-container *ngFor="let skill of fontEndSkills">
             <div class="skill_row">
               <div class="skill_header">{{skill.name}} &nbsp;</div>
@@ -72,7 +75,7 @@
             <fa-icon class="fa-3x" [icon]="generalIcon"></fa-icon>
           </div>
 
-          <h4 class="mg_btm_md">General</h4>
+          <h4 class="mb-4">General</h4>
 
           <ng-container *ngFor="let skill of generalSkills">
             <div class="skill_row">
@@ -94,7 +97,7 @@
             <fa-icon class="fa-3x" [icon]="gameDevIcon"></fa-icon>
           </div>
 
-          <h4 class="mg_btm_md">Game Development</h4>
+          <h4 class="mb-4">Game Development</h4>
 
           <ng-container *ngFor="let skill of gameDevSkills">
             <div class="skill_row">
@@ -116,17 +119,89 @@
 
   <section class="experience container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="text-center row" id="scollToExperience">
+      <h2 class="header pb-4"><u>EXPERIENCE</u></h2>
+
       <div class="d-flex justify-content-between">
         <div class="p-4 exp_box">
-          <h4 class="mg_btm_md">Virtual Relaxation Pod</h4>
+          <h4 class="mb-3">Virtual Relaxation Pod</h4>
+          <p>
+            Using Virtual Reality for more mindful and meditative purposes!
+            I joined as one of two developers on this project, and I was tasked with curating the scenes. While no demos are available please check out the image below to find out more.
+          </p>
+          <div class="img_wrap" (click)="openLink('pod')">
+            <img class="img-fluid rounded" src="/assets/img/VR_Pod.jpg" width="200" alt="vr_pod_img" />
+            <p class="img_desc">Learn More</p>
+          </div>
         </div>
         <div class="p-4 exp_box">
-          <h4 class="mg_btm_md">Cigna Fitness Challenge</h4>
+          <h4 class="mb-3">Global Fitness Challenge</h4>
+          <p>
+            The Global Fitness Challenge is an activities-based employer wellness application designed to promote an active lifestyle through a series of team-based physical activities.
+            I joined the small team of 6 to help with Front end development, throughout my time I also gained valuable knowledge in full stack development. Linked below is to the landing page, unfortunately not fully available
+            without purchase from employer.
+          </p>
+          <div class="img_wrap" (click)="openLink('cfc')">
+            <img class="img-fluid rounded img_border" src="/assets/img/cfc_img.jpg" width="200" alt="cfc_img" />
+            <p class="img_desc">Click here</p>
+          </div>
         </div>
         <div class="p-4 exp_box">
-          <h4 class="mg_btm_md">Cigna Provider Portal</h4>
+          <h4 class="mb-3">Cigna Provider Portal</h4>
+          <p>
+            The Cigna Provider Portal is the internal tool employees use in order to file and process claims. This was my first large scale project spanning multiple teams. I was tasked on leading Front end development0
+            for the Benefits functionality. The goal was to take the legacy code and update it to a SPA utilizing Angular and NgRx while also having major redesigns. This project pushed me out of my comfort zone having me work on a
+            high profile application with teams in other countries and backgrounds.
+          </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="contact container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
+    <div class="text-center" id="scollToContact">
+      <h2 class="header" style="color: white; padding-top: 3rem;"><u>CONTACT</u></h2>
+
+      <form [formGroup]="contactForm" class="pt-4" (ngSubmit)="onSubmit()">
+        <div class="form-group pb-3">
+          <input type="text" class="form-control" formControlName="name" placeholder="Name">
+
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+               class="alert alert-danger m-0 p-1">
+
+            <div *ngIf="name.errors?.required">
+              Name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group pb-3">
+          <input type="text" class="form-control" formControlName="email" placeholder="Email">
+          <div *ngIf="email.invalid && (email.dirty || email.touched)"
+               class="alert alert-danger m-0 p-1">
+
+            <div *ngIf="email.errors?.required">
+              Email is required.
+            </div>
+
+            <div *ngIf="email.errors?.email">
+              Not a valid email.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group pb-3">
+          <textarea class="form-control" formControlName="message" rows="3" placeholder="Enter message"></textarea>
+          <div *ngIf="message.invalid && (message.dirty || message.touched)"
+               class="alert alert-danger m-0 p-1">
+
+            <div *ngIf="message.errors?.required">
+              Message is required.
+            </div>
+          </div>
+        </div>
+
+        <button class="button" type="submit">Send</button>
+      </form>
     </div>
   </section>
 </div>
