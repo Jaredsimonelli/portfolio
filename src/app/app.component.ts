@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Skill } from './data/models';
@@ -11,7 +11,7 @@ import { faLaptopCode, faGamepad, faCodeBranch } from '@fortawesome/free-solid-s
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   // Icons
   fontEndImg = faLaptopCode;
   gameDevIcon = faGamepad;
@@ -24,6 +24,13 @@ export class AppComponent implements OnInit {
   fontEndSkills: Skill[] = frontEndSkillList;
   gameDevSkills: Skill[] = gameDevSkillList;
   generalSkills: Skill[] = generalSkillList;
+
+  currentActive = 1;
+
+  homeOffset: Number;
+  skillsOffset: Number;
+  expOffset: Number;
+  contactOffset: Number;
 
   contactForm: FormGroup;
 
@@ -42,6 +49,41 @@ export class AppComponent implements OnInit {
     //this.min = Math.min(this.c.height, this.c.width);
 
     //this.setUpCanvas();
+  }
+
+  ngAfterViewInit() {
+    this.homeOffset = document.getElementById('scrollToHome').getBoundingClientRect().top;
+    this.skillsOffset = document.getElementById('scrollToSkills').getBoundingClientRect().top;
+    this.expOffset = document.getElementById('scrollToExperience').getBoundingClientRect().top;
+    this.contactOffset = document.getElementById('scrollToContact').getBoundingClientRect().top;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  checkOffsetTop() {
+    if (window.pageYOffset >= this.homeOffset && window.pageYOffset < this.skillsOffset) {
+      this.currentActive = 1;
+    } else if (window.pageYOffset >= this.skillsOffset && window.pageYOffset < this.expOffset) {
+      this.currentActive = 2;
+    } else if (window.pageYOffset >= this.expOffset && window.pageYOffset < this.contactOffset) {
+      this.currentActive = 3;
+    } else if (window.pageYOffset >= this.contactOffset) {
+      this.currentActive = 4;
+    } else {
+      this.currentActive = 1;
+    }
+  }
+
+  changeTab(tab: string) {
+    // Store
+    localStorage.setItem("oldTab", localStorage.getItem("newTab") || '');
+    localStorage.setItem("newTab", tab);
+
+    // Retrieve
+    let newTab = localStorage.getItem("newTab");
+    let oldTab = localStorage.getItem("oldTab");
+
+    document.getElementById(newTab).className += " active";
+    document.getElementById(oldTab).className = "nav-link";
   }
 
   onSubmit() {

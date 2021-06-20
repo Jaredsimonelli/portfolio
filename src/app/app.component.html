@@ -3,21 +3,21 @@
 
   <ul id="navbar" class="nav fixed-top justify-content-end">
     <li class="nav-item">
-      <a class="nav-link" href="#scollToHome" active>Home</a>
+      <a [ngClass]="{'active': currentActive === 1}" class="nav-link" id="home" href="#scrollToHome" (click)="changeTab('home')">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#scollToSkills">Skills</a>
+      <a [ngClass]="{'active': currentActive === 2}" class="nav-link" id="skills" href="#scrollToSkills" (click)="changeTab('skills')">Skills</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#scollToExperience">Experience</a>
+      <a [ngClass]="{'active': currentActive === 3}" class="nav-link" id="experience" href="#scrollToExperience" (click)="changeTab('experience')">Experience</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#scollToContact">Contact</a>
+      <a [ngClass]="{'active': currentActive === 4}" class="nav-link" id="contact" href="#scrollToContact" (click)="changeTab('contact')">Contact</a>
     </li>
   </ul>
 
   <ng-container data-bs-spy="scroll" data-bs-target="#navbar">
-    <section class="home pt-5" id="scollToHome">
+    <section class="home pt-5" id="scrollToHome">
       <div class="text-center">
 
         <img src="assets/img/profile_pic_1.jpg" alt="profile_picture" class="profile_img">
@@ -40,7 +40,7 @@
   </ng-container>
 
   <section class="skills" data-bs-spy="scroll" data-bs-target="#navbar">
-    <div class="skills_container text-center" id="scollToSkills">
+    <div class="skills_container text-center" id="scrollToSkills">
       <h2 class="header pb-4"><u>SKILLS</u></h2>
 
       <div class="box flex-grid">
@@ -118,7 +118,7 @@
   </section>
 
   <section class="experience container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
-    <div class="text-center row" id="scollToExperience">
+    <div class="text-center row" id="scrollToExperience">
       <h2 class="header pb-4"><u>EXPERIENCE</u></h2>
 
       <div class="d-flex justify-content-between">
@@ -158,7 +158,7 @@
   </section>
 
   <section class="contact container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
-    <div class="text-center" id="scollToContact">
+    <div class="text-center" id="scrollToContact">
       <h2 class="header" style="color: white; padding-top: 3rem;"><u>CONTACT</u></h2>
 
       <form [formGroup]="contactForm" class="pt-4" (ngSubmit)="onSubmit()">

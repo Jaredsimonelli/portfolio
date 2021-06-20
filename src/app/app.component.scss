@@ -19,12 +19,13 @@ canvas#responsive-canvas {
 }
 
 .nav-item a:active {
-  // color: #000000;
-  color: pink;
+  color: #000000;
 }
 
-.nav-link:link {
-  color: pink;
+.active {
+  color: #000000 !important;
+  text-decoration: underline;
+  transition: all 0.4s ease-in-out 0s;
 }
 
 .nav {
