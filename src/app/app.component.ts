@@ -22,10 +22,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   min: Number;
 
   fontEndSkills: Skill[] = frontEndSkillList;
-  gameDevSkills: Skill[] = gameDevSkillList;
   generalSkills: Skill[] = generalSkillList;
+  gameDevSkills: Skill[] = gameDevSkillList;
 
   currentActive = 1;
+  progressBarsLoaded = false;
+  showProgressBar = true;
 
   homeOffset: Number;
   skillsOffset: Number;
@@ -64,6 +66,9 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.currentActive = 1;
     } else if (window.pageYOffset >= this.skillsOffset && window.pageYOffset < this.expOffset) {
       this.currentActive = 2;
+      if (!this.progressBarsLoaded) {
+        this.loadProgressBars();
+      }
     } else if (window.pageYOffset >= this.expOffset && window.pageYOffset < this.contactOffset) {
       this.currentActive = 3;
     } else if (window.pageYOffset >= this.contactOffset) {
@@ -105,10 +110,37 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   createRange(num: number) {
     const items: number[] = [];
-    for (var i = 1; i <= num; i++) {
+    for (let i = 1; i <= num; i++) {
       items.push(i);
     }
     return items;
+  }
+
+  loadProgressBars() {
+    this.progressBarsLoaded = true;
+
+    for (let k = 0; k < this.generalSkills.length; k++) {
+      const exp = this.generalSkills[k].exp * 20;
+      let i = 0;
+
+      if (i === 0) {
+        i = 1;
+        const elementId = "barGen" + k;
+        const elem = document.getElementById(elementId);
+        const id = setInterval(frame, 30);
+
+        let width = 1;
+        function frame() {
+          if (width >= exp) {
+            clearInterval(id);
+            i = 0;
+          } else {
+            width++;
+            elem.style.width = width + "%";
+          }
+        }
+      }
+    }
   }
 
   setUpCanvas() {

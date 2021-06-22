@@ -236,6 +236,43 @@ form {
   max-width: 600px;
 }
 
+form button {
+  width: 100%;
+}
+
+.btn-outline-light {
+  background-color: white;
+  color: black;
+}
+
+.btn-outline-light:hover {
+  background-color: #a6a6a6;
+  color: white;
+}
+
+.progress {
+  width: 100%;
+  background-color: #eee;
+}
+
+.bar {
+  width: 1%;
+  height: 30px;
+  background-color: #17a2b8;
+}
+
+.percent {
+  float: right;
+  color: black;
+}
+
+.flex {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 @media screen and (max-width: 600px) {
   .profile_img {
     width: 200px;

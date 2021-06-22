@@ -77,17 +77,28 @@
 
           <h4 class="mb-4">General</h4>
 
-          <ng-container *ngFor="let skill of generalSkills">
+          <ng-container *ngFor="let skill of generalSkills; let i = index">
             <div class="skill_row">
               <div class="skill_header">{{skill.name}} &nbsp;</div>
 
-              <ng-container *ngFor="let item of createRange(skill.exp)">
-                <div class="rating_box fill_box"></div>
+              <ng-container *ngIf="showProgressBar; else showBoxes">
+                <div class="progress" [attr.id]="'progressGen' + i">
+                  <div class="bar" [attr.id]="'barGen' + i"></div>
+
+                  <!--<div class="percent">{{ skill.exp * 20 }}%</div>-->
+                  <span>{{ skill.exp * 20 }}</span>
+                </div>
               </ng-container>
 
-              <ng-container *ngFor="let item of createRange(5 - skill.exp)">
-                <div class="rating_box"></div>
-              </ng-container>
+              <ng-template #showBoxes>
+                <ng-container *ngFor="let item of createRange(skill.exp)">
+                  <div class="rating_box fill_box"></div>
+                </ng-container>
+
+                <ng-container *ngFor="let item of createRange(5 - skill.exp)">
+                  <div class="rating_box"></div>
+                </ng-container>
+              </ng-template>
             </div>
           </ng-container>
         </div>
@@ -200,7 +211,7 @@
           </div>
         </div>
 
-        <button class="button" type="submit">Send</button>
+        <button type="submit" class="btn btn-outline-light">Send</button>
       </form>
     </div>
   </section>
