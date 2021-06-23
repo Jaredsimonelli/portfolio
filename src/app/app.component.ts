@@ -54,27 +54,45 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.homeOffset = document.getElementById('scrollToHome').getBoundingClientRect().top;
-    this.skillsOffset = document.getElementById('scrollToSkills').getBoundingClientRect().top;
-    this.expOffset = document.getElementById('scrollToExperience').getBoundingClientRect().top;
-    this.contactOffset = document.getElementById('scrollToContact').getBoundingClientRect().top;
+    this.homeOffset = this.getOffset(document.getElementById('scrollToHome').getBoundingClientRect().top);
+    this.skillsOffset = this.getOffset(document.getElementById('scrollToSkills').getBoundingClientRect().top);
+    this.expOffset = this.getOffset(document.getElementById('scrollToExperience').getBoundingClientRect().top);
+    this.contactOffset = this.getOffset(document.getElementById('scrollToContact').getBoundingClientRect().top);
+  }
+
+  getOffset(top: number) {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return top + scrollTop;
   }
 
   @HostListener('window:scroll', ['$event'])
   checkOffsetTop() {
-    if (window.pageYOffset >= this.homeOffset && window.pageYOffset < this.skillsOffset) {
+    let yOffset = window.pageYOffset;
+
+    //console.log('y offset:  ' + yOffset);
+
+    //console.log('home:  ' + this.homeOffset);
+    //console.log('skill:  ' + this.skillsOffset);
+    //console.log('exp:  ' + this.expOffset);
+    //console.log('contact:  ' + this.contactOffset);
+
+    if (yOffset >= this.homeOffset && yOffset < this.skillsOffset) {
       this.currentActive = 1;
-    } else if (window.pageYOffset >= this.skillsOffset && window.pageYOffset < this.expOffset) {
+    } else if (yOffset >= this.skillsOffset && yOffset < this.expOffset) {
       this.currentActive = 2;
-      if (!this.progressBarsLoaded) {
-        this.loadProgressBars();
-      }
-    } else if (window.pageYOffset >= this.expOffset && window.pageYOffset < this.contactOffset) {
+    } else if (yOffset >= this.expOffset && yOffset < this.contactOffset) {
       this.currentActive = 3;
-    } else if (window.pageYOffset >= this.contactOffset) {
+    } else if (yOffset >= this.contactOffset) {
       this.currentActive = 4;
     } else {
       this.currentActive = 1;
+    }
+
+    // TODO: change the 350/300 to ratio of the screen height
+    if (yOffset + 350 >= this.skillsOffset && yOffset - 300 < this.expOffset) {
+      if (!this.progressBarsLoaded) {
+        this.loadProgressBars();
+      }
     }
   }
 
@@ -119,24 +137,74 @@ export class AppComponent implements OnInit, AfterViewInit {
   loadProgressBars() {
     this.progressBarsLoaded = true;
 
+    // TODO: make function for below (repeated 3 times)
+    for (let k = 0; k < this.fontEndSkills.length; k++) {
+      const percentage = this.fontEndSkills[k].percentage;
+      let i = 0;
+
+      if (i === 0) {
+        i = 1;
+        const elementId = "barFront" + k;
+        const elem = document.getElementById(elementId);
+        const id = setInterval(frontFrame, 30);
+
+        let width = 1;
+        function frontFrame() {
+          if (width >= percentage) {
+            clearInterval(id);
+            i = 0;
+          } else {
+            width++;
+            elem.style.width = width + "%";
+            elem.innerHTML = width * 1 + '%';
+          }
+        }
+      }
+    }
+
     for (let k = 0; k < this.generalSkills.length; k++) {
-      const exp = this.generalSkills[k].exp * 20;
+      const percentage = this.generalSkills[k].percentage;
       let i = 0;
 
       if (i === 0) {
         i = 1;
         const elementId = "barGen" + k;
         const elem = document.getElementById(elementId);
-        const id = setInterval(frame, 30);
+        const id = setInterval(genFrame, 30);
 
         let width = 1;
-        function frame() {
-          if (width >= exp) {
+        function genFrame() {
+          if (width >= percentage) {
             clearInterval(id);
             i = 0;
           } else {
             width++;
             elem.style.width = width + "%";
+            elem.innerHTML = width * 1 + '%';
+          }
+        }
+      }
+    }
+
+    for (let k = 0; k < this.gameDevSkills.length; k++) {
+      const percentage = this.gameDevSkills[k].percentage;
+      let i = 0;
+
+      if (i === 0) {
+        i = 1;
+        const elementId = "barGame" + k;
+        const elem = document.getElementById(elementId);
+        const id = setInterval(gameFrame, 30);
+
+        let width = 1;
+        function gameFrame() {
+          if (width >= percentage) {
+            clearInterval(id);
+            i = 0;
+          } else {
+            width++;
+            elem.style.width = width + "%";
+            elem.innerHTML = width * 1 + '%';
           }
         }
       }

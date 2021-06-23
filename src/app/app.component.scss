@@ -127,7 +127,6 @@ h4 {
 .skill_header {
   width: 100px;
   font-weight: bold;
-  padding-top: 3px;
 }
 
 .rating_box {
@@ -253,18 +252,26 @@ form button {
 .progress {
   width: 100%;
   background-color: #eee;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
 }
 
 .bar {
   width: 1%;
-  height: 30px;
+  height: 20px;
   background-color: #17a2b8;
 }
 
-.percent {
-  float: right;
+/*.percent {
+  display: block;
+  text-align: right;
+  padding-right: 5px;
   color: black;
-}
+  align-items: unset !important;
+}*/
 
 .flex {
   align-items: center;
