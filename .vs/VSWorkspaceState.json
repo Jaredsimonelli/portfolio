@@ -3,10 +3,8 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\assets",
-    "\\src\\assets\\img",
-    "\\src\\environments"
+    "\\src\\app\\data"
   ],
-  "SelectedNode": "\\src\\assets\\img\\profile_pic_1.jpg",
+  "SelectedNode": "\\.browserslistrc",
   "PreviewInSolutionExplorer": false
 }
