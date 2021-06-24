@@ -152,14 +152,6 @@
                   <div class="rating_box"></div>
                 </ng-container>
               </ng-template>
-
-              <!--<ng-container *ngFor="let item of createRange(skill.exp)">
-                <div class="rating_box fill_box"></div>
-              </ng-container>
-
-              <ng-container *ngFor="let item of createRange(5 - skill.exp)">
-                <div class="rating_box"></div>
-              </ng-container>-->
             </div>
           </ng-container>
         </div>
@@ -171,7 +163,7 @@
     <div class="text-center row" id="scrollToExperience">
       <h2 class="header pb-4"><u>EXPERIENCE</u></h2>
 
-      <div class="d-flex justify-content-between">
+      <div class="experience_container d-flex justify-content-between">
         <div class="p-4 exp_box">
           <h4 class="mb-3">Virtual Relaxation Pod</h4>
           <p>
@@ -185,7 +177,7 @@
         </div>
         <div class="p-4 exp_box">
           <h4 class="mb-3">Global Fitness Challenge</h4>
-          <p>
+          <p class="cfc_text">
             The Global Fitness Challenge is an activities-based employer wellness application designed to promote an active lifestyle through a series of team-based physical activities.
             I joined the small team of 6 to help with Front end development, throughout my time I also gained valuable knowledge in full stack development. Linked below is to the landing page, unfortunately not fully available
             without purchase from employer.
@@ -219,7 +211,7 @@
                class="alert alert-danger m-0 p-1">
 
             <div *ngIf="name.errors?.required">
-              Name is required.
+              Required
             </div>
           </div>
         </div>
@@ -230,11 +222,11 @@
                class="alert alert-danger m-0 p-1">
 
             <div *ngIf="email.errors?.required">
-              Email is required.
+              Required
             </div>
 
             <div *ngIf="email.errors?.email">
-              Not a valid email.
+              Email not valid.
             </div>
           </div>
         </div>
@@ -245,7 +237,7 @@
                class="alert alert-danger m-0 p-1">
 
             <div *ngIf="message.errors?.required">
-              Message is required.
+              Required
             </div>
           </div>
         </div>
@@ -254,6 +246,19 @@
       </form>
     </div>
   </section>
+
+  <footer>
+    <div class="footer_links">
+      <div class="footer_icon">
+        <i class="bi bi-linkedin"></i>
+      </div>
+
+      <div class="footer_icon">
+        <i class="bi-github" role="img" aria-label="GitHub"></i>
+      </div>
+
+    </div>
+  </footer>
 </div>
 
 <router-outlet></router-outlet>
