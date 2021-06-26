@@ -48,11 +48,10 @@ h4 {
   padding-top: 3rem;
 }
 
-// --- HOME SECTION ---
+// -------- HOME SECTION --------
 .home {
   height: 100vh;
   min-height: 800px;
-  // width: 100vw;
 }
 
 .about_me {
@@ -73,7 +72,7 @@ h4 {
   margin-right: auto
 }
 
-// --- SKILLS SECTION ---
+// -------- SKILLS SECTION --------
 .skills {
   height: 100vh;
   min-height: 800px;
@@ -147,7 +146,7 @@ h4 {
   background-color: #FFCC00;
 }
 
-// --- EXPERIENCE SECTION ---
+// -------- EXPERIENCE SECTION --------
 .experience {
   height: 100vh;
   min-height: 800px;
@@ -207,7 +206,7 @@ h4 {
   border: 1px solid #F0F0F0;
 }
 
-// --- CONTACT SECTION ---
+// -------- CONTACT SECTION --------
 .contact {
   height: 100vh;
   min-height: 800px;
@@ -293,6 +292,42 @@ form button {
   flex-direction: column;
   justify-content: center;
 }
+
+// -------- Animations --------
+
+#skills-header {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.slide-right {
+  animation: 1s slide-right 0s forwards;
+  transform: translateX(-100%);
+}
+
+.slide-left {
+  animation: 1s slide-left 0s forwards;
+  transform: translateX(200%);
+}
+
+@keyframes slide-right {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-left {
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+// -------- Media Queries --------
 
 @media screen and (min-width: 1500px) {
   .exp_box p {

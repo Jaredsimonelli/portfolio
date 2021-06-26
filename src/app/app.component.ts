@@ -19,20 +19,21 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   c: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
-  min: Number;
+  min: number;
 
   fontEndSkills: Skill[] = frontEndSkillList;
   generalSkills: Skill[] = generalSkillList;
   gameDevSkills: Skill[] = gameDevSkillList;
 
   currentActive = 1;
-  progressBarsLoaded = false;
+  skillsSectionLoaded = false;
+  expSectionLoaded = false;
   showProgressBar = true;
 
-  homeOffset: Number;
-  skillsOffset: Number;
-  expOffset: Number;
-  contactOffset: Number;
+  homeOffset: number;
+  skillsOffset: number;
+  expOffset: number;
+  contactOffset: number;
 
   contactForm: FormGroup;
 
@@ -45,6 +46,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       ]),
       message: new FormControl("", Validators.required)
     });
+
     //this.c = document.getElementById("responsive-canvas") as HTMLCanvasElement;
     //this.ctx = this.c.getContext("2d");
 
@@ -69,13 +71,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   checkOffsetTop() {
     let yOffset = window.pageYOffset;
 
-    //console.log('y offset:  ' + yOffset);
-
-    //console.log('home:  ' + this.homeOffset);
-    //console.log('skill:  ' + this.skillsOffset);
-    //console.log('exp:  ' + this.expOffset);
-    //console.log('contact:  ' + this.contactOffset);
-
     if (yOffset >= this.homeOffset && yOffset < this.skillsOffset) {
       this.currentActive = 1;
     } else if (yOffset >= this.skillsOffset && yOffset < this.expOffset) {
@@ -88,10 +83,44 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.currentActive = 1;
     }
 
-    // TODO: change the 350/300 to ratio of the screen height
-    if (yOffset + 350 >= this.skillsOffset && yOffset - 300 < this.expOffset) {
-      if (!this.progressBarsLoaded) {
+    console.log('y offset:  ' + yOffset);
+
+    console.log('home:  ' + this.homeOffset);
+    console.log('skill:  ' + this.skillsOffset);
+    console.log('exp:  ' + this.expOffset);
+    console.log('contact:  ' + this.contactOffset);
+
+    // Skills section animation
+    //if (yOffset + (this.skillsOffset / 2.25) >= this.skillsOffset && yOffset + (this.skillsOffset / 2.25) < this.expOffset) {
+
+    if (yOffset + (this.skillsOffset * 7.5) >= this.skillsOffset && yOffset + (this.skillsOffset / 3.6) < this.expOffset) {
+      if (!this.skillsSectionLoaded) {
+        const sHeader = document.getElementById('sHeader');
+        const sContainer = document.getElementById('sContainer');
+
+        sHeader.classList.remove("hidden");
+        sHeader.classList.add("slide-right");
+
+        sContainer.classList.remove("hidden");
+        sContainer.classList.add("slide-left");
+
         this.loadProgressBars();
+      }
+    }
+
+    // Experience section animation
+    if (yOffset + (this.expOffset / 2.9) >= this.expOffset && yOffset < this.contactOffset - (this.contactOffset / 37.5)) {
+      if (!this.expSectionLoaded) {
+        this.expSectionLoaded = true;
+
+        const eHeader = document.getElementById('eHeader');
+        const eContainer = document.getElementById('eContainer');
+
+        eHeader.classList.remove("hidden");
+        eHeader.classList.add("slide-left");
+
+        eContainer.classList.remove("hidden");
+        eContainer.classList.add("slide-right");
       }
     }
   }
@@ -135,69 +164,26 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   loadProgressBars() {
-    this.progressBarsLoaded = true;
+    this.skillsSectionLoaded = true;
 
-    // TODO: make function for below (repeated 3 times)
-    for (let k = 0; k < this.fontEndSkills.length; k++) {
-      const percentage = this.fontEndSkills[k].percentage;
+    this.animateProgressBars(this.fontEndSkills, "barFront");
+    this.animateProgressBars(this.generalSkills, "barGen");
+    this.animateProgressBars(this.gameDevSkills, "barGame");
+  }
+
+  animateProgressBars(list: Skill[], elementName: string) {
+    for (let k = 0; k < list.length; k++) {
+      const percentage = list[k].percentage;
       let i = 0;
 
       if (i === 0) {
         i = 1;
-        const elementId = "barFront" + k;
+        const elementId = elementName + k;
         const elem = document.getElementById(elementId);
         const id = setInterval(frontFrame, 30);
 
         let width = 1;
         function frontFrame() {
-          if (width >= percentage) {
-            clearInterval(id);
-            i = 0;
-          } else {
-            width++;
-            elem.style.width = width + "%";
-            elem.innerHTML = width * 1 + '%';
-          }
-        }
-      }
-    }
-
-    for (let k = 0; k < this.generalSkills.length; k++) {
-      const percentage = this.generalSkills[k].percentage;
-      let i = 0;
-
-      if (i === 0) {
-        i = 1;
-        const elementId = "barGen" + k;
-        const elem = document.getElementById(elementId);
-        const id = setInterval(genFrame, 30);
-
-        let width = 1;
-        function genFrame() {
-          if (width >= percentage) {
-            clearInterval(id);
-            i = 0;
-          } else {
-            width++;
-            elem.style.width = width + "%";
-            elem.innerHTML = width * 1 + '%';
-          }
-        }
-      }
-    }
-
-    for (let k = 0; k < this.gameDevSkills.length; k++) {
-      const percentage = this.gameDevSkills[k].percentage;
-      let i = 0;
-
-      if (i === 0) {
-        i = 1;
-        const elementId = "barGame" + k;
-        const elem = document.getElementById(elementId);
-        const id = setInterval(gameFrame, 30);
-
-        let width = 1;
-        function gameFrame() {
           if (width >= percentage) {
             clearInterval(id);
             i = 0;
