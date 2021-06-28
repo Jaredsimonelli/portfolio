@@ -90,10 +90,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log('exp:  ' + this.expOffset);
     console.log('contact:  ' + this.contactOffset);
 
+    // TODO: make this a ratio of screen width since current ratio not working
     // Skills section animation
-    //if (yOffset + (this.skillsOffset / 2.25) >= this.skillsOffset && yOffset + (this.skillsOffset / 2.25) < this.expOffset) {
-
-    if (yOffset + (this.skillsOffset * 7.5) >= this.skillsOffset && yOffset + (this.skillsOffset / 3.6) < this.expOffset) {
+    if (yOffset + (this.skillsOffset / 1.45) >= this.skillsOffset && yOffset + (this.skillsOffset / 3.6) < this.expOffset) {
       if (!this.skillsSectionLoaded) {
         const sHeader = document.getElementById('sHeader');
         const sContainer = document.getElementById('sContainer');
