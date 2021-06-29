@@ -79,8 +79,8 @@ h4 {
 // -------- SKILLS SECTION --------
 .skills {
   height: 100vh;
-  //min-height: 800px;
-  background-color: cadetblue;
+  min-height: 800px;
+  background-color: #DBE8F9;
   position: relative;
 }
 
@@ -136,6 +136,7 @@ h4 {
 .skill_header {
   width: 100px;
   font-weight: bold;
+  text-align: right;
 }
 
 .rating_box {
@@ -157,8 +158,8 @@ h4 {
 
 .experience {
   height: 100vh;
-  //min-height: 800px;
-  background-color: #DBE8F9;
+  min-height: 800px;
+  background-color: cadetblue;
   position: relative;
 }
 
@@ -218,7 +219,7 @@ h4 {
 // -------- CONTACT SECTION --------
 .contact {
   height: 90vh;
-  //min-height: 800px;
+  min-height: 500px;
   background-color: #252934;
   position: relative;
 }
@@ -270,7 +271,7 @@ form button {
 }
 
 .progress {
-  width: 100%;
+  width: 80%;
   background-color: #eee;
   height: 20px;
   display: flex;
@@ -298,6 +299,7 @@ form button {
 
 footer {
   height: 10vh;
+  min-height: 90px;
   background-color: lightgrey;
 }
 

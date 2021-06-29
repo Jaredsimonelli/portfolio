@@ -28,9 +28,9 @@ export const frontEndSkillList: Skill[] = [
     percentage: 65,
   },
   {
-    name: 'Node',
+    name: 'Node.js',
     exp: 2,
-    percentage: 40,
+    percentage: 20,
   }
 ];
 
@@ -59,7 +59,7 @@ export const gameDevSkillList: Skill[] = [
     percentage: 70,
   },
   {
-    name: 'Unreal Engine',
+    name: 'Unreal',
     exp: 2,
     percentage: 35,
   }
@@ -98,7 +98,7 @@ export const generalSkillList: Skill[] = [
     percentage: 20,
   },
   {
-    name: 'Spring boot',
+    name: 'Spring',
     exp: 1,
     percentage: 20,
   }
