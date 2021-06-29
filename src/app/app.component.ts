@@ -83,25 +83,18 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.currentActive = 1;
     }
 
-    console.log('y offset:  ' + yOffset);
-
-    console.log('home:  ' + this.homeOffset);
-    console.log('skill:  ' + this.skillsOffset);
-    console.log('exp:  ' + this.expOffset);
-    console.log('contact:  ' + this.contactOffset);
-
-    // TODO: make this a ratio of screen width since current ratio not working
     // Skills section animation
-    if (yOffset + (this.skillsOffset / 1.45) >= this.skillsOffset && yOffset + (this.skillsOffset / 3.6) < this.expOffset) {
+    // if (yOffset + (this.skillsOffset / 1.45) >= this.skillsOffset && yOffset + (this.skillsOffset / 3.6) < this.expOffset) {
+    if (yOffset >= 100  && yOffset < this.expOffset - 100) {
       if (!this.skillsSectionLoaded) {
         const sHeader = document.getElementById('sHeader');
-        const sContainer = document.getElementById('sContainer');
+        // const sContainer = document.getElementById('sContainer');
 
         sHeader.classList.remove("hidden");
         sHeader.classList.add("slide-right");
 
-        sContainer.classList.remove("hidden");
-        sContainer.classList.add("slide-left");
+        // sContainer.classList.remove("hidden");
+        // sContainer.classList.add("slide-left");
 
         this.loadProgressBars();
       }
@@ -114,23 +107,21 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.expSectionLoaded = true;
 
         const eHeader = document.getElementById('eHeader');
-        const eContainer = document.getElementById('eContainer');
+        // const eContainer = document.getElementById('eContainer');
 
         eHeader.classList.remove("hidden");
         eHeader.classList.add("slide-left");
 
-        eContainer.classList.remove("hidden");
-        eContainer.classList.add("slide-right");
+        // eContainer.classList.remove("hidden");
+        // eContainer.classList.add("slide-right");
       }
     }
   }
 
   changeTab(tab: string) {
-    // Store
     localStorage.setItem("oldTab", localStorage.getItem("newTab") || '');
     localStorage.setItem("newTab", tab);
 
-    // Retrieve
     let newTab = localStorage.getItem("newTab");
     let oldTab = localStorage.getItem("oldTab");
 

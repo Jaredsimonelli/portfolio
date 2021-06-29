@@ -51,7 +51,7 @@ h4 {
 // -------- HOME SECTION --------
 .home {
   height: 100vh;
-  min-height: 800px;
+  height: 800px;
 }
 
 .about_me {
@@ -79,7 +79,7 @@ h4 {
 // -------- SKILLS SECTION --------
 .skills {
   height: 100vh;
-  min-height: 800px;
+  //min-height: 800px;
   background-color: cadetblue;
   position: relative;
 }
@@ -157,7 +157,7 @@ h4 {
 
 .experience {
   height: 100vh;
-  min-height: 800px;
+  //min-height: 800px;
   background-color: #DBE8F9;
   position: relative;
 }
@@ -218,20 +218,18 @@ h4 {
 // -------- CONTACT SECTION --------
 .contact {
   height: 100vh;
-  min-height: 800px;
+  //min-height: 800px;
   background-color: #252934;
   position: relative;
 }
 
 .form-control {
   background-color: #1e242c;
-  // border: none !important;
   color: white;
 }
 
 .form-control:focus {
   background-color: #1e242c;
-  // border: none !important;
   color: white;
 }
 
