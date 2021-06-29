@@ -108,7 +108,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     // Experience section animation
-    if (yOffset + (this.expOffset / 2.9) >= this.expOffset && yOffset < this.contactOffset - (this.contactOffset / 37.5)) {
+    // if (yOffset + (this.expOffset / 2.9) >= this.expOffset && yOffset < this.contactOffset - (this.contactOffset / 37.5)) {
+    if (yOffset >= ((this.expOffset - this.skillsOffset) + 100) && yOffset < this.contactOffset - 100) {
       if (!this.expSectionLoaded) {
         this.expSectionLoaded = true;
 
