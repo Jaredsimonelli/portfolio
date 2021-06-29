@@ -84,38 +84,36 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     // Skills section animation
-    // if (yOffset + (this.skillsOffset / 1.45) >= this.skillsOffset && yOffset + (this.skillsOffset / 3.6) < this.expOffset) {
     if (yOffset >= 100  && yOffset < this.expOffset - 100) {
       if (!this.skillsSectionLoaded) {
-        const sHeader = document.getElementById('sHeader');
-        // const sContainer = document.getElementById('sContainer');
+        //const sHeader = document.getElementById('sHeader');
+        //const sContainer = document.getElementById('sContainer');
 
-        sHeader.classList.remove("hidden");
-        sHeader.classList.add("slide-right");
+        //sHeader.classList.remove("hidden");
+        //sHeader.classList.add("slide-right");
 
-        // sContainer.classList.remove("hidden");
-        // sContainer.classList.add("slide-left");
+        //sContainer.classList.remove("hidden");
+        //sContainer.classList.add("slide-left");
 
         this.loadProgressBars();
       }
     }
 
     // Experience section animation
-    // if (yOffset + (this.expOffset / 2.9) >= this.expOffset && yOffset < this.contactOffset - (this.contactOffset / 37.5)) {
-    if (yOffset >= ((this.expOffset - this.skillsOffset) + 100) && yOffset < this.contactOffset - 100) {
-      if (!this.expSectionLoaded) {
-        this.expSectionLoaded = true;
+    //if (yOffset >= ((this.expOffset - this.skillsOffset) + 100) && yOffset < this.contactOffset - 100) {
+    //  if (!this.expSectionLoaded) {
+    //    this.expSectionLoaded = true;
 
-        const eHeader = document.getElementById('eHeader');
-        // const eContainer = document.getElementById('eContainer');
+    //    const eHeader = document.getElementById('eHeader');
+    //    const eContainer = document.getElementById('eContainer');
 
-        eHeader.classList.remove("hidden");
-        eHeader.classList.add("slide-left");
+    //    eHeader.classList.remove("hidden");
+    //    eHeader.classList.add("slide-left");
 
-        // eContainer.classList.remove("hidden");
-        // eContainer.classList.add("slide-right");
-      }
-    }
+    //    eContainer.classList.remove("hidden");
+    //    eContainer.classList.add("slide-right");
+    //  }
+    //}
   }
 
   changeTab(tab: string) {

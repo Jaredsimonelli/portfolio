@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <!--<canvas id="responsive-canvas"></canvas>-->
-  <!--<ul id="navbar" class="nav fixed-top justify-content-end">
+  <ul id="navbar" class="nav fixed-top justify-content-end">
     <li class="nav-item">
       <a [ngClass]="{'active': currentActive === 1}" class="nav-link" id="home" href="#scrollToHome" (click)="changeTab('home')">Home</a>
     </li>
@@ -13,7 +13,7 @@
     <li class="nav-item">
       <a [ngClass]="{'active': currentActive === 4}" class="nav-link" id="contact" href="#scrollToContact" (click)="changeTab('contact')">Contact</a>
     </li>
-  </ul>-->
+  </ul>
 
 
   <!-- TODO: Get responsive hamburger menu to work -->
@@ -59,10 +59,11 @@
 
   <section class="skills" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="skills_container text-center" id="scrollToSkills">
-      <h2 id="sHeader" class="hidden header pb-4"><u>SKILLS</u></h2>
-      <!--<h2 class="header pb-4"><u>SKILLS</u></h2>-->
+      <!--<h2 id="sHeader" class="hidden header pb-4"><u>SKILLS</u></h2>-->
+      <h2 class="header pb-4"><u>SKILLS</u></h2>
 
-      <div id="sContainer" class="hidden box flex-grid">
+      <!--<div id="sContainer" class="hidden box flex-grid">-->
+      <div class="box flex-grid">
         <div class="col skills_border">
           <div class="skill_icon">
             <fa-icon class="fa-3x" [icon]="fontEndImg"></fa-icon>
@@ -157,9 +158,11 @@
 
   <section class="experience container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="text-center" id="scrollToExperience">
-      <h2 id="eHeader" class="hidden header pb-4"><u>EXPERIENCE</u></h2>
+      <!--<h2 id="eHeader" class="hidden header pb-4"><u>EXPERIENCE</u></h2>-->
+      <h2 class="header pb-4"><u>EXPERIENCE</u></h2>
 
-      <div id="eContainer" class="hidden experience_container d-flex justify-content-between fh">
+      <!--<div id="eContainer" class="hidden experience_container d-flex justify-content-between fh">-->
+      <div class="experience_container d-flex justify-content-between fh">
         <div class="p-4 exp_box">
           <h4 class="mb-3">Virtual Relaxation Pod</h4>
           <p>
