@@ -51,7 +51,7 @@ h4 {
 // -------- HOME SECTION --------
 .home {
   height: 100vh;
-  height: 800px;
+  min-height: 800px;
 }
 
 .about_me {
@@ -217,7 +217,7 @@ h4 {
 
 // -------- CONTACT SECTION --------
 .contact {
-  height: 100vh;
+  height: 90vh;
   //min-height: 800px;
   background-color: #252934;
   position: relative;
@@ -285,14 +285,6 @@ form button {
   background-color: #17a2b8;
 }
 
-/*.percent {
-  display: block;
-  text-align: right;
-  padding-right: 5px;
-  color: black;
-  align-items: unset !important;
-}*/
-
 .flex {
   align-items: center;
   display: flex;
@@ -300,8 +292,17 @@ form button {
   justify-content: center;
 }
 
-// -------- Animations --------
+.footnote {
+  color: black;
+}
 
+footer {
+  height: 10vh;
+  background-color: lightgrey;
+}
+
+
+// -------- Animations --------
 #skills-header {
   width: 100%;
   overflow: hidden;
@@ -335,7 +336,6 @@ form button {
 
 
 // -------- Media Queries --------
-
 @media screen and (min-width: 1500px) {
   .exp_box p {
     font-size: 16px;

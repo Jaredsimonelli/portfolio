@@ -246,18 +246,21 @@
     </div>
   </section>
 
-  <!--<footer>
-    <div class="footer_links">
-      <div class="footer_icon">
+  <footer>
+    <div class="pt-3 pb-2 d-flex justify-content-center">
+      <button type="button" class="btn btn-outline-dark me-3" (click)="openLink('linkedin')">
         <i class="bi bi-linkedin"></i>
-      </div>
+      </button>
 
-      <div class="footer_icon">
+      <button type="button" class="btn btn-outline-dark" (click)="openLink('git')">
         <i class="bi-github" role="img" aria-label="GitHub"></i>
-      </div>
-
+      </button>
     </div>
-  </footer>-->
+
+    <div class="footnote d-flex justify-content-center">
+      Jared Simonelli &copy;2021
+    </div>
+  </footer>
 </div>
 
 <router-outlet></router-outlet>

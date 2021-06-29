@@ -68,6 +68,11 @@ export const gameDevSkillList: Skill[] = [
 
 export const generalSkillList: Skill[] = [
   {
+    name: 'Git',
+    exp: 4,
+    percentage: 90,
+  },
+  {
     name: 'C++',
     exp: 3,
     percentage: 60,

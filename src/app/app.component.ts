@@ -141,6 +141,10 @@ export class AppComponent implements OnInit, AfterViewInit {
         "https://www.medicaldaily.com/new-virtual-relaxation-pod-uses-oculus-rift-technology-enhance-mindfulness-370494", "_blank");
     } else if (type === 'cfc') {
       window.open("https://cigna.globalfitnesschallenge.com/", "_blank");
+    } else if (type === 'git') {
+      window.open("https://github.com/Jaredsimonelli", "_blank");
+    } else if (type === 'linkedin') {
+      window.open("https://linkedin.com/in/jared-simonelli-605289b9", "_blank");
     }
   }
 
