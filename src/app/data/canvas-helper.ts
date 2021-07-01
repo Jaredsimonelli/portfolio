@@ -59,6 +59,8 @@ export function setUpCanvas(c: HTMLCanvasElement, ctx: CanvasRenderingContext2D)
   ctx.lineTo(1125, 250);
   ctx.closePath();
   ctx.stroke();
+
+  return ctx;
 };
 
 
@@ -86,8 +88,6 @@ export class Star {
   }
 
   update() {
-    // check bounds
-    console.log('here');
     if (this.x + this.width > innerWidth) {
       this.x = 0;
     }
@@ -123,14 +123,4 @@ export function createStarArray(ctx: CanvasRenderingContext2D, stars: any) {
   }
 
   return starArray;
-}
-
-// loop to call update function on each star
-export function animate(starArray: any) {
-  requestAnimationFrame(() => this.animate);
-  this.ctx.clearRect(0, 0, innerWidth, innerHeight);
-
-  for (var star of starArray) {
-    star.update();
-  }
 }

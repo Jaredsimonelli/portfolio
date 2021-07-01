@@ -18,14 +18,15 @@ export class AppComponent implements OnInit, AfterViewInit {
   gameDevIcon = faGamepad;
   generalIcon = faCodeBranch;
 
-  //c: HTMLCanvasElement;
-  //ctx: CanvasRenderingContext2D;
+  // Canvas constants
+  c: HTMLCanvasElement;
+  ctx: CanvasRenderingContext2D;
+
+  //FOR PARALLAX
   //content: any;
   //min: number;
 
   //FOR ANIMATE
-  c: HTMLCanvasElement;
-  ctx: CanvasRenderingContext2D;
   stars = {
     nearStar: {
       width: 3,
@@ -77,7 +78,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     //this.min = Math.min(this.c.height, this.c.width);
 
-    //this.setUpCanvas();
+    //this.ctx = canvasHelper.setUpCanvas(this.c, this.ctx);
 
 
     // FOR ANIMATE
@@ -86,9 +87,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.c.height = window.innerHeight;
     this.ctx = this.c.getContext('2d');
 
-
     this.starArray = canvasHelper.createStarArray(this.ctx, this.stars);
-    canvasHelper.animate(this.starArray);
+    this.animate(this.starArray);
   }
 
 
@@ -104,15 +104,19 @@ export class AppComponent implements OnInit, AfterViewInit {
     return top + scrollTop;
   }
 
-  // Browser resizing, reinitialize stars
-  @HostListener('resize', ['$event'])
-  resize(event) {
-    this.c.width = window.innerWidth;
-    this.c.height = window.innerHeight;
-    this.starArray = canvasHelper.createStarArray(this.ctx, this.stars);
-    canvasHelper.animate(this.starArray);
-  }
+  
+  // FOR ANIMATE
+  //@HostListener('resize', ['$event'])
+  //resize(event) {
+  //  // Browser resizing, reinitialize stars
+  //  this.c.width = window.innerWidth;
+  //  this.c.height = window.innerHeight;
+  //  this.starArray = canvasHelper.createStarArray(this.ctx, this.stars);
+  //  this.animate(this.starArray);
+  //}
 
+
+  //FOR PARALLAX
   //@HostListener('mousemove', ['$event'])
   //onMousemove(event: MouseEvent) {
   //  this.content.style.transition = 'none';
@@ -249,6 +253,19 @@ export class AppComponent implements OnInit, AfterViewInit {
       }
     }
   }
+
+  // loop to call update function on each star
+  animate(starArray: any) {
+    // requestAnimationFrame(() => this.animate);
+    requestAnimationFrame(() => this.animate(starArray));
+
+    this.ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+    for (var star of starArray) {
+      star.update();
+    }
+  }
+
 
   get name() { return this.contactForm.get('name'); }
   get email() { return this.contactForm.get('email'); }
