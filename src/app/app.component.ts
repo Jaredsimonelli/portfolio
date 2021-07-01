@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import * as canvasHelper from './data/canvas-helper';
 import { Skill } from './data/models';
 import { frontEndSkillList, gameDevSkillList, generalSkillList } from './data/constants';
 
@@ -17,9 +18,31 @@ export class AppComponent implements OnInit, AfterViewInit {
   gameDevIcon = faGamepad;
   generalIcon = faCodeBranch;
 
+  //c: HTMLCanvasElement;
+  //ctx: CanvasRenderingContext2D;
+  //content: any;
+  //min: number;
+
+  //FOR ANIMATE
   c: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
-  min: number;
+  stars = {
+    nearStar: {
+      width: 3,
+      speed: 0.2
+    },
+    midStar: {
+      width: 2,
+      speed: 0.1
+    },
+    farStar: {
+      width: 1,
+      speed: 0.025
+    }
+  };
+
+  starArray = [];
+  
 
   fontEndSkills: Skill[] = frontEndSkillList;
   generalSkills: Skill[] = generalSkillList;
@@ -47,13 +70,27 @@ export class AppComponent implements OnInit, AfterViewInit {
       message: new FormControl("", Validators.required)
     });
 
+    //FOR PARALLAX
     //this.c = document.getElementById("responsive-canvas") as HTMLCanvasElement;
+    //this.content = document.getElementById('content-container');
     //this.ctx = this.c.getContext("2d");
 
     //this.min = Math.min(this.c.height, this.c.width);
 
     //this.setUpCanvas();
+
+
+    // FOR ANIMATE
+    this.c = document.querySelector('canvas');
+    this.c.width = window.innerWidth;
+    this.c.height = window.innerHeight;
+    this.ctx = this.c.getContext('2d');
+
+
+    this.starArray = canvasHelper.createStarArray(this.ctx, this.stars);
+    canvasHelper.animate(this.starArray);
   }
+
 
   ngAfterViewInit() {
     this.homeOffset = this.getOffset(document.getElementById('scrollToHome').getBoundingClientRect().top);
@@ -66,6 +103,29 @@ export class AppComponent implements OnInit, AfterViewInit {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     return top + scrollTop;
   }
+
+  // Browser resizing, reinitialize stars
+  @HostListener('resize', ['$event'])
+  resize(event) {
+    this.c.width = window.innerWidth;
+    this.c.height = window.innerHeight;
+    this.starArray = canvasHelper.createStarArray(this.ctx, this.stars);
+    canvasHelper.animate(this.starArray);
+  }
+
+  //@HostListener('mousemove', ['$event'])
+  //onMousemove(event: MouseEvent) {
+  //  this.content.style.transition = 'none';
+  //  this.content.style.top = -(event.clientY / 20) + 'px';
+  //  this.content.style.left = -(event.clientX / 20) + 'px';
+  //}
+
+  //@HostListener('mouseout', ['$event'])
+  //mouseIsOut(event) {
+  //  this.content.style.transition = 'all 0.33s ease';
+  //  this.content.style.top = '0px';
+  //  this.content.style.left = '0px';
+  //}
 
   @HostListener('window:scroll', ['$event'])
   checkOffsetTop() {
@@ -190,70 +250,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
 
-  setUpCanvas() {
-    // Feed the size back to the canvas.
-    this.c.width = this.c.clientWidth;
-    this.c.height = this.c.clientHeight;
-
-    this.ctx.lineWidth = 3;
-    this.ctx.beginPath();
-    this.ctx.strokeStyle = '#039BE5';
-    this.ctx.moveTo(100, 100);
-    this.ctx.lineTo(125, 100);
-    this.ctx.lineTo(112, 125);
-    this.ctx.closePath();
-    this.ctx.stroke();
-
-    this.ctx.beginPath();
-    this.ctx.strokeStyle = '#F57F17';
-    this.ctx.moveTo(250, 150);
-    this.ctx.lineTo(275, 150);
-    this.ctx.lineTo(275, 175);
-    this.ctx.lineTo(250, 175);
-    this.ctx.closePath();
-    this.ctx.stroke();
-
-    this.ctx.beginPath();
-    this.ctx.strokeStyle = '#E040FB';
-    this.ctx.moveTo(500, 300);
-    this.ctx.lineTo(525, 300);
-    this.ctx.lineTo(512, 325);
-    this.ctx.closePath();
-    this.ctx.stroke();
-
-    this.ctx.beginPath();
-    this.ctx.strokeStyle = '#FF80AB';
-    this.ctx.moveTo(750, 250);
-    this.ctx.lineTo(775, 250);
-    this.ctx.lineTo(775, 275);
-    this.ctx.lineTo(750, 275);
-    this.ctx.closePath();
-    this.ctx.stroke();
-
-    this.ctx.beginPath();
-    this.ctx.strokeStyle = '#00BCD4';
-    this.ctx.moveTo(1000, 150);
-    this.ctx.lineTo(1025, 150);
-    this.ctx.lineTo(1012, 175);
-    this.ctx.closePath();
-    this.ctx.stroke();
-
-    this.ctx.beginPath();
-    this.ctx.strokeStyle = '#00BCD4';
-    this.ctx.moveTo(500, 250);
-    this.ctx.lineTo(525, 250);
-    this.ctx.closePath();
-    this.ctx.stroke();
-
-    this.ctx.beginPath();
-    this.ctx.strokeStyle = '#EEFF41';
-    this.ctx.moveTo(1100, 250);
-    this.ctx.lineTo(1125, 250);
-    this.ctx.closePath();
-    this.ctx.stroke();
-  };
-
   get name() { return this.contactForm.get('name'); }
   get email() { return this.contactForm.get('email'); }
   get message() { return this.contactForm.get('message'); }
 }
+
+

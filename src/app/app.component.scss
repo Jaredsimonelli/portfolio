@@ -11,6 +11,12 @@ canvas#responsive-canvas {
   background-color: cadetblue;
 }
 
+.star-class {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  margin: 0;
+  overflow: hidden;
+} 
+
 .nav-item a:visited {
   color: #a6a6a6;
 }
@@ -80,7 +86,7 @@ h4 {
 .skills {
   height: 100vh;
   min-height: 800px;
-  background-color: #DBE8F9;
+  // background-color: #DBE8F9;
   position: relative;
 }
 
@@ -159,7 +165,7 @@ h4 {
 .experience {
   height: 100vh;
   min-height: 800px;
-  background-color: cadetblue;
+  // background-color: cadetblue;
   position: relative;
 }
 
@@ -220,7 +226,7 @@ h4 {
 .contact {
   height: 90vh;
   min-height: 500px;
-  background-color: #252934;
+  // background-color: #252934;
   position: relative;
 }
 
