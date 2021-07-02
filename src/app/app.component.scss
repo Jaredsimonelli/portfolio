@@ -59,8 +59,10 @@ canvas#responsive-canvas {
 // ------- Hamburger Menu -------
 .ham_nav {
   position: fixed;
-  background-color: #ddd;
+  background-color: #e8e8e8;
   display: none;
+  border-bottom: solid 1px white;
+  z-index: 10;
 }
 
 .ham_nav #links {
@@ -83,7 +85,7 @@ canvas#responsive-canvas {
 }
 
 .ham_nav a.ham_icon {
-  background: #ddd;
+  background: #e8e8e8;
   display: block;
   position: absolute;
   right: 0;
