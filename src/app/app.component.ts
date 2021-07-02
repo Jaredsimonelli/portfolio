@@ -1,11 +1,11 @@
 import { Component, HostListener, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import * as canvasHelper from './data/canvas-helper';
+import * as canvasHelper from './helpers/canvas-helper';
 import { Skill } from './data/models';
 import { frontEndSkillList, gameDevSkillList, generalSkillList } from './data/constants';
 
-import { faLaptopCode, faGamepad, faCodeBranch } from '@fortawesome/free-solid-svg-icons';
+import { faLaptopCode, faGamepad, faCodeBranch, faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +17,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   fontEndImg = faLaptopCode;
   gameDevIcon = faGamepad;
   generalIcon = faCodeBranch;
+  hamburgerBars = faBars;
 
   // Canvas constants
   c: HTMLCanvasElement;
@@ -71,24 +72,23 @@ export class AppComponent implements OnInit, AfterViewInit {
       message: new FormControl("", Validators.required)
     });
 
-    //FOR PARALLAX
+    // ---- FOR PARALLAX ----
     //this.c = document.getElementById("responsive-canvas") as HTMLCanvasElement;
     //this.content = document.getElementById('content-container');
     //this.ctx = this.c.getContext("2d");
-
     //this.min = Math.min(this.c.height, this.c.width);
 
     //this.ctx = canvasHelper.setUpCanvas(this.c, this.ctx);
 
 
-    // FOR ANIMATE
-    this.c = document.querySelector('canvas');
-    this.c.width = window.innerWidth;
-    this.c.height = window.innerHeight;
-    this.ctx = this.c.getContext('2d');
+    // ---- FOR ANIMATE ----
+    //this.c = document.querySelector('canvas');
+    //this.c.width = window.innerWidth;
+    //this.c.height = window.innerHeight;
+    //this.ctx = this.c.getContext('2d');
 
-    this.starArray = canvasHelper.createStarArray(this.ctx, this.stars);
-    this.animate(this.starArray);
+    //this.starArray = canvasHelper.createStarArray(this.ctx, this.stars);
+    //this.animate(this.starArray);
   }
 
 
@@ -189,6 +189,15 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     document.getElementById(newTab).className += " active";
     document.getElementById(oldTab).className = "nav-link";
+  }
+
+  toggleHamburgerNavLinks() {
+    const x = document.getElementById("links");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
   }
 
   onSubmit() {
