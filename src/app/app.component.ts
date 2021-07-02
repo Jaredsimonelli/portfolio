@@ -60,15 +60,14 @@ export class AppComponent implements OnInit, AfterViewInit {
   expOffset: number;
   contactOffset: number;
 
+  hamburgerLinks: HTMLElement;
+
+
   contactForm: FormGroup;
 
   ngOnInit() {
     this.contactForm = new FormGroup({
       name: new FormControl("", Validators.required),
-      email: new FormControl("", [
-        Validators.required,
-        Validators.email,
-      ]),
       message: new FormControl("", Validators.required)
     });
 
@@ -97,6 +96,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.skillsOffset = this.getOffset(document.getElementById('scrollToSkills').getBoundingClientRect().top);
     this.expOffset = this.getOffset(document.getElementById('scrollToExperience').getBoundingClientRect().top);
     this.contactOffset = this.getOffset(document.getElementById('scrollToContact').getBoundingClientRect().top);
+
+    this.hamburgerLinks = document.getElementById("links");
   }
 
   getOffset(top: number) {
@@ -189,20 +190,27 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     document.getElementById(newTab).className += " active";
     document.getElementById(oldTab).className = "nav-link";
+
+    this.hamburgerLinks.style.display = "none";
   }
 
   toggleHamburgerNavLinks() {
-    const x = document.getElementById("links");
-    if (x.style.display === "block") {
-      x.style.display = "none";
+    if (this.hamburgerLinks.style.display === "block") {
+      this.hamburgerLinks.style.display = "none";
     } else {
-      x.style.display = "block";
+      this.hamburgerLinks.style.display = "block";
     }
   }
 
   onSubmit() {
     if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
+      const link = "mailto:jaredsimonelliportfolio@gmail.com"
+        + "?cc="
+        + "&subject=" + encodeURIComponent("Email from " + this.contactForm.value.name)
+        + "&body=" + encodeURIComponent(this.contactForm.value.message)
+        ;
+
+      window.location.href = link;
     } else {
       this.contactForm.markAllAsTouched();
     }
@@ -214,11 +222,13 @@ export class AppComponent implements OnInit, AfterViewInit {
         "https://www.medicaldaily.com/new-virtual-relaxation-pod-uses-oculus-rift-technology-enhance-mindfulness-370494", "_blank");
     } else if (type === 'cfc') {
       window.open("https://cigna.globalfitnesschallenge.com/", "_blank");
-    } else if (type === 'git') {
-      window.open("https://github.com/Jaredsimonelli", "_blank");
     } else if (type === 'linkedin') {
       window.open("https://linkedin.com/in/jared-simonelli-605289b9", "_blank");
     }
+    // TODO: remove before deployment
+    //else if (type === 'git') {
+    //  window.open("https://github.com/Jaredsimonelli", "_blank");
+    //}
   }
 
   createRange(num: number) {
@@ -265,7 +275,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   // loop to call update function on each star
   animate(starArray: any) {
-    // requestAnimationFrame(() => this.animate);
     requestAnimationFrame(() => this.animate(starArray));
 
     this.ctx.clearRect(0, 0, innerWidth, innerHeight);
@@ -277,7 +286,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
   get name() { return this.contactForm.get('name'); }
-  get email() { return this.contactForm.get('email'); }
   get message() { return this.contactForm.get('message'); }
 }
 

@@ -77,7 +77,8 @@ canvas#responsive-canvas {
 }
 
 .ham_nav a {
-  color: white;
+  // color: white;
+  color: black;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
@@ -99,7 +100,14 @@ canvas#responsive-canvas {
 }
 
 .ham_nav_link:hover {
-  color: black !important;
+  //color: black !important;
+  color: white !important;
+}
+
+.ham_nav_active {
+  color: white !important;
+  text-decoration: underline;
+  transition: all 0.4s ease-in-out 0s;
 }
 
 .border-top {

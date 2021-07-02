@@ -23,10 +23,10 @@
   <div class="ham_nav">
     <div class="left_bar"></div>
     <div id="links" class="border-top">
-      <a [ngClass]="{'active': currentActive === 1}" id="home" href="#scrollToHome"  class="ham_nav_link" (click)="changeTab('home')">Home</a>
-      <a [ngClass]="{'active': currentActive === 2}" id="skills" href="#scrollToSkills" class="ham_nav_link" (click)="changeTab('skills')">Skills</a>
-      <a [ngClass]="{'active': currentActive === 3}" id="experience" href="#scrollToExperience" class="ham_nav_link" (click)="changeTab('experience')">Experience</a>
-      <a [ngClass]="{'active': currentActive === 4}" id="contact" href="#scrollToContact" class="ham_nav_link" (click)="changeTab('contact')">Contact</a>
+      <a [ngClass]="{'ham_nav_active': currentActive === 1}" id="home" href="#scrollToHome"  class="ham_nav_link" (click)="changeTab('home')">Home</a>
+      <a [ngClass]="{'ham_nav_active': currentActive === 2}" id="skills" href="#scrollToSkills" class="ham_nav_link" (click)="changeTab('skills')">Skills</a>
+      <a [ngClass]="{'ham_nav_active': currentActive === 3}" id="experience" href="#scrollToExperience" class="ham_nav_link" (click)="changeTab('experience')">Experience</a>
+      <a [ngClass]="{'ham_nav_active': currentActive === 4}" id="contact" href="#scrollToContact" class="ham_nav_link" (click)="changeTab('contact')">Contact</a>
     </div>
 
     <a href="javascript:void(0);" class="ham_icon" (click)="toggleHamburgerNavLinks()">
@@ -216,21 +216,6 @@
         </div>
 
         <div class="form-group pb-3">
-          <input type="text" class="form-control" formControlName="email" placeholder="Email">
-          <div *ngIf="email.invalid && (email.dirty || email.touched)"
-               class="alert alert-danger m-0 p-1">
-
-            <div *ngIf="email.errors?.required">
-              Required
-            </div>
-
-            <div *ngIf="email.errors?.email">
-              Email not valid.
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group pb-3">
           <textarea class="form-control" formControlName="message" rows="3" placeholder="Enter message"></textarea>
           <div *ngIf="message.invalid && (message.dirty || message.touched)"
                class="alert alert-danger m-0 p-1">
@@ -248,13 +233,16 @@
 
   <footer>
     <div class="pt-3 pb-2 d-flex justify-content-center">
+      <hr />
       <button type="button" class="btn btn-outline-dark me-3" (click)="openLink('linkedin')">
         <i class="bi bi-linkedin"></i>
       </button>
+      <hr />
 
-      <button type="button" class="btn btn-outline-dark" (click)="openLink('git')">
+      <!-- TODO: remove before deployment -->
+      <!--<button type="button" class="btn btn-outline-dark" (click)="openLink('git')">
         <i class="bi-github" role="img" aria-label="GitHub"></i>
-      </button>
+      </button>-->
     </div>
 
     <div class="footnote d-flex justify-content-center">
