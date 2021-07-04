@@ -64,6 +64,79 @@ export function setUpCanvas(c: HTMLCanvasElement, ctx: CanvasRenderingContext2D)
 };
 
 
+// ------ CLOUDS ------
+export class Cloud {
+  x;
+  y;
+  size;
+  speed;
+  ctx;
+
+  constructor(x, y, size = 'md', speed, ctx) {
+    this.x = x;
+    this.y = y;
+    this.size = size === 'lg' ? 50 : size === 'md' ? 40 : size === 'sm' ? 30 : 0;
+    this.speed = speed;
+    this.ctx = ctx;
+  }
+
+  draw() {
+    const rx = this.x;
+    const ry = this.y;
+    const rad = this.size / 2;
+
+    this.ctx.strokeStyle = "#ffffff";
+    this.ctx.fillStyle = "#ffffff";
+    this.ctx.beginPath();
+    this.ctx.fillRect(rx, ry, 70, this.size);
+    this.ctx.stroke();
+    this.ctx.fill();
+
+    this.ctx.beginPath();
+    this.ctx.arc(rx, ry + rad, rad, 0, 2 * Math.PI);
+    this.ctx.stroke();
+    this.ctx.fill();
+
+    this.ctx.beginPath();
+    this.ctx.arc(rx + 70, ry + rad, rad, 0, 2 * Math.PI);
+    this.ctx.stroke();
+    this.ctx.fill();
+
+    this.ctx.beginPath();
+    this.ctx.arc(rx + 15, ry, rad, 0, 2 * Math.PI);
+    this.ctx.stroke();
+    this.ctx.fill();
+
+    this.ctx.beginPath();
+    this.ctx.arc(rx + 45, ry, 30, 0, 2 * Math.PI);
+    this.ctx.stroke();
+    this.ctx.fill();
+  }
+
+  update() {
+    if (this.x - 110 > innerWidth) {
+      this.x = -110;
+    }
+    this.x += this.speed;
+
+    this.draw();
+  }
+}
+
+export function createCloudArray(ctx: CanvasRenderingContext2D) {
+  const cloudArray = [];
+
+  // nearest stars
+  for (let i = 0; i < 10; ++i) {
+    const x = Math.random() * (innerWidth - 110);
+    const y = Math.random() * (innerHeight - 110);
+    cloudArray.push(new Cloud(x, y, 'md', 0.2, ctx));
+  }
+
+  return cloudArray;
+}
+
+
 
 
 // ------ STAR ANIMATION ------

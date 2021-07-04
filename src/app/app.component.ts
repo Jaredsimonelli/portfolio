@@ -44,6 +44,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   };
 
   starArray = [];
+  cloudArray = [];
   
 
   fontEndSkills: Skill[] = frontEndSkillList;
@@ -81,15 +82,17 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
     // ---- FOR ANIMATE ----
-    //this.c = document.querySelector('canvas');
-    //this.c.width = window.innerWidth;
-    //this.c.height = window.innerHeight;
-    //this.ctx = this.c.getContext('2d');
+    this.c = document.querySelector('canvas');
+    this.c.width = window.innerWidth;
+    this.c.height = window.innerHeight;
+    this.ctx = this.c.getContext('2d');
 
     //this.starArray = canvasHelper.createStarArray(this.ctx, this.stars);
     //this.animate(this.starArray);
-  }
 
+    this.cloudArray = canvasHelper.createCloudArray(this.ctx);
+    this.animate(this.cloudArray);
+  }
 
   ngAfterViewInit() {
     this.homeOffset = this.getOffset(document.getElementById('scrollToHome').getBoundingClientRect().top);
@@ -274,13 +277,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   // loop to call update function on each star
-  animate(starArray: any) {
-    requestAnimationFrame(() => this.animate(starArray));
+  animate(array: any) {
+    requestAnimationFrame(() => this.animate(array));
 
     this.ctx.clearRect(0, 0, innerWidth, innerHeight);
 
-    for (var star of starArray) {
-      star.update();
+    for (var item of array) {
+      item.update();
     }
   }
 
