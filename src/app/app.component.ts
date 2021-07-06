@@ -63,7 +63,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   hamburgerLinks: HTMLElement;
 
-
   contactForm: FormGroup;
 
   ngOnInit() {

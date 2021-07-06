@@ -1,5 +1,20 @@
+$grid-breakpoints: (
+// Extra small screen / phone
+xs: 0,
+// Small screen / phone
+sm: 576px,
+// Medium screen / tablet
+md: 768px,
+// Large screen / desktop
+lg: 992px,
+// Extra large screen / wide desktop
+xl: 1050px );
+
+$container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px, xxl: 1610px );
+
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+@import "bootstrap";
 
 canvas#responsive-canvas {
   width: 100%;
@@ -252,16 +267,45 @@ canvas#responsive-canvas {
   position: relative;
 }
 
+.col_height {
+  max-height: 380px;
+}
+
 .exp_col {
   height: 380px;
-  border: solid 1px black;
+  //border: solid 1px black;
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-size: cover;
+  background-position: 98%;
+}
+
+.exp_pic {
+  opacity: 1;
+  transition: opacity 0.75s;
+  -webkit-transition: opacity 0.75s;
+}
+
+.text {
+  background-color: white;
+  color: black;
+  position: relative;
+  top: -380px;
+  transition: opacity 0.75s;
+  -webkit-transition: opacity 0.75s;
+  opacity: 0;
+}
+
+#podGrid:hover .exp_pic, #cfcGrid:hover .exp_pic, #chcpGrid:hover .exp_pic {
+  opacity: 0;
+}
+
+#podGrid:hover .text, #cfcGrid:hover .text, #chcpGrid:hover .text {
+  opacity: 1;
 }
 
 .pod_exp_img {
-  background-image: url("/assets/img/pod_link.jpg");
+  background-image: url("/assets/img/pod_test.PNG");
+  background-position: 19% !important;
 }
 
 .cfc_exp_img {
@@ -270,6 +314,7 @@ canvas#responsive-canvas {
 
 .chcp_exp_img {
   background-image: url("/assets/img/chcp_link.jpg");
+  background-position: 98% !important;
 }
 
 .exp_box {
@@ -289,7 +334,7 @@ canvas#responsive-canvas {
   padding: 1em 2em;
 }
 
-.exp_box .img_wrap {
+/*.exp_box .img_wrap {
   margin: 0 auto;
   padding-top: 1em;
 }
@@ -323,7 +368,7 @@ canvas#responsive-canvas {
 
 .img_border {
   border: 1px solid #F0F0F0;
-}
+}*/
 
 // -------- CONTACT SECTION --------
 .contact {
@@ -453,6 +498,23 @@ footer {
   }
 }
 
+@media screen and (max-width: 1400px) {
+  .chcp_exp_img {
+    background-position: 93% !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .pod_exp_img {
+    background-position: 31% !important;
+  }
+
+  .chcp_exp_img {
+    background-position: 90% !important;
+  }
+}
+
+
 @media screen and (max-width: 1050px) {
   .skills {
     height: 1450px;
@@ -506,12 +568,13 @@ footer {
   }
 }
 
-@media screen and (max-width: 765px) {
+/*@media screen and (max-width: 765px) {
   .img_wrap {
     height: 50px;
     width: 25vw;
   }
 }
+*/
 
 @media screen and (max-width: 600px) {
   .exp_box p {
