@@ -72,7 +72,7 @@ export class Cloud {
   speed;
   ctx;
 
-  constructor(x, y, size = 'md', speed, ctx) {
+  constructor(x, y, size, speed, ctx) {
     this.x = x;
     this.y = y;
     this.size = size === 'lg' ? 50 : size === 'md' ? 40 : size === 'sm' ? 30 : 0;
@@ -123,14 +123,28 @@ export class Cloud {
   }
 }
 
-export function createCloudArray(ctx: CanvasRenderingContext2D) {
+export function createCloudArray(ctx: CanvasRenderingContext2D, cloudCount: number) {
   const cloudArray = [];
 
-  // nearest stars
-  for (let i = 0; i < 10; ++i) {
+  // near clouds
+  for (let i = 0; i < cloudCount; ++i) {
     const x = Math.random() * (innerWidth - 110);
     const y = Math.random() * (innerHeight - 110);
-    cloudArray.push(new Cloud(x, y, 'md', 0.2, ctx));
+    cloudArray.push(new Cloud(x, y, 'lg', 0.2, ctx));
+  }
+
+  // mid-distance clouds
+  for (let i = 0; i < cloudCount; ++i) {
+    const x = Math.random() * (innerWidth - 110);
+    const y = Math.random() * (innerHeight - 110);
+    cloudArray.push(new Cloud(x, y, 'md', 0.075, ctx));
+  }
+
+  // far clouds
+  for (let i = 0; i < cloudCount; ++i) {
+    const x = Math.random() * (innerWidth - 110);
+    const y = Math.random() * (innerHeight - 110);
+    cloudArray.push(new Cloud(x, y, 'sm', 0.025, ctx));
   }
 
   return cloudArray;

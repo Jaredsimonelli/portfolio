@@ -121,9 +121,9 @@ canvas#responsive-canvas {
   border-top: solid 1px white !important;
 }
 
-h4 {
+/*h4 {
   text-decoration: underline;
-}
+}*/
 
 /*font-family: 'Courier New', monospace;*/
 /*font-family: "europa", sans-serif;*/
@@ -247,8 +247,29 @@ h4 {
 .experience {
   height: 100vh;
   min-height: 800px;
-  background-color: cadetblue;
+  // background-color: cadetblue;
+  background-color: lightgrey;
   position: relative;
+}
+
+.exp_col {
+  height: 380px;
+  border: solid 1px black;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cfc_exp_img {
+  background-image: url("/assets/img/cfc_webpage.PNG");
+}
+
+.pod_exp_img {
+  background-image: url("/assets/img/vr_pod_cover.jpg");
+}
+
+.chcp_exp_img {
+  background-image: url("/assets/img/chcp.PNG");
 }
 
 .exp_box {

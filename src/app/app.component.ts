@@ -82,16 +82,16 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
     // ---- FOR ANIMATE ----
-    this.c = document.querySelector('canvas');
-    this.c.width = window.innerWidth;
-    this.c.height = window.innerHeight;
-    this.ctx = this.c.getContext('2d');
+    //this.c = document.querySelector('canvas');
+    //this.c.width = window.innerWidth;
+    //this.c.height = window.innerHeight;
+    //this.ctx = this.c.getContext('2d');
 
     //this.starArray = canvasHelper.createStarArray(this.ctx, this.stars);
     //this.animate(this.starArray);
 
-    this.cloudArray = canvasHelper.createCloudArray(this.ctx);
-    this.animate(this.cloudArray);
+    //this.cloudArray = canvasHelper.createCloudArray(this.ctx, 3);
+    //this.animate(this.cloudArray);
   }
 
   ngAfterViewInit() {
