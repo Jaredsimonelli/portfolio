@@ -1,4 +1,4 @@
-import { Skill } from './models';
+import { Skill, ModalData } from './models';
 
 export const frontEndSkillList: Skill[] = [
   {
@@ -104,3 +104,21 @@ export const generalSkillList: Skill[] = [
   }
 
 ];
+
+export const pod: ModalData = {
+  title: 'Virtual Relaxation Pod',
+  body: "Working on a small team of only two developers, I was tasked with curating scenes for (the Cigna Virtual Reality Meditation Pod), including Japanese gardens, beach vacation, and underwater. While no demos are available, please follow the link below to read an article about the project.",
+  img: "/assets/img/pod_modal.jpg",
+};
+
+export const cfc: ModalData = {
+  title: 'Global Fitness Challenge',
+  body: "The Global Fitness Challenge is an activities-based employer wellness application designed to promote an active lifestyle through a series of team-based physical activities. I joined this team as a front-end developer but quickly gained the skill set required to function as a full stack developer on the project. This link will take you to the landing page, but unfortunately, this application is not fully available without purchase from employer.",
+  img: "/assets/img/cfc_modal.PNG",
+};
+
+export const chcp: ModalData = {
+  title: 'Cigna Provider Portal',
+  body: "The Cigna Provider Portal is an internal insurance claims resource managed by multiple (better if you have a number), global teams, working simultaneously to upgrade and maintain this valuable tool. I lead the front-end development team for Benefits functionality. As this is an internal tool, no link can be provided.",
+  img: "/assets/img/chcp_modal.PNG",
+};

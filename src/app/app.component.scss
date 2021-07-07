@@ -263,7 +263,6 @@ canvas#responsive-canvas {
   height: 100vh;
   min-height: 800px;
   // background-color: cadetblue;
-  background-color: lightgrey;
   position: relative;
 }
 
@@ -274,6 +273,7 @@ canvas#responsive-canvas {
 .exp_col {
   height: 380px;
   //border: solid 1px black;
+  padding: 10%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 98%;
@@ -317,6 +317,22 @@ canvas#responsive-canvas {
   background-position: 98% !important;
 }
 
+.learn_more_btn {
+  border: solid 1px cadetblue;
+  margin: auto;
+  margin-top: 225px;
+  width: 110px;
+  height: 27px;
+  color: black;
+}
+
+.learn_more_btn:hover {
+  background-color: cadetblue;
+  color: white;
+  -webkit-transition: background-color 150ms ease-in;
+  transition: background-color 150ms ease-in;
+}
+
 .exp_box {
   display: block;
   margin-left: auto;
@@ -332,6 +348,14 @@ canvas#responsive-canvas {
 .exp_box p {
   font-size: 13px;
   padding: 1em 2em;
+}
+
+.modal-image {
+  width: 100%;
+  height: 250px;
+  border-bottom: 1px solid #dee2e6;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /*.exp_box .img_wrap {
@@ -369,7 +393,6 @@ canvas#responsive-canvas {
 .img_border {
   border: 1px solid #F0F0F0;
 }*/
-
 // -------- CONTACT SECTION --------
 .contact {
   height: 90vh;

@@ -1,11 +1,12 @@
 import { Component, HostListener, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import * as canvasHelper from './helpers/canvas-helper';
 import { Skill } from './data/models';
-import { frontEndSkillList, gameDevSkillList, generalSkillList } from './data/constants';
+import * as canvasHelper from './helpers/canvas-helper';
+import * as data from './data/constants';
 
-import { faLaptopCode, faGamepad, faCodeBranch, faBars } from '@fortawesome/free-solid-svg-icons';
+
+import { faLaptopCode, faGamepad, faCodeBranch, faBars, faVrCardboard, faHeartbeat, faLaptop } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +15,13 @@ import { faLaptopCode, faGamepad, faCodeBranch, faBars } from '@fortawesome/free
 })
 export class AppComponent implements OnInit, AfterViewInit {
   // Icons
-  fontEndImg = faLaptopCode;
+  fontEndIcon = faLaptopCode;
   gameDevIcon = faGamepad;
   generalIcon = faCodeBranch;
-  hamburgerBars = faBars;
+  hamburgerBarsIcon = faBars;
+  podIcon = faVrCardboard;
+  cfcIcon = faHeartbeat;
+  chcpIcon = faLaptop;
 
   // Canvas constants
   c: HTMLCanvasElement;
@@ -47,9 +51,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   cloudArray = [];
   
 
-  fontEndSkills: Skill[] = frontEndSkillList;
-  generalSkills: Skill[] = generalSkillList;
-  gameDevSkills: Skill[] = gameDevSkillList;
+  fontEndSkills: Skill[] = data.frontEndSkillList;
+  generalSkills: Skill[] = data.generalSkillList;
+  gameDevSkills: Skill[] = data.gameDevSkillList;
 
   currentActive = 1;
   skillsSectionLoaded = false;
@@ -62,6 +66,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   contactOffset: number;
 
   hamburgerLinks: HTMLElement;
+  modal: HTMLElement;
+
 
   contactForm: FormGroup;
 
@@ -100,6 +106,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.contactOffset = this.getOffset(document.getElementById('scrollToContact').getBoundingClientRect().top);
 
     this.hamburgerLinks = document.getElementById("links");
+    this.modal = document.getElementById('experienceModal');
   }
 
   getOffset(top: number) {
@@ -204,18 +211,17 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onSubmit() {
-    if (this.contactForm.valid) {
-      const link = "mailto:jaredsimonelliportfolio@gmail.com"
-        + "?cc="
-        + "&subject=" + encodeURIComponent("Email from " + this.contactForm.value.name)
-        + "&body=" + encodeURIComponent(this.contactForm.value.message)
-        ;
 
-      window.location.href = link;
-    } else {
-      this.contactForm.markAllAsTouched();
-    }
+  modalSelect(type: string) {
+    const modalTitle = this.modal.querySelector('.modal-title');
+    const modalBody = this.modal.querySelector('.modal-body');
+    const modalImage = this.modal.querySelector('.modal-image') as HTMLElement;
+
+    const selectedData = type === 'pod' ? data.pod : type === 'cfc' ? data.cfc : type === 'chcp' ? data.chcp : { title: '', body: '', img: ''};
+
+    modalTitle.textContent = selectedData.title;
+    modalBody.innerHTML = selectedData.body;
+    modalImage.style.backgroundImage = "url(" + selectedData.img + ")";
   }
 
   openLink(type: string) {
@@ -283,6 +289,21 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     for (var item of array) {
       item.update();
+    }
+  }
+
+  // Submit for contact
+  onSubmit() {
+    if (this.contactForm.valid) {
+      const link = "mailto:jaredsimonelliportfolio@gmail.com"
+        + "?cc="
+        + "&subject=" + encodeURIComponent("Email from " + this.contactForm.value.name)
+        + "&body=" + encodeURIComponent(this.contactForm.value.message)
+        ;
+
+      window.location.href = link;
+    } else {
+      this.contactForm.markAllAsTouched();
     }
   }
 

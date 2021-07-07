@@ -3,7 +3,6 @@
   <!--<canvas class="star-canvas"></canvas>-->
   <!--<canvas class="stars-on-top"></canvas>-->
   <!--<canvas class="sky-on-top"></canvas>-->
-
   <!-- Regular Navigation Bar -->
   <ul id="navbar" class="nav fixed-top justify-content-end">
     <li class="nav-item">
@@ -24,14 +23,14 @@
   <div class="ham_nav">
     <div class="left_bar"></div>
     <div id="links" class="border-top">
-      <a [ngClass]="{'ham_nav_active': currentActive === 1}" id="home" href="#scrollToHome"  class="ham_nav_link" (click)="changeTab('home')">Home</a>
+      <a [ngClass]="{'ham_nav_active': currentActive === 1}" id="home" href="#scrollToHome" class="ham_nav_link" (click)="changeTab('home')">Home</a>
       <a [ngClass]="{'ham_nav_active': currentActive === 2}" id="skills" href="#scrollToSkills" class="ham_nav_link" (click)="changeTab('skills')">Skills</a>
       <a [ngClass]="{'ham_nav_active': currentActive === 3}" id="experience" href="#scrollToExperience" class="ham_nav_link" (click)="changeTab('experience')">Experience</a>
       <a [ngClass]="{'ham_nav_active': currentActive === 4}" id="contact" href="#scrollToContact" class="ham_nav_link" (click)="changeTab('contact')">Contact</a>
     </div>
 
     <a href="javascript:void(0);" class="ham_icon" (click)="toggleHamburgerNavLinks()">
-      <fa-icon class="fa-1x d-flex justify-content-between" [icon]="hamburgerBars"></fa-icon>
+      <fa-icon class="fa-1x d-flex justify-content-between" [icon]="hamburgerBarsIcon"></fa-icon>
     </a>
   </div>
 
@@ -67,7 +66,7 @@
       <div class="box flex-grid">
         <div class="col skills_border">
           <div class="skill_icon">
-            <fa-icon class="fa-3x" [icon]="fontEndImg"></fa-icon>
+            <fa-icon class="fa-3x" [icon]="fontEndIcon"></fa-icon>
           </div>
 
           <h4 class="mb-4">Front End</h4>
@@ -164,38 +163,38 @@
 
       <!--<div id="eContainer" class="hidden experience_container d-flex justify-content-between fh">-->
       <!--<div class="experience_container d-flex justify-content-between fh">
-        <div class="p-4 exp_box">
-          <h4 class="mb-3">Virtual Relaxation Pod</h4>
-          <p>
-            Using Virtual Reality for more mindful and meditative purposes!
-            I joined as one of two developers on this project, and I was tasked with curating the scenes. While no demos are available please check out the image below to find out more.
-          </p>
-          <div class="img_wrap" (click)="openLink('pod')">
-            <img class="img-fluid rounded" src="/assets/img/VR_Pod.jpg" width="200" alt="vr_pod_img" />
-            <p class="img_desc">Learn More</p>
-          </div>
+      <div class="p-4 exp_box">
+        <h4 class="mb-3">Virtual Relaxation Pod</h4>
+        <p>
+          Using Virtual Reality for more mindful and meditative purposes!
+          I joined as one of two developers on this project, and I was tasked with curating the scenes. While no demos are available please check out the image below to find out more.
+        </p>
+        <div class="img_wrap" (click)="openLink('pod')">
+          <img class="img-fluid rounded" src="/assets/img/VR_Pod.jpg" width="200" alt="vr_pod_img" />
+          <p class="img_desc">Learn More</p>
         </div>
-        <div class="p-4 exp_box">
-          <h4 class="mb-3">Global Fitness Challenge</h4>
-          <p class="cfc_text">
-            The Global Fitness Challenge is an activities-based employer wellness application designed to promote an active lifestyle through a series of team-based physical activities.
-            I joined the small team of 6 to help with Front end development, throughout my time I also gained valuable knowledge in full stack development. Linked below is to the landing page, unfortunately not fully available
-            without purchase from employer.
-          </p>
-          <div class="img_wrap" (click)="openLink('cfc')">
-            <img class="img-fluid rounded img_border" src="/assets/img/cfc_img.jpg" width="200" alt="cfc_img" />
-            <p class="img_desc">Click here</p>
-          </div>
+      </div>
+      <div class="p-4 exp_box">
+        <h4 class="mb-3">Global Fitness Challenge</h4>
+        <p class="cfc_text">
+          The Global Fitness Challenge is an activities-based employer wellness application designed to promote an active lifestyle through a series of team-based physical activities.
+          I joined the small team of 6 to help with Front end development, throughout my time I also gained valuable knowledge in full stack development. Linked below is to the landing page, unfortunately not fully available
+          without purchase from employer.
+        </p>
+        <div class="img_wrap" (click)="openLink('cfc')">
+          <img class="img-fluid rounded img_border" src="/assets/img/cfc_img.jpg" width="200" alt="cfc_img" />
+          <p class="img_desc">Click here</p>
         </div>
-        <div class="p-4 exp_box">
-          <h4 class="mb-3">Cigna Provider Portal</h4>
-          <p>
-            The Cigna Provider Portal is the internal tool employees use in order to file and process claims. This was my first large scale project spanning multiple teams. I was tasked on leading Front end development0
-            for the Benefits functionality. The goal was to take the legacy code and update it to a SPA utilizing Angular and NgRx while also having major redesigns. This project pushed me out of my comfort zone having me work on a
-            high profile application with teams in other countries and backgrounds.
-          </p>
-        </div>
-      </div>-->
+      </div>
+      <div class="p-4 exp_box">
+        <h4 class="mb-3">Cigna Provider Portal</h4>
+        <p>
+          The Cigna Provider Portal is the internal tool employees use in order to file and process claims. This was my first large scale project spanning multiple teams. I was tasked on leading Front end development0
+          for the Benefits functionality. The goal was to take the legacy code and update it to a SPA utilizing Angular and NgRx while also having major redesigns. This project pushed me out of my comfort zone having me work on a
+          high profile application with teams in other countries and backgrounds.
+        </p>
+      </div>
+    </div>-->
 
       <div class="container">
         <div class="row">
@@ -204,7 +203,8 @@
             </div>
 
             <div class="exp_col text">
-              THIS IS THE POD
+              <h5>Cigna's Virtual Relaxation Pod</h5>
+              <div class="learn_more_btn" data-toggle="modal" data-target="#experienceModal" (click)="modalSelect('pod')">LEARN MORE</div>
             </div>
           </div>
 
@@ -213,7 +213,8 @@
             </div>
 
             <div class="exp_col text">
-              THIS IS CFC
+              <h5>Global Fitness Challenge</h5>
+              <div class="learn_more_btn" data-toggle="modal" data-target="#experienceModal" (click)="modalSelect('cfc')">LEARN MORE</div>
             </div>
           </div>
 
@@ -222,17 +223,36 @@
             </div>
 
             <div class="exp_col text">
-              THIS IS CHCP
+              <h5>Cigna's Provider Portal</h5>
+              <div class="learn_more_btn" data-toggle="modal" data-target="#experienceModal" (click)="modalSelect('chcp')">LEARN MORE</div>
             </div>
           </div>
-
-          <!--<div class="col-xl exp_col cfc_exp_img">
-          </div>
-          <div class="col-xl exp_col chcp_exp_img">
-          </div>-->
         </div>
       </div>
 
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="experienceModal" tabindex="-1" role="dialog" aria-labelledby="experienceModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="experienceModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+          </div>
+          <div class="modal-image">
+
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Visit Site</button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -271,11 +291,9 @@
 
   <footer>
     <div class="pt-3 pb-2 d-flex justify-content-center">
-      <hr />
       <button type="button" class="btn btn-outline-dark me-3" (click)="openLink('linkedin')">
         <i class="bi bi-linkedin"></i>
       </button>
-      <hr />
 
       <!-- TODO: remove before deployment -->
       <!--<button type="button" class="btn btn-outline-dark" (click)="openLink('git')">

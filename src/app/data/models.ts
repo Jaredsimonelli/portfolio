@@ -3,3 +3,9 @@ export interface Skill {
   exp: number;
   percentage: number;
 };
+
+export interface ModalData {
+  title: string
+  body: string;
+  img: string;
+};
