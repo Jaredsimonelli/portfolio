@@ -351,48 +351,13 @@ canvas#responsive-canvas {
 }
 
 .modal-image {
-  width: 100%;
   height: 250px;
   border-bottom: 1px solid #dee2e6;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-/*.exp_box .img_wrap {
-  margin: 0 auto;
-  padding-top: 1em;
-}
 
-.img_wrap {
-  width: max-content;
-}
-
-.img_wrap:hover img {
-  opacity: 0.3;
-  transition: .5s ease;
-  cursor: pointer;
-}
-
-.img_desc {
-  position: relative;
-  bottom: 100px;
-  color: black;
-  visibility: hidden;
-  opacity: 0;
-  text-decoration: none;
-  transition: opacity .2s, visibility .2s;
-  cursor: pointer;
-  font-size: larger !important;
-}
-
-.img_wrap:hover .img_desc {
-  visibility: visible;
-  opacity: 1;
-}
-
-.img_border {
-  border: 1px solid #F0F0F0;
-}*/
 // -------- CONTACT SECTION --------
 .contact {
   height: 90vh;

@@ -162,40 +162,6 @@
       <h2 class="header pb-4"><u>EXPERIENCE</u></h2>
 
       <!--<div id="eContainer" class="hidden experience_container d-flex justify-content-between fh">-->
-      <!--<div class="experience_container d-flex justify-content-between fh">
-      <div class="p-4 exp_box">
-        <h4 class="mb-3">Virtual Relaxation Pod</h4>
-        <p>
-          Using Virtual Reality for more mindful and meditative purposes!
-          I joined as one of two developers on this project, and I was tasked with curating the scenes. While no demos are available please check out the image below to find out more.
-        </p>
-        <div class="img_wrap" (click)="openLink('pod')">
-          <img class="img-fluid rounded" src="/assets/img/VR_Pod.jpg" width="200" alt="vr_pod_img" />
-          <p class="img_desc">Learn More</p>
-        </div>
-      </div>
-      <div class="p-4 exp_box">
-        <h4 class="mb-3">Global Fitness Challenge</h4>
-        <p class="cfc_text">
-          The Global Fitness Challenge is an activities-based employer wellness application designed to promote an active lifestyle through a series of team-based physical activities.
-          I joined the small team of 6 to help with Front end development, throughout my time I also gained valuable knowledge in full stack development. Linked below is to the landing page, unfortunately not fully available
-          without purchase from employer.
-        </p>
-        <div class="img_wrap" (click)="openLink('cfc')">
-          <img class="img-fluid rounded img_border" src="/assets/img/cfc_img.jpg" width="200" alt="cfc_img" />
-          <p class="img_desc">Click here</p>
-        </div>
-      </div>
-      <div class="p-4 exp_box">
-        <h4 class="mb-3">Cigna Provider Portal</h4>
-        <p>
-          The Cigna Provider Portal is the internal tool employees use in order to file and process claims. This was my first large scale project spanning multiple teams. I was tasked on leading Front end development0
-          for the Benefits functionality. The goal was to take the legacy code and update it to a SPA utilizing Angular and NgRx while also having major redesigns. This project pushed me out of my comfort zone having me work on a
-          high profile application with teams in other countries and backgrounds.
-        </p>
-      </div>
-    </div>-->
-
       <div class="container">
         <div class="row">
           <div id="podGrid" class="col-xl px-0 col_height">
@@ -252,7 +218,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Visit Site</button>
+            <button *ngIf="expModalType !== 'chcp'" type="button" class="btn btn-primary visit-site-btn" (click)="openLink(expModalType)">Visit Site</button>
           </div>
         </div>
       </div>

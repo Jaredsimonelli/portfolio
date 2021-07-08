@@ -59,6 +59,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   skillsSectionLoaded = false;
   expSectionLoaded = false;
   showProgressBar = true;
+  expModalType = '';
 
   homeOffset: number;
   skillsOffset: number;
@@ -113,33 +114,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     return top + scrollTop;
   }
-
-  
-  // FOR ANIMATE
-  //@HostListener('resize', ['$event'])
-  //resize(event) {
-  //  // Browser resizing, reinitialize stars
-  //  this.c.width = window.innerWidth;
-  //  this.c.height = window.innerHeight;
-  //  this.starArray = canvasHelper.createStarArray(this.ctx, this.stars);
-  //  this.animate(this.starArray);
-  //}
-
-
-  //FOR PARALLAX
-  //@HostListener('mousemove', ['$event'])
-  //onMousemove(event: MouseEvent) {
-  //  this.content.style.transition = 'none';
-  //  this.content.style.top = -(event.clientY / 20) + 'px';
-  //  this.content.style.left = -(event.clientX / 20) + 'px';
-  //}
-
-  //@HostListener('mouseout', ['$event'])
-  //mouseIsOut(event) {
-  //  this.content.style.transition = 'all 0.33s ease';
-  //  this.content.style.top = '0px';
-  //  this.content.style.left = '0px';
-  //}
 
   @HostListener('window:scroll', ['$event'])
   checkOffsetTop() {
@@ -216,8 +190,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     const modalTitle = this.modal.querySelector('.modal-title');
     const modalBody = this.modal.querySelector('.modal-body');
     const modalImage = this.modal.querySelector('.modal-image') as HTMLElement;
+    const visitBtn = this.modal.querySelector('.visit-site-btn') as HTMLElement;
 
     const selectedData = type === 'pod' ? data.pod : type === 'cfc' ? data.cfc : type === 'chcp' ? data.chcp : { title: '', body: '', img: ''};
+    this.expModalType = type;
 
     modalTitle.textContent = selectedData.title;
     modalBody.innerHTML = selectedData.body;

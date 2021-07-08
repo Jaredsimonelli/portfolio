@@ -211,3 +211,31 @@ export function createStarArray(ctx: CanvasRenderingContext2D, stars: any) {
 
   return starArray;
 }
+
+// Place above checkOffsetTop
+// FOR ANIMATE
+//@HostListener('resize', ['$event'])
+//resize(event) {
+//  // Browser resizing, reinitialize stars
+//  this.c.width = window.innerWidth;
+//  this.c.height = window.innerHeight;
+//  this.starArray = canvasHelper.createStarArray(this.ctx, this.stars);
+//  this.animate(this.starArray);
+//}
+
+
+//FOR PARALLAX
+//@HostListener('mousemove', ['$event'])
+//onMousemove(event: MouseEvent) {
+//  this.content.style.transition = 'none';
+//  this.content.style.top = -(event.clientY / 20) + 'px';
+//  this.content.style.left = -(event.clientX / 20) + 'px';
+//}
+
+//@HostListener('mouseout', ['$event'])
+//mouseIsOut(event) {
+//  this.content.style.transition = 'all 0.33s ease';
+//  this.content.style.top = '0px';
+//  this.content.style.left = '0px';
+  //}
+
