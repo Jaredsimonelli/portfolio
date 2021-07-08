@@ -222,6 +222,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     modalTitle.textContent = selectedData.title;
     modalBody.innerHTML = selectedData.body;
     modalImage.style.backgroundImage = "url(" + selectedData.img + ")";
+
+    if (type !== 'pod') {
+      modalImage.className += " mx-3";
+    } else if (modalImage.classList.contains("mx-3")) {
+      modalImage.classList.remove("mx-3");
+    }
   }
 
   openLink(type: string) {
