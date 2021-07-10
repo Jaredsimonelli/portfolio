@@ -166,7 +166,6 @@
     <div class="text-center" id="scrollToExperience">
       <!--<h2 id="eHeader" class="hidden header pb-4"><u>EXPERIENCE</u></h2>-->
       <h2 class="header pb-4 header-line">EXPERIENCE</h2>
-      <!--<div class="triangle_top_right"></div>-->
 
       <!--<div id="eContainer" class="hidden experience_container d-flex justify-content-between fh">-->
       <div class="container">
@@ -214,8 +213,6 @@
           </div>
         </div>
       </div>
-      <!--<div class="triangle_bottom_left"></div>-->
-
     </div>
 
     <!-- Modal -->
@@ -224,7 +221,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="experienceModalLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
 
           </div>
           <div class="modal-image">
@@ -246,35 +243,37 @@
     <div class="contact_contianer text-center" id="scrollToContact">
       <h2 class="header header-line contact-header">CONTACT</h2>
 
-      <div class="parallelogram"></div>
+      <!--<div class="parallelogram"></div>
       <div class="pr">
-        <form [formGroup]="contactForm" class="pt-4" (ngSubmit)="onSubmit()">
-          <div class="form-group pb-3">
-            <input type="text" class="form-control" formControlName="name" placeholder="Name">
 
-            <div *ngIf="name.invalid && (name.dirty || name.touched)"
-                 class="alert alert-danger m-0 p-1">
+      </div>-->
 
-              <div *ngIf="name.errors?.required">
-                Required
-              </div>
+      <form [formGroup]="contactForm" class="pt-4" (ngSubmit)="onSubmit()">
+        <div class="form-group pb-3">
+          <input type="text" class="form-control" formControlName="name" placeholder="Name">
+
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+               class="alert alert-danger m-0 p-1">
+
+            <div *ngIf="name.errors?.required">
+              Required
             </div>
           </div>
+        </div>
 
-          <div class="form-group pb-3">
-            <textarea class="form-control" formControlName="message" rows="3" placeholder="Enter message"></textarea>
-            <div *ngIf="message.invalid && (message.dirty || message.touched)"
-                 class="alert alert-danger m-0 p-1">
+        <div class="form-group pb-3">
+          <textarea class="form-control" formControlName="message" rows="3" placeholder="Enter message"></textarea>
+          <div *ngIf="message.invalid && (message.dirty || message.touched)"
+               class="alert alert-danger m-0 p-1">
 
-              <div *ngIf="message.errors?.required">
-                Required
-              </div>
+            <div *ngIf="message.errors?.required">
+              Required
             </div>
           </div>
+        </div>
 
-          <button type="submit" class="btn btn-outline-light">Send</button>
-        </form>
-      </div>
+        <button type="submit" class="btn btn-outline-light">Send</button>
+      </form>
     </div>
 
 
