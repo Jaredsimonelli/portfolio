@@ -45,12 +45,15 @@
 
         <div class="about_me">
           <h2>Get to know my ass:</h2>
-          <span>
+          <!--<span>
             Hello! My name is Jared and currently I develop web applications for Cigna with my role being Software Engineer Advisor. My love for coding started in Game Development while in college.
             The power to create an interactive experience using the skills I learned captivated me. I took that love and started my career as a young professional at Cigna utilizing my Game Dev knowledge
             to help develop a Virtual Reality relaxation experience. While working on VR I was tasked to learn web development specializing in the Front End using Angular and the NgRx framework.
             Shortly after I transitioned into a full time web developer, working closely with the backend and pipeline gaining valuable experience in Spring Boot and GitLab CI. My goal as a software
             engineer is to become a competent full stack developer.
+          </span>-->
+          <span>
+            Inspired by the power to create an interactive user experience, I have spent the last 8 years developing a skill set that has allowed me to work across many (mediums) from game development to virtual reality, and on to full stack web development.
           </span>
         </div>
       </div>
@@ -59,14 +62,16 @@
 
   <section class="skills" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="skills_container text-center" id="scrollToSkills">
+
       <!--<h2 id="sHeader" class="hidden header pb-4"><u>SKILLS</u></h2>-->
-      <h2 class="header pb-4"><u>SKILLS</u></h2>
+      <h2 class="header pb-4 header-line">SKILLS</h2>
+      <div class="triangle_top_right"></div>
 
       <!--<div id="sContainer" class="hidden box flex-grid">-->
-      <div class="box flex-grid">
+      <div class="box flex-grid pr">
         <div class="col skills_border">
           <div class="skill_icon">
-            <fa-icon class="fa-3x" [icon]="fontEndIcon"></fa-icon>
+            <fa-icon class="icon-size" [icon]="fontEndIcon"></fa-icon>
           </div>
 
           <h4 class="mb-4">Front End</h4>
@@ -95,7 +100,7 @@
 
         <div class="col skills_border">
           <div class="skill_icon">
-            <fa-icon class="fa-3x" [icon]="generalIcon"></fa-icon>
+            <fa-icon class="icon-size" [icon]="generalIcon"></fa-icon>
           </div>
 
           <h4 class="mb-4">General</h4>
@@ -125,7 +130,7 @@
 
         <div class="col">
           <div class="skill_icon">
-            <fa-icon class="fa-3x" [icon]="gameDevIcon"></fa-icon>
+            <fa-icon class="icon-size" [icon]="gameDevIcon"></fa-icon>
           </div>
 
           <h4 class="mb-4">Game Development</h4>
@@ -153,30 +158,39 @@
           </ng-container>
         </div>
       </div>
+      <div class="triangle_bottom_left"></div>
     </div>
   </section>
 
   <section class="experience container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="text-center" id="scrollToExperience">
       <!--<h2 id="eHeader" class="hidden header pb-4"><u>EXPERIENCE</u></h2>-->
-      <h2 class="header pb-4"><u>EXPERIENCE</u></h2>
+      <h2 class="header pb-4 header-line">EXPERIENCE</h2>
+      <!--<div class="triangle_top_right"></div>-->
 
       <!--<div id="eContainer" class="hidden experience_container d-flex justify-content-between fh">-->
       <div class="container">
         <div class="row">
-          <div id="podGrid" class="col-xl px-0 col_height">
+
+          <div id="podGrid" class="col-xl px-0 block">
+            <!--<h5>Virtual Relaxation Pod</h5>-->
+
             <div class="exp_col pod_exp_img exp_pic">
+              <h5>Virtual Relaxation Pod</h5>
+
             </div>
 
             <div class="exp_col text">
-              <h5 class="mb-5">Cigna's Virtual Relaxation Pod</h5>
+              <h5 class="mb-5">Virtual Relaxation Pod</h5>
               <fa-icon class="fa-3x" [icon]="podIcon"></fa-icon>
               <div class="learn_more_btn" data-toggle="modal" data-target="#experienceModal" (click)="modalSelect('pod')">LEARN MORE</div>
             </div>
           </div>
 
-          <div id="cfcGrid" class="col-xl px-0 col_height">
+          <div id="cfcGrid" class="col-xl px-0 block">
             <div class="exp_col cfc_exp_img exp_pic">
+              <h5>Global Fitness Challenge</h5>
+
             </div>
 
             <div class="exp_col text">
@@ -186,8 +200,10 @@
             </div>
           </div>
 
-          <div id="chcpGrid" class="col-xl px-0 col_height">
+          <div id="chcpGrid" class="col-xl px-0 block">
             <div class="exp_col chcp_exp_img exp_pic">
+              <h5>Cigna's Provider Portal</h5>
+
             </div>
 
             <div class="exp_col text">
@@ -198,6 +214,7 @@
           </div>
         </div>
       </div>
+      <!--<div class="triangle_bottom_left"></div>-->
 
     </div>
 
@@ -225,37 +242,42 @@
     </div>
   </section>
 
-  <section class="contact container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
-    <div class="text-center" id="scrollToContact">
-      <h2 class="header" style="color: white; padding-top: 3rem;"><u>CONTACT</u></h2>
+  <section class="pr contact container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
+    <div class="contact_contianer text-center" id="scrollToContact">
+      <h2 class="header header-line contact-header">CONTACT</h2>
 
-      <form [formGroup]="contactForm" class="pt-4" (ngSubmit)="onSubmit()">
-        <div class="form-group pb-3">
-          <input type="text" class="form-control" formControlName="name" placeholder="Name">
+      <div class="parallelogram"></div>
+      <div class="pr">
+        <form [formGroup]="contactForm" class="pt-4" (ngSubmit)="onSubmit()">
+          <div class="form-group pb-3">
+            <input type="text" class="form-control" formControlName="name" placeholder="Name">
 
-          <div *ngIf="name.invalid && (name.dirty || name.touched)"
-               class="alert alert-danger m-0 p-1">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                 class="alert alert-danger m-0 p-1">
 
-            <div *ngIf="name.errors?.required">
-              Required
+              <div *ngIf="name.errors?.required">
+                Required
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="form-group pb-3">
-          <textarea class="form-control" formControlName="message" rows="3" placeholder="Enter message"></textarea>
-          <div *ngIf="message.invalid && (message.dirty || message.touched)"
-               class="alert alert-danger m-0 p-1">
+          <div class="form-group pb-3">
+            <textarea class="form-control" formControlName="message" rows="3" placeholder="Enter message"></textarea>
+            <div *ngIf="message.invalid && (message.dirty || message.touched)"
+                 class="alert alert-danger m-0 p-1">
 
-            <div *ngIf="message.errors?.required">
-              Required
+              <div *ngIf="message.errors?.required">
+                Required
+              </div>
             </div>
           </div>
-        </div>
 
-        <button type="submit" class="btn btn-outline-light">Send</button>
-      </form>
+          <button type="submit" class="btn btn-outline-light">Send</button>
+        </form>
+      </div>
     </div>
+
+
   </section>
 
   <footer>

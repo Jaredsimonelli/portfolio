@@ -149,7 +149,32 @@ canvas#responsive-canvas {
 
 .header {
   padding-top: 3rem;
+  font-weight: 100;
+  z-index: 2;
+  position: relative;
 }
+
+.pr {
+  position: relative;
+  z-index: 2;
+}
+
+/*.header-line::before, .header-line::after {
+  content: "";
+  position: absolute;
+  width: 5rem;
+  height: 4px;
+  background-color: black;
+  top: 7%;
+}
+.header-line::after {
+  right: 29rem;
+}
+
+.header-line::before {
+  left: 28.5rem;
+}*/
+
 
 // -------- HOME SECTION --------
 .home {
@@ -181,9 +206,11 @@ canvas#responsive-canvas {
 
 // -------- SKILLS SECTION --------
 .skills {
-  height: 100vh;
+  //height: 100vh;
+  height: 800px;
   min-height: 800px;
-  background-color: #DBE8F9;
+  // background-color: #DBE8F9;
+  background-color: #dedbd2;
   position: relative;
 }
 
@@ -192,6 +219,37 @@ canvas#responsive-canvas {
   height: 90%;
   width: 100%;
 }
+
+.triangle_bottom_left {
+  border-bottom: 500px solid #b0c4b1;
+  border-right: 50vw solid #0000;
+  position: inherit;
+  z-index: 0;
+  top: 18.7rem;
+  left: 0;
+}
+
+.triangle_top_right {
+  border-top: 500px solid #b0c4b1;
+  border-left: 50vw solid transparent;
+  position: inherit;
+  z-index: 0;
+  top: 0;
+  right: 0;
+}
+
+/*
+#scrollToSkills .header-line::before, #scrollToSkills .header-line::after {
+  top: 8%;
+}
+
+#scrollToSkills .header-line::before {
+  left: 31rem;
+}
+
+#scrollToSkills .header-line::after {
+  right: 31rem;
+}*/
 
 .box {
   display: block;
@@ -202,7 +260,8 @@ canvas#responsive-canvas {
   border-radius: 25px;
   border: 2px solid white;
   background-color: white;
-  box-shadow: 4px 4px #e6f0f0;
+  //box-shadow: 4px 4px #e6f0f0;
+  box-shadow: 0 5px 5px 0 #e9f0f380, 0 0 0 1px #e6ecf8;
 }
 
 .flex-grid {
@@ -238,8 +297,12 @@ canvas#responsive-canvas {
 
 .skill_header {
   width: 100px;
-  font-weight: bold;
-  text-align: right;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.icon-size {
+  font-size: 3em;
 }
 
 .rating_box {
@@ -266,8 +329,18 @@ canvas#responsive-canvas {
   position: relative;
 }
 
-.col_height {
+.pa {
+  position: absolute;
+}
+
+.block {
   max-height: 380px;
+  margin: 1em;
+}
+
+.block div {
+  border-radius: 25px;
+  box-shadow: 0 5px 5px 0 rgb(233 240 243 / 50%), 0 0 0 1px #e6ecf8;
 }
 
 .exp_col {
@@ -280,9 +353,15 @@ canvas#responsive-canvas {
 }
 
 .exp_pic {
+  //opacity: 0.75;
   opacity: 1;
   transition: opacity 0.75s;
   -webkit-transition: opacity 0.75s;
+  color: black !important;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  /*color: white !important;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+  //-webkit-text-stroke: 1px white;
 }
 
 .text {
@@ -366,6 +445,39 @@ canvas#responsive-canvas {
   position: relative;
 }
 
+.contact_contianer {
+  position: absolute;
+  height: 90%;
+  width: 100%;
+}
+
+.contact-header {
+  color: white;
+  padding-top: 3rem;
+}
+
+.parallelogram {
+  width: 150px;
+  height: 100px;
+  transform: skew(20deg);
+  background: red;
+  position: relative;
+}
+  
+
+/*#scrollToContact .header-line::before, #scrollToContact .header-line::after {
+  background-color: white !important;
+  top: 8%;
+}
+
+#scrollToContact .header-line::before {
+  left: 29.5rem;
+}
+
+#scrollToContact .header-line::after {
+  right: 29.5rem;
+}*/
+
 .form-control {
   background-color: #1e242c;
   color: white;
@@ -442,7 +554,7 @@ form button {
 footer {
   height: 10vh;
   min-height: 90px;
-  background-color: lightgrey;
+  background-color: #e9ecef;
 }
 
 
@@ -492,6 +604,12 @@ footer {
   }
 }
 
+@media screen and (max-wdith: 1300px) {
+  .icon-size {
+    font-size: 2.5em;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .pod_exp_img {
     background-position: 31% !important;
@@ -506,6 +624,15 @@ footer {
 @media screen and (max-width: 1050px) {
   .skills {
     height: 1450px;
+  }
+
+  .triangle_bottom_left {
+    top: 59.4rem;
+    border-right: 100vw solid #0000;
+  }
+
+  .triangle_top_right {
+    border-left: 100vw solid transparent;
   }
 
   .skill_icon {
@@ -579,13 +706,16 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
+  #navbar {
+    display: none;
+  }
+
   .about_me span {
     font-size: 3vw;
   }
 
-  #navbar {
-    display: none;
-    // font-size: 10px;
+  .skill_header {
+    font-size: 13px;
   }
 
   .ham_nav {
@@ -605,12 +735,12 @@ footer {
     font-size: large;
   }
 
-  .skill_header {
-    font-size: smaller;
-  }
-
   .exp_box p {
     font-size: 3.2vw;
+  }
+
+  .icon-size {
+    font-size: 2em;
   }
 }
 
@@ -621,10 +751,6 @@ footer {
 
   .mb-3 {
     font-size: medium;
-  }
-
-  .skill_header {
-    font-size: x-small;
   }
 
   .bar {
