@@ -3,6 +3,20 @@
   <!--<canvas class="star-canvas"></canvas>-->
   <!--<canvas class="stars-on-top"></canvas>-->
   <!--<canvas class="sky-on-top"></canvas>-->
+
+  <div class="toggle_stylesheets">
+    <h6>Toggle Styling</h6>
+    <p>
+      <input id="normalStyle" type="checkbox" checked data-toggle="toggle" data-size="sm" (click)="styleSheetToggle('normal')"> Normal
+    </p>
+    <p>
+      <input id="lavaStyle" type="checkbox" data-toggle="toggle" data-size="sm"  (click)="styleSheetToggle('lava')"> Lava Lamp
+    </p>
+    <p>
+      <input id="abstractStyle" type="checkbox" data-toggle="toggle" data-size="sm"  (click)="styleSheetToggle('abstract')"> Abstract
+    </p>
+  </div>
+
   <!-- Regular Navigation Bar -->
   <ul id="navbar" class="nav fixed-top justify-content-end">
     <li class="nav-item">
@@ -37,34 +51,79 @@
   <ng-container data-bs-spy="scroll" data-bs-target="#navbar">
     <section class="home pt-5" id="scrollToHome">
       <div class="text-center">
+        <!-- LAVA LAMP -->
+        <ng-container *ngIf="toggle === 'lava'">
+          <div class="blob-container dbpa">
+            <h1><span>WELCOME TO THE<br>JARED ZONE</span></h1>
+
+            <div class="blobs_1 dbpa"></div>
+            <div class="blobs_2 dbpa"></div>
+            <div class="blobs_3 dbpa"></div>
+            <div class="blobs_4 dbpa"></div>
+            <div class="blobs_5 dbpa"></div>
+            <div class="blobs_6 dbpa"></div>
+            <div class="blobs_7 dbpa"></div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="toggle === 'abstract'">
+          <div class="perspective-text">
+            <div class="perspective-line">
+              <p></p>
+              <p>JARED SIMONELLI</p>
+            </div>
+            <div class="perspective-line">
+              <p>JARED SIMONELLI</p>
+              <p>Developer</p>
+            </div>
+            <div class="perspective-line">
+              <p>Developer</p>
+              <p>Gamer</p>
+            </div>
+            <div class="perspective-line">
+              <p>Gamer</p>
+              <p>Adventurer</p>
+            </div>
+            <div class="perspective-line">
+              <p>Adventurer</p>
+              <p></p>
+            </div>
+          </div>
+        </ng-container>
 
         <img src="assets/img/profile_pic.jpg" alt="profile_picture" class="profile_img">
-        <p>Jared Simonelli</p>
-        <span>Web Developer / Software Engineer</span>
-        <!--<p>Cigna: Software Engineer Advisor </p>-->
 
-        <div class="about_me">
-          <h2>Get to know my ass:</h2>
-          <!--<span>
-            Hello! My name is Jared and currently I develop web applications for Cigna with my role being Software Engineer Advisor. My love for coding started in Game Development while in college.
-            The power to create an interactive experience using the skills I learned captivated me. I took that love and started my career as a young professional at Cigna utilizing my Game Dev knowledge
-            to help develop a Virtual Reality relaxation experience. While working on VR I was tasked to learn web development specializing in the Front End using Angular and the NgRx framework.
-            Shortly after I transitioned into a full time web developer, working closely with the backend and pipeline gaining valuable experience in Spring Boot and GitLab CI. My goal as a software
-            engineer is to become a competent full stack developer.
-          </span>-->
-          <span>
-            Inspired by the power to create an interactive user experience, I have spent the last 8 years developing a skill set that has allowed me to work across many (mediums) from game development to virtual reality, and on to full stack web development.
-          </span>
-        </div>
+        <ng-container *ngIf="toggle === 'normal'">
+          <p>Jared Simonelli</p>
+          <span>Web Developer / Software Engineer</span>
+          <!--<p>Cigna: Software Engineer Advisor </p>-->
+
+          <div class="about_me">
+            <h2>About me</h2>
+            <span>
+              Inspired by the power to create an interactive user experience, I have spent the last 8 years developing a skill set that has allowed me to work across many (mediums) from game development to virtual reality, and on to full stack web development.
+            </span>
+          </div>
+        </ng-container>
+       
       </div>
     </section>
   </ng-container>
 
-  <section class="skills" data-bs-spy="scroll" data-bs-target="#navbar">
+  <section id="skills_component" class="skills" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="skills_container text-center" id="scrollToSkills">
 
       <!--<h2 id="sHeader" class="hidden header pb-4"><u>SKILLS</u></h2>-->
       <h2 class="header pb-4 header-line">SKILLS</h2>
+
+
+      <!--<div class="about_me">
+        <h2>About me</h2>
+        <span>
+          Inspired by the power to create an interactive user experience, I have spent the last 8 years developing a skill set that has allowed me to work across many (mediums) from game development to virtual reality, and on to full stack web development.
+        </span>
+      </div>-->
+
       <div class="triangle_top_right"></div>
 
       <!--<div id="sContainer" class="hidden box flex-grid">-->
@@ -74,7 +133,7 @@
             <fa-icon class="icon-size" [icon]="fontEndIcon"></fa-icon>
           </div>
 
-          <h4 class="mb-4">Front End</h4>
+          <h4 class="mb-4 fw-4">Front End</h4>
           <ng-container *ngFor="let skill of fontEndSkills; let i = index">
             <div class="skill_row">
               <div class="skill_header">{{skill.name}} &nbsp;</div>
@@ -103,7 +162,7 @@
             <fa-icon class="icon-size" [icon]="generalIcon"></fa-icon>
           </div>
 
-          <h4 class="mb-4">General</h4>
+          <h4 class="mb-4 fw-4">General</h4>
 
           <ng-container *ngFor="let skill of generalSkills; let i = index">
             <div class="skill_row">
@@ -133,7 +192,7 @@
             <fa-icon class="icon-size" [icon]="gameDevIcon"></fa-icon>
           </div>
 
-          <h4 class="mb-4">Game Development</h4>
+          <h4 class="mb-4 fw-4">Game Development</h4>
 
           <ng-container *ngFor="let skill of gameDevSkills; let i = index">
             <div class="skill_row">

@@ -6,7 +6,7 @@ import * as canvasHelper from './helpers/canvas-helper';
 import * as data from './data/constants';
 
 
-import { faLaptopCode, faGamepad, faCodeBranch, faBars, faVrCardboard, faHeartbeat, faLaptop } from '@fortawesome/free-solid-svg-icons';
+import { faLaptopCode, faGamepad, faCodeBranch, faBars, faVrCardboard, faHeartbeat, faLaptop, faNetworkWired, faKeyboard } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   // Icons
   fontEndIcon = faLaptopCode;
   gameDevIcon = faGamepad;
-  generalIcon = faCodeBranch;
+  //generalIcon = faCodeBranch;
+  generalIcon = faKeyboard;
   hamburgerBarsIcon = faBars;
   podIcon = faVrCardboard;
   cfcIcon = faHeartbeat;
@@ -50,6 +51,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   starArray = [];
   cloudArray = [];
   
+  toggle = 'normal';
 
   fontEndSkills: Skill[] = data.frontEndSkillList;
   generalSkills: Skill[] = data.generalSkillList;
@@ -68,7 +70,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   hamburgerLinks: HTMLElement;
   modal: HTMLElement;
-
 
   contactForm: FormGroup;
 
@@ -260,6 +261,33 @@ export class AppComponent implements OnInit, AfterViewInit {
           }
         }
       }
+    }
+  }
+
+  styleSheetToggle(style: string) {
+    const norm = document.getElementById('normalStyle') as HTMLInputElement;
+    const lava = document.getElementById('lavaStyle') as HTMLInputElement;
+    const abstract = document.getElementById('abstractStyle') as HTMLInputElement;
+
+    this.toggle = style;
+    if (style === 'normal') {
+      lava.checked = false;
+      abstract.checked = false;
+      document.getElementById('scrollToHome').style.backgroundColor = '#fff';
+      document.getElementById('skills_component').style.backgroundColor = '#dedbd2';
+
+    } else if (style === 'lava') {
+      norm.checked = false;
+      abstract.checked = false;
+      document.getElementById('scrollToHome').style.backgroundColor = '#fff';
+      document.getElementById('skills_component').style.backgroundColor = '#dedbd2';
+
+    } else if (style === 'abstract') {
+      norm.checked = false;
+      lava.checked = false;
+      document.getElementById('scrollToHome').style.backgroundColor = '#dedbd2';
+      document.getElementById('skills_component').style.backgroundColor = '#fff';
+
     }
   }
 

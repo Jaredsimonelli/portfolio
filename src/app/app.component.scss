@@ -15,6 +15,30 @@ $container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px, xxl: 1610p
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 @import "bootstrap";
+@import './style-sheets/blobs.scss';
+@import './style-sheets/abstract.scss';
+
+.toggle_stylesheets {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 100px;
+  width: 150px;
+  z-index: 12412;
+  background: white;
+  padding: 5px;
+}
+
+.toggle_stylesheets h6 {
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.toggle_stylesheets p {
+  margin-bottom: 0;
+  font-size: small;
+  padding-left: 5px;
+}
 
 canvas#responsive-canvas {
   width: 100%;
@@ -159,6 +183,15 @@ canvas#responsive-canvas {
   z-index: 2;
 }
 
+.fw-4 {
+  font-weight: 400;
+}
+
+h2 {
+  // color: #457b9d;
+  font-weight: 300;
+}
+
 /*.header-line::before, .header-line::after {
   content: "";
   position: absolute;
@@ -206,6 +239,7 @@ canvas#responsive-canvas {
 
 .fh {
   height: 100%;
+  font-weight: 300;
 }
 
 // -------- SKILLS SECTION --------
@@ -225,7 +259,8 @@ canvas#responsive-canvas {
 }
 
 .triangle_bottom_left {
-  border-bottom: 500px solid #b0c4b1;
+  //border-bottom: 500px solid #b0c4b1;
+  border-bottom: 500px solid #457B9D;
   border-right: 50vw solid #0000;
   position: inherit;
   z-index: 0;
@@ -234,12 +269,19 @@ canvas#responsive-canvas {
 }
 
 .triangle_top_right {
-  border-top: 500px solid #b0c4b1;
+  //border-top: 500px solid #b0c4b1;
+  border-top: 500px solid #457B9D;
   border-left: 50vw solid transparent;
   position: inherit;
   z-index: 0;
   top: 0;
   right: 0;
+}
+
+.bar {
+  width: 1%;
+  height: 20px;
+  background-color: #457B9D;
 }
 
 /*
@@ -264,7 +306,6 @@ canvas#responsive-canvas {
   border-radius: 25px;
   border: 2px solid white;
   background-color: white;
-  //box-shadow: 4px 4px #e6f0f0;
   box-shadow: 0 5px 5px 0 #e9f0f380, 0 0 0 1px #e6ecf8;
 }
 
@@ -371,7 +412,7 @@ canvas#responsive-canvas {
 
 .text {
   background-color: white;
-  color: black;
+  color: #457b9d;
   position: relative;
   top: -380px;
   transition: opacity 0.5s;
@@ -407,16 +448,16 @@ canvas#responsive-canvas {
 }
 
 .learn_more_btn {
-  border: solid 1px #b0c4b1;
+  border: solid 1px #457b9d;
+  color: #457b9d;
   margin: auto;
   margin-top: 100px;
   width: 110px;
   height: 27px;
-  color: black;
 }
 
 .learn_more_btn:hover {
-  background-color: #b0c4b1;
+  background-color: #457b9d;
   color: white;
   -webkit-transition: background-color 150ms ease-in;
   transition: background-color 150ms ease-in;
@@ -463,7 +504,7 @@ canvas#responsive-canvas {
 }
 
 .contact-header {
-  color: white;
+  color: white !important;
   padding-top: 3rem;
 }
 
@@ -545,12 +586,6 @@ form button {
   color: white;
 }
 
-.bar {
-  width: 1%;
-  height: 20px;
-  background-color: #17a2b8;
-}
-
 .flex {
   align-items: center;
   display: flex;
@@ -570,7 +605,7 @@ footer {
 
 
 // -------- Animations --------
-#skills-header {
+.skills-header {
   width: 100%;
   overflow: hidden;
 }
@@ -635,6 +670,10 @@ footer {
 @media screen and (max-width: 1050px) {
   .skills {
     height: 1450px;
+  }
+
+  .skills_container h2 {
+    color: white;
   }
 
   .triangle_bottom_left {
