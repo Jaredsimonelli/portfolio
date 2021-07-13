@@ -84,7 +84,6 @@ canvas#responsive-canvas {
 }
 
 .nav-link:hover {
-  //color: #4d4d4d !important;
   color: black !important;
 }
 
@@ -100,6 +99,7 @@ canvas#responsive-canvas {
 
 .nav {
   background: white;
+  border-bottom: 2px solid #457b9d;
 }
 
 // ------- Hamburger Menu -------
@@ -107,7 +107,7 @@ canvas#responsive-canvas {
   position: fixed;
   background-color: #e8e8e8;
   display: none;
-  border-bottom: solid 1px white;
+  border-bottom: 2px solid #457b9d;
   z-index: 10;
 }
 
@@ -213,6 +213,7 @@ h2 {
 .home {
   height: 100vh;
   min-height: 800px;
+  background-color: #dedbd2;
 }
 
 .about_me {
@@ -254,7 +255,7 @@ h2 {
 
 .skills_container {
   position: absolute;
-  height: 90%;
+  height: 100%;
   width: 100%;
 }
 
@@ -264,8 +265,8 @@ h2 {
   border-right: 50vw solid #0000;
   position: inherit;
   z-index: 0;
-  top: 18.7rem;
   left: 0;
+  bottom: 0;
 }
 
 .triangle_top_right {
@@ -371,6 +372,7 @@ h2 {
   height: 100vh;
   min-height: 800px;
   // background-color: cadetblue;
+  background-color: #dedbd2;
   position: relative;
 }
 
@@ -492,28 +494,61 @@ h2 {
 // -------- CONTACT SECTION --------
 .contact {
   height: 90vh;
-  min-height: 500px;
-  background-color: #252934;
+  min-height: 560px;
+  // background-color: #457b9d;
+  background-color: #dedbd2;
   position: relative;
 }
 
 .contact_contianer {
-  // position: absolute;
-  height: 90%;
+  height: 100%;
   width: 100%;
+  position: absolute;
 }
 
 .contact-header {
-  color: white !important;
+  //color: white !important;
   padding-top: 3rem;
 }
 
 .parallelogram {
-  width: 150px;
-  height: 100px;
-  transform: skew(20deg);
-  background: red;
-  position: relative;
+  width: 50%;
+  height: 100%;
+  transform: skew( -12deg );
+  background: #dedbd2;
+  position: inherit;
+  z-index: 0;
+  top: 0px;
+  left: 25%;
+}
+
+
+.triangle_bottom_right {
+  border-bottom: 275px solid #457b9d;
+  border-left: 50vw solid #0000;
+  position: inherit;
+  z-index: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.triangle_top_left {
+  border-top: 275px solid #457b9d;
+  border-right: 50vw solid #0000;
+  position: inherit;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+
+.btn-outline-dark {
+  border-color: #457b9d;
+  color: #457b9d;
+}
+
+.btn-outline-dark:hover, .btn-outline-dark:active {
+  background-color: #457b9d;
+  color: white;
 }
   
 
@@ -531,12 +566,12 @@ h2 {
 }*/
 
 .form-control {
-  background-color: #1e242c;
+  //background-color: #1e242c;
   color: white;
 }
 
 .form-control:focus {
-  background-color: #1e242c;
+  //background-color: #1e242c;
   color: white;
 }
 
@@ -544,7 +579,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px #1e242c inset !important;
+  //-webkit-box-shadow: 0 0 0 30px #1e242c inset !important;
   -webkit-text-fill-color: white !important;
 }
 
@@ -672,17 +707,24 @@ footer {
     height: 1450px;
   }
 
-  .skills_container h2 {
+  .skills_container h2, .contact-header {
     color: white;
   }
 
   .triangle_bottom_left {
-    top: 59.4rem;
     border-right: 97vw solid #0000;
   }
 
   .triangle_top_right {
     border-left: 97vw solid transparent;
+  }
+
+  .triangle_bottom_right {
+    border-left: 97vw solid #0000;
+  }
+
+  .triangle_top_left {
+    border-right: 97vw solid #0000;
   }
 
   .skill_icon {
@@ -691,7 +733,7 @@ footer {
 
   .flex-grid {
     flex-direction: column;
-    height: 95%;
+    height: 88%;
   }
 
   .flex-grid .col {

@@ -91,7 +91,7 @@
           </div>
         </ng-container>
 
-        <img src="assets/img/profile_pic.jpg" alt="profile_picture" class="profile_img">
+        <img *ngIf="toggle !== 'abstract'" src="assets/img/profile_pic.jpg" alt="profile_picture" class="profile_img">
 
         <ng-container *ngIf="toggle === 'normal'">
           <p>Jared Simonelli</p>
@@ -112,20 +112,10 @@
 
   <section id="skills_component" class="skills" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="skills_container text-center" id="scrollToSkills">
-
       <!--<h2 id="sHeader" class="hidden header pb-4"><u>SKILLS</u></h2>-->
       <h2 class="header pb-4 header-line">SKILLS</h2>
 
-
-      <!--<div class="about_me">
-        <h2>About me</h2>
-        <span>
-          Inspired by the power to create an interactive user experience, I have spent the last 8 years developing a skill set that has allowed me to work across many (mediums) from game development to virtual reality, and on to full stack web development.
-        </span>
-      </div>-->
-
       <div class="triangle_top_right"></div>
-
       <!--<div id="sContainer" class="hidden box flex-grid">-->
       <div class="box flex-grid pr">
         <div class="col skills_border">
@@ -219,6 +209,7 @@
       </div>
       <div class="triangle_bottom_left"></div>
     </div>
+    
   </section>
 
   <section class="experience container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
@@ -298,44 +289,44 @@
     </div>
   </section>
 
-  <section class="pr contact container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
+  <section class="pr contact container-fluid px-0" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="contact_contianer text-center" id="scrollToContact">
+      <!--<div class="parallelogram"></div>-->
       <h2 class="header header-line contact-header">CONTACT</h2>
+      <div class="triangle_top_left"></div>
 
-      <!--<div class="parallelogram"></div>
       <div class="pr">
+        <form [formGroup]="contactForm" class="pt-4" (ngSubmit)="onSubmit()">
+          <div class="form-group pb-3">
+            <input type="text" class="form-control" formControlName="name" placeholder="Name">
 
-      </div>-->
+            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                 class="alert alert-danger m-0 p-1">
 
-      <form [formGroup]="contactForm" class="pt-4" (ngSubmit)="onSubmit()">
-        <div class="form-group pb-3">
-          <input type="text" class="form-control" formControlName="name" placeholder="Name">
-
-          <div *ngIf="name.invalid && (name.dirty || name.touched)"
-               class="alert alert-danger m-0 p-1">
-
-            <div *ngIf="name.errors?.required">
-              Required
+              <div *ngIf="name.errors?.required">
+                Required
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="form-group pb-3">
-          <textarea class="form-control" formControlName="message" rows="3" placeholder="Enter message"></textarea>
-          <div *ngIf="message.invalid && (message.dirty || message.touched)"
-               class="alert alert-danger m-0 p-1">
+          <div class="form-group pb-3">
+            <textarea class="form-control" formControlName="message" rows="3" placeholder="Enter message"></textarea>
+            <div *ngIf="message.invalid && (message.dirty || message.touched)"
+                 class="alert alert-danger m-0 p-1">
 
-            <div *ngIf="message.errors?.required">
-              Required
+              <div *ngIf="message.errors?.required">
+                Required
+              </div>
             </div>
           </div>
-        </div>
 
-        <button type="submit" class="btn btn-outline-light">Send</button>
-      </form>
+          <button type="submit" class="btn btn-outline-dark">Send</button>
+        </form>
+      </div>
+
+      <div class="triangle_bottom_right"></div>
+
     </div>
-
-
   </section>
 
   <footer>

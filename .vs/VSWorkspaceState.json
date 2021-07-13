@@ -3,8 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\data"
+    "\\src\\app\\style-sheets",
+    "\\src\\assets",
+    "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\.browserslistrc",
+  "SelectedNode": "\\src\\app\\style-sheets\\abstract.scss",
   "PreviewInSolutionExplorer": false
 }
