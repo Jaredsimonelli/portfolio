@@ -11,7 +11,7 @@ import { faLaptopCode, faGamepad, faCodeBranch, faBars, faVrCardboard, faHeartbe
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss', './style-sheets/abstract.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
   // Icons
@@ -68,6 +68,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   expOffset: number;
   contactOffset: number;
 
+  screenHeight: number;
+  screenWidth: number;
+
   hamburgerLinks: HTMLElement;
   modal: HTMLElement;
 
@@ -114,6 +117,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   getOffset(top: number) {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     return top + scrollTop;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?) {
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
   }
 
   @HostListener('window:scroll', ['$event'])

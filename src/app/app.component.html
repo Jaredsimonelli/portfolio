@@ -67,13 +67,14 @@
         </ng-container>
 
         <ng-container *ngIf="toggle === 'abstract'">
+          <!--<div [ngClass]="screenWidth >= 775 ? 'perspective-text' : 'perspective-text-resize'">-->
           <div class="perspective-text">
             <div class="perspective-line">
               <p></p>
-              <p>JARED SIMONELLI</p>
+              <p>JARED <span *ngIf="screenWidth >= 775">SIMONELLI</span></p>
             </div>
             <div class="perspective-line">
-              <p>JARED SIMONELLI</p>
+              <p>JARED <span *ngIf="screenWidth >= 775">SIMONELLI</span></p>
               <p>Developer</p>
             </div>
             <div class="perspective-line">
@@ -113,7 +114,7 @@
   <section id="skills_component" class="skills" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="skills_container text-center" id="scrollToSkills">
       <!--<h2 id="sHeader" class="hidden header pb-4"><u>SKILLS</u></h2>-->
-      <h2 class="header pb-4 header-line">SKILLS</h2>
+      <h2 class="header pb-4">SKILLS</h2>
 
       <div class="triangle_top_right"></div>
       <!--<div id="sContainer" class="hidden box flex-grid">-->
@@ -215,7 +216,7 @@
   <section class="experience container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="text-center" id="scrollToExperience">
       <!--<h2 id="eHeader" class="hidden header pb-4"><u>EXPERIENCE</u></h2>-->
-      <h2 class="header pb-4 header-line">EXPERIENCE</h2>
+      <h2 class="header pb-4">EXPERIENCE</h2>
 
       <!--<div id="eContainer" class="hidden experience_container d-flex justify-content-between fh">-->
       <div class="container">
@@ -292,7 +293,7 @@
   <section class="pr contact container-fluid px-0" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="contact_contianer text-center" id="scrollToContact">
       <!--<div class="parallelogram"></div>-->
-      <h2 class="header header-line contact-header">CONTACT</h2>
+      <h2 class="header contact-header">CONTACT</h2>
       <div class="triangle_top_left"></div>
 
       <div class="pr">
@@ -331,7 +332,7 @@
 
   <footer>
     <div class="pt-3 pb-2 d-flex justify-content-center">
-      <button type="button" class="btn btn-outline-dark me-3" (click)="openLink('linkedin')">
+      <button type="button" class="btn btn-outline-dark me-3 footer_btn" (click)="openLink('linkedin')">
         <i class="bi bi-linkedin"></i>
       </button>
 
