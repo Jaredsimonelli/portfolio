@@ -29,7 +29,7 @@
       <a [ngClass]="{'active': currentActive === 3}" class="nav-link" id="experience" href="#scrollToExperience" (click)="changeTab('experience')">Experience</a>
     </li>
     <li class="nav-item">
-      <a [ngClass]="{'active': currentActive === 4}" class="nav-link" id="contact" href="#scrollToContact" (click)="changeTab('contact')">Contact</a>
+      <a [ngClass]="currentActive === 4 ? 'active' : ''" class="nav-link" id="contact" href="#scrollToContact" (click)="changeTab('contact')">Contact</a>
     </li>
   </ul>
 
@@ -40,7 +40,7 @@
       <a [ngClass]="{'ham_nav_active': currentActive === 1}" id="home" href="#scrollToHome" class="ham_nav_link" (click)="changeTab('home')">Home</a>
       <a [ngClass]="{'ham_nav_active': currentActive === 2}" id="skills" href="#scrollToSkills" class="ham_nav_link" (click)="changeTab('skills')">Skills</a>
       <a [ngClass]="{'ham_nav_active': currentActive === 3}" id="experience" href="#scrollToExperience" class="ham_nav_link" (click)="changeTab('experience')">Experience</a>
-      <a [ngClass]="{'ham_nav_active': currentActive === 4}" id="contact" href="#scrollToContact" class="ham_nav_link" (click)="changeTab('contact')">Contact</a>
+      <a [ngClass]="{'ham_nav_active': currentActive === 4}"  id="contact" href="#scrollToContact" class="ham_nav_link" (click)="changeTab('contact')">Contact</a>
     </div>
 
     <a href="javascript:void(0);" class="ham_icon" (click)="toggleHamburgerNavLinks()">
@@ -67,14 +67,13 @@
         </ng-container>
 
         <ng-container *ngIf="toggle === 'abstract'">
-          <!--<div [ngClass]="screenWidth >= 775 ? 'perspective-text' : 'perspective-text-resize'">-->
           <div class="perspective-text">
             <div class="perspective-line">
               <p></p>
-              <p>JARED <span *ngIf="screenWidth >= 775">SIMONELLI</span></p>
+              <p>JARED <span *ngIf="screenWidth >= 990">SIMONELLI</span></p>
             </div>
             <div class="perspective-line">
-              <p>JARED <span *ngIf="screenWidth >= 775">SIMONELLI</span></p>
+              <p>JARED <span *ngIf="screenWidth >= 990">SIMONELLI</span></p>
               <p>Developer</p>
             </div>
             <div class="perspective-line">

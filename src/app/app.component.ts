@@ -71,6 +71,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   screenHeight: number;
   screenWidth: number;
 
+  homeLink: HTMLElement;
+  skillLink: HTMLElement;
+  experienceLink: HTMLElement;
+  contactLink: HTMLElement;
+
   hamburgerLinks: HTMLElement;
   modal: HTMLElement;
 
@@ -110,6 +115,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.expOffset = this.getOffset(document.getElementById('scrollToExperience').getBoundingClientRect().top);
     this.contactOffset = this.getOffset(document.getElementById('scrollToContact').getBoundingClientRect().top);
 
+    this.homeLink = document.getElementById("home");
+    this.skillLink = document.getElementById("skills");
+    this.experienceLink = document.getElementById("experience");
+    this.contactLink = document.getElementById("contact");
+
     this.hamburgerLinks = document.getElementById("links");
     this.modal = document.getElementById('experienceModal');
   }
@@ -129,17 +139,28 @@ export class AppComponent implements OnInit, AfterViewInit {
   checkOffsetTop() {
     let yOffset = window.pageYOffset;
 
+    this.homeLink.style.color = '#fff';
+    this.skillLink.style.color = '#fff';
+    this.experienceLink.style.color = '#fff';
+    this.contactLink.style.color = '#fff';
+
     if (yOffset >= this.homeOffset && yOffset < this.skillsOffset) {
       this.currentActive = 1;
+      this.homeLink.style.color = '#457b9d';
     } else if (yOffset >= this.skillsOffset && yOffset < this.expOffset) {
       this.currentActive = 2;
+      this.skillLink.style.color = '#457b9d';
     } else if (yOffset >= this.expOffset && yOffset < this.contactOffset) {
       this.currentActive = 3;
+      this.experienceLink.style.color = '#457b9d';
     } else if (yOffset >= this.contactOffset) {
       this.currentActive = 4;
+      this.contactLink.style.color = '#457b9d';
     } else {
       this.currentActive = 1;
+      this.homeLink.style.color = '#457b9d';
     }
+
 
     // Skills section animation
     if (yOffset >= 100  && yOffset < this.expOffset - 100) {

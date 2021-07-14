@@ -2,15 +2,14 @@
   color: white;
   //font-family: Arial;
   font-size: 58px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: -2px;
   text-transform: uppercase;
   width: 50vw;
   display: block;
   margin: auto;
-  padding-top: 14vh;
-  //min-width: 600px;
-  margin-right: 27vw;
+  padding-top: 23vh;
+  margin-right: 32vw;
 }
 
 .perspective-line {
@@ -65,21 +64,31 @@
   .perspective-text {
     font-size: 6vw;
     width: 42%;
-    margin: 0;
     color: #fff;
     font-weight: 600;
     letter-spacing: 0px;
     text-transform: uppercase;
     display: block;
-    padding-top: 14vh;
+    margin-right: 41vw;
   }
-
-
 }
+
+@media screen and (max-width: 600px) {
+  .perspective-text {
+    margin-right: 43vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .perspective-text {
+    margin-right: 47vw;
+  }
+}
+
 
 @media screen and (max-width: 400px) {
   .perspective-line:nth-child(odd) {
-    transform: skew( 52deg, -16deg ) scaleY(0.767);
+    transform: skew( 55deg, -16deg ) scaleY(0.767);
   }
 
   .perspective-line:nth-child(even) {
@@ -88,6 +97,10 @@
 
   .perspective-line:nth-child(1) {
     left: 40px;
+  }
+
+  .perspective-line:nth-child(2) {
+    left: 56px;
   }
 
   .perspective-line:nth-child(3) {
@@ -100,6 +113,22 @@
 
   .perspective-line:nth-child(5) {
     left: 126px;
+  }
+
+  .perspective-text {
+    margin-right: 52vw;
+  }
+}
+
+@media screen and (max-width: 335px) {
+  .perspective-text {
+    margin-right: 56vw;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .perspective-text {
+    margin-right: 60vw;
   }
 }
 
