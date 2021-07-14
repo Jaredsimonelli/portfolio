@@ -258,10 +258,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     } else if (type === 'linkedin') {
       window.open("https://linkedin.com/in/jared-simonelli-605289b9", "_blank");
     }
-    // TODO: remove before deployment
-    //else if (type === 'git') {
-    //  window.open("https://github.com/Jaredsimonelli", "_blank");
-    //}
   }
 
   createRange(num: number) {
