@@ -113,10 +113,13 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.homeOffset = this.getOffset(document.getElementById('scrollToHome').getBoundingClientRect().top);
-    this.aboutOffset = this.getOffset(document.getElementById('scrollToAbout').getBoundingClientRect().top) - 90;
-    this.skillsOffset = this.getOffset(document.getElementById('scrollToSkills').getBoundingClientRect().top) - 75;
-    this.expOffset = this.getOffset(document.getElementById('scrollToExperience').getBoundingClientRect().top) - 90;
-    this.contactOffset = this.getOffset(document.getElementById('scrollToContact').getBoundingClientRect().top) - 90;
+    this.aboutOffset = this.getOffset(document.getElementById('scrollToAbout').getBoundingClientRect().top);
+    this.skillsOffset = this.getOffset(document.getElementById('scrollToSkills').getBoundingClientRect().top);
+    this.expOffset = this.getOffset(document.getElementById('scrollToExperience').getBoundingClientRect().top);
+    this.contactOffset = this.getOffset(document.getElementById('scrollToContact').getBoundingClientRect().top);
+
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
 
     this.homeLink = document.getElementById("home");
     this.aboutLink = document.getElementById("about");
@@ -144,7 +147,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:scroll', ['$event'])
   checkOffsetTop() {
-    let yOffset = window.pageYOffset;
+    let yOffset = (window.pageYOffset + 50);
 
     //TODO: reduce down into function or fix CSS
     this.homeLink.style.color = '#fff';
