@@ -306,33 +306,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
 
-  styleSheetToggle(style: string) {
-    const norm = document.getElementById('normalStyle') as HTMLInputElement;
-    const lava = document.getElementById('lavaStyle') as HTMLInputElement;
-    const abstract = document.getElementById('abstractStyle') as HTMLInputElement;
-
-    this.toggle = style;
-    if (style === 'normal') {
-      lava.checked = false;
-      abstract.checked = false;
-      document.getElementById('scrollToHome').style.backgroundColor = '#fff';
-      document.getElementById('skills_component').style.backgroundColor = '#dedbd2';
-
-    } else if (style === 'lava') {
-      norm.checked = false;
-      abstract.checked = false;
-      document.getElementById('scrollToHome').style.backgroundColor = '#fff';
-      document.getElementById('skills_component').style.backgroundColor = '#dedbd2';
-
-    } else if (style === 'abstract') {
-      norm.checked = false;
-      lava.checked = false;
-      document.getElementById('scrollToHome').style.backgroundColor = '#dedbd2';
-      document.getElementById('skills_component').style.backgroundColor = '#fff';
-
-    }
-  }
-
   // loop to call update function on each star
   animate(array: any) {
     requestAnimationFrame(() => this.animate(array));

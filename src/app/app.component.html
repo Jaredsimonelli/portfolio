@@ -50,21 +50,8 @@
     </section>
   </ng-container>
 
-  <!--<div class="toggle_stylesheets">
-    <h6>Toggle Styling</h6>
-    <p>
-      <input id="normalStyle" type="checkbox" checked data-toggle="toggle" data-size="sm" (click)="styleSheetToggle('normal')"> Normal
-    </p>
-    <p>
-      <input id="lavaStyle" type="checkbox" data-toggle="toggle" data-size="sm" (click)="styleSheetToggle('lava')"> Lava Lamp
-    </p>
-    <p>
-      <input id="abstractStyle" type="checkbox" data-toggle="toggle" data-size="sm" (click)="styleSheetToggle('abstract')"> Abstract
-    </p>
-  </div>-->
-
   <!-- Regular Navigation Bar -->
-  <ul id="navbar" [ngClass]="{'fixed-top': currentActive !== 1}" class="nav justify-content-end">
+  <ul id="navbar" [ngClass]="{'fixed-top': currentActive !== 1}" class="nav justify-content-start">
     <li class="nav-item">
       <a class="nav-link" id="home" href="#scrollToHome" (click)="changeTab('home')">Home</a>
     </li>
