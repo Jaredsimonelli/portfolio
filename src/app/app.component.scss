@@ -76,7 +76,6 @@ canvas#responsive-canvas {
 
 
 .nav-item a:visited {
-  //color: #a6a6a6;
   color: white;
 }
 
@@ -92,22 +91,27 @@ canvas#responsive-canvas {
   color: #457b9d !important;
   text-decoration: underline;
   transition: all 0.4s ease-in-out 0s;
-}*/
+}
 
 .not_active {
   color: white !important;
   text-decoration: none;
-}
+}*/
 
 .nav {
   // background: white;
   background-color: #0F1B2E;
   border-bottom: 2px solid #457b9d;
+  position: inherit;
+}
+
+.fixed-top {
+  position: fixed !important;
 }
 
 // ------- Hamburger Menu -------
 .ham_nav {
-  position: fixed;
+  position: relative;
   background-color: #0F1B2E;
   display: none;
   border-bottom: 2px solid #457b9d;
@@ -127,7 +131,6 @@ canvas#responsive-canvas {
 
 .ham_nav a {
   color: white;
-  //color: black;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
@@ -149,7 +152,6 @@ canvas#responsive-canvas {
 }
 
 .ham_nav_link:hover {
-  //color: black !important;
   color: white !important;
 }
 
@@ -162,10 +164,6 @@ canvas#responsive-canvas {
 .border-top {
   border-top: solid 2px #457b9d !important;
 }
-
-/*h4 {
-  text-decoration: underline;
-}*/
 
 /*font-family: 'Courier New', monospace;*/
 /*font-family: "europa", sans-serif;*/
@@ -200,7 +198,15 @@ h2 {
 .home {
   height: 100vh;
   min-height: 800px;
-  //background-color: #dedbd2;
+  background-color: #dedbd2;
+}
+
+
+
+// -------- ABOUT SECTION --------
+.about {
+  height: 100vh;
+  min-height: 800px;
 }
 
 .about_me {

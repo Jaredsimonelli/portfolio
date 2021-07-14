@@ -57,13 +57,14 @@ export class AppComponent implements OnInit, AfterViewInit {
   generalSkills: Skill[] = data.generalSkillList;
   gameDevSkills: Skill[] = data.gameDevSkillList;
 
-  currentActive = 1;
   skillsSectionLoaded = false;
   expSectionLoaded = false;
   showProgressBar = true;
   expModalType = '';
 
+  currentActive = 1;
   homeOffset: number;
+  aboutOffset: number;
   skillsOffset: number;
   expOffset: number;
   contactOffset: number;
@@ -72,6 +73,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   screenWidth: number;
 
   homeLink: HTMLElement;
+  aboutLink: HTMLElement;
   skillLink: HTMLElement;
   experienceLink: HTMLElement;
   contactLink: HTMLElement;
@@ -111,17 +113,22 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.homeOffset = this.getOffset(document.getElementById('scrollToHome').getBoundingClientRect().top);
-    this.skillsOffset = this.getOffset(document.getElementById('scrollToSkills').getBoundingClientRect().top);
-    this.expOffset = this.getOffset(document.getElementById('scrollToExperience').getBoundingClientRect().top);
-    this.contactOffset = this.getOffset(document.getElementById('scrollToContact').getBoundingClientRect().top);
+    this.aboutOffset = this.getOffset(document.getElementById('scrollToAbout').getBoundingClientRect().top) - 90;
+    this.skillsOffset = this.getOffset(document.getElementById('scrollToSkills').getBoundingClientRect().top) - 75;
+    this.expOffset = this.getOffset(document.getElementById('scrollToExperience').getBoundingClientRect().top) - 90;
+    this.contactOffset = this.getOffset(document.getElementById('scrollToContact').getBoundingClientRect().top) - 90;
 
     this.homeLink = document.getElementById("home");
+    this.aboutLink = document.getElementById("about");
     this.skillLink = document.getElementById("skills");
     this.experienceLink = document.getElementById("experience");
     this.contactLink = document.getElementById("contact");
 
     this.hamburgerLinks = document.getElementById("links");
     this.modal = document.getElementById('experienceModal');
+
+    // Set Home active as default
+    this.homeLink.style.color = '#457b9d';
   }
 
   getOffset(top: number) {
@@ -139,22 +146,27 @@ export class AppComponent implements OnInit, AfterViewInit {
   checkOffsetTop() {
     let yOffset = window.pageYOffset;
 
+    //TODO: reduce down into function or fix CSS
     this.homeLink.style.color = '#fff';
+    this.aboutLink.style.color = '#fff';
     this.skillLink.style.color = '#fff';
     this.experienceLink.style.color = '#fff';
     this.contactLink.style.color = '#fff';
 
-    if (yOffset >= this.homeOffset && yOffset < this.skillsOffset) {
+    if (yOffset >= this.homeOffset && yOffset < this.aboutOffset) {
       this.currentActive = 1;
       this.homeLink.style.color = '#457b9d';
-    } else if (yOffset >= this.skillsOffset && yOffset < this.expOffset) {
+    } else if (yOffset >= this.aboutOffset && yOffset < this.skillsOffset) {
       this.currentActive = 2;
+      this.aboutLink.style.color = '#457b9d';
+    } else if (yOffset >= this.skillsOffset && yOffset < this.expOffset) {
+      this.currentActive = 3;
       this.skillLink.style.color = '#457b9d';
     } else if (yOffset >= this.expOffset && yOffset < this.contactOffset) {
-      this.currentActive = 3;
+      this.currentActive = 4;
       this.experienceLink.style.color = '#457b9d';
     } else if (yOffset >= this.contactOffset) {
-      this.currentActive = 4;
+      this.currentActive = 5;
       this.contactLink.style.color = '#457b9d';
     } else {
       this.currentActive = 1;
@@ -163,7 +175,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
     // Skills section animation
-    if (yOffset >= 100  && yOffset < this.expOffset - 100) {
+    if (yOffset >= this.aboutOffset + 100  && yOffset < this.expOffset - 100) {
       if (!this.skillsSectionLoaded) {
         //const sHeader = document.getElementById('sHeader');
         //const sContainer = document.getElementById('sContainer');

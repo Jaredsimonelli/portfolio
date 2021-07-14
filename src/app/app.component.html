@@ -4,50 +4,6 @@
   <!--<canvas class="stars-on-top"></canvas>-->
   <!--<canvas class="sky-on-top"></canvas>-->
 
-  <div class="toggle_stylesheets">
-    <h6>Toggle Styling</h6>
-    <p>
-      <input id="normalStyle" type="checkbox" checked data-toggle="toggle" data-size="sm" (click)="styleSheetToggle('normal')"> Normal
-    </p>
-    <p>
-      <input id="lavaStyle" type="checkbox" data-toggle="toggle" data-size="sm"  (click)="styleSheetToggle('lava')"> Lava Lamp
-    </p>
-    <p>
-      <input id="abstractStyle" type="checkbox" data-toggle="toggle" data-size="sm"  (click)="styleSheetToggle('abstract')"> Abstract
-    </p>
-  </div>
-
-  <!-- Regular Navigation Bar -->
-  <ul id="navbar" class="nav fixed-top justify-content-end">
-    <li class="nav-item">
-      <a [ngClass]="{'active': currentActive === 1}" class="nav-link" id="home" href="#scrollToHome" (click)="changeTab('home')">Home</a>
-    </li>
-    <li class="nav-item">
-      <a [ngClass]="{'active': currentActive === 2}" class="nav-link" id="skills" href="#scrollToSkills" (click)="changeTab('skills')">Skills</a>
-    </li>
-    <li class="nav-item">
-      <a [ngClass]="{'active': currentActive === 3}" class="nav-link" id="experience" href="#scrollToExperience" (click)="changeTab('experience')">Experience</a>
-    </li>
-    <li class="nav-item">
-      <a [ngClass]="currentActive === 4 ? 'active' : ''" class="nav-link" id="contact" href="#scrollToContact" (click)="changeTab('contact')">Contact</a>
-    </li>
-  </ul>
-
-  <!-- Hamburger Navigation Menu -->
-  <div class="ham_nav">
-    <div class="left_bar"></div>
-    <div id="links" class="border-top">
-      <a [ngClass]="{'ham_nav_active': currentActive === 1}" id="home" href="#scrollToHome" class="ham_nav_link" (click)="changeTab('home')">Home</a>
-      <a [ngClass]="{'ham_nav_active': currentActive === 2}" id="skills" href="#scrollToSkills" class="ham_nav_link" (click)="changeTab('skills')">Skills</a>
-      <a [ngClass]="{'ham_nav_active': currentActive === 3}" id="experience" href="#scrollToExperience" class="ham_nav_link" (click)="changeTab('experience')">Experience</a>
-      <a [ngClass]="{'ham_nav_active': currentActive === 4}"  id="contact" href="#scrollToContact" class="ham_nav_link" (click)="changeTab('contact')">Contact</a>
-    </div>
-
-    <a href="javascript:void(0);" class="ham_icon" (click)="toggleHamburgerNavLinks()">
-      <fa-icon class="fa-1x d-flex justify-content-between" [icon]="hamburgerBarsIcon"></fa-icon>
-    </a>
-  </div>
-
   <ng-container data-bs-spy="scroll" data-bs-target="#navbar">
     <section class="home pt-5" id="scrollToHome">
       <div class="text-center">
@@ -66,34 +22,92 @@
           </div>
         </ng-container>
 
-        <ng-container *ngIf="toggle === 'abstract'">
-          <div class="perspective-text">
-            <div class="perspective-line">
-              <p></p>
-              <p>JARED <span *ngIf="screenWidth >= 990">SIMONELLI</span></p>
-            </div>
-            <div class="perspective-line">
-              <p>JARED <span *ngIf="screenWidth >= 990">SIMONELLI</span></p>
-              <p>Developer</p>
-            </div>
-            <div class="perspective-line">
-              <p>Developer</p>
-              <p>Gamer</p>
-            </div>
-            <div class="perspective-line">
-              <p>Gamer</p>
-              <p>Adventurer</p>
-            </div>
-            <div class="perspective-line">
-              <p>Adventurer</p>
-              <p></p>
-            </div>
+        <!-- ABSTRACT -->
+        <div class="perspective-text">
+          <div class="perspective-line">
+            <p></p>
+            <p>JARED <span *ngIf="screenWidth >= 990">SIMONELLI</span></p>
           </div>
-        </ng-container>
+          <div class="perspective-line">
+            <p>JARED <span *ngIf="screenWidth >= 990">SIMONELLI</span></p>
+            <p>Developer</p>
+          </div>
+          <div class="perspective-line">
+            <p>Developer</p>
+            <p>Gamer</p>
+          </div>
+          <div class="perspective-line">
+            <p>Gamer</p>
+            <p>Adventurer</p>
+          </div>
+          <div class="perspective-line">
+            <p>Adventurer</p>
+            <p></p>
+          </div>
+        </div>
 
-        <img *ngIf="toggle !== 'abstract'" src="assets/img/profile_pic.jpg" alt="profile_picture" class="profile_img">
+      </div>
+    </section>
+  </ng-container>
 
-        <ng-container *ngIf="toggle === 'normal'">
+  <!--<div class="toggle_stylesheets">
+    <h6>Toggle Styling</h6>
+    <p>
+      <input id="normalStyle" type="checkbox" checked data-toggle="toggle" data-size="sm" (click)="styleSheetToggle('normal')"> Normal
+    </p>
+    <p>
+      <input id="lavaStyle" type="checkbox" data-toggle="toggle" data-size="sm" (click)="styleSheetToggle('lava')"> Lava Lamp
+    </p>
+    <p>
+      <input id="abstractStyle" type="checkbox" data-toggle="toggle" data-size="sm" (click)="styleSheetToggle('abstract')"> Abstract
+    </p>
+  </div>-->
+
+  <!-- Regular Navigation Bar -->
+  <ul id="navbar" [ngClass]="{'fixed-top': currentActive !== 1}" class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" id="home" href="#scrollToHome" (click)="changeTab('home')">Home</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" id="about" href="#scrollToAbout" (click)="changeTab('about')">About</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" id="skills" href="#scrollToSkills" (click)="changeTab('skills')">Skills</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="experience" href="#scrollToExperience" (click)="changeTab('experience')">Experience</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact" href="#scrollToContact" (click)="changeTab('contact')">Contact</a>
+    </li>
+  </ul>
+
+  <!-- Hamburger Navigation Menu -->
+  <div class="ham_nav" [ngClass]="{'fixed-top': currentActive !== 1}">
+    <div class="left_bar"></div>
+    <div id="links" class="border-top">
+      <a [ngClass]="{'ham_nav_active': currentActive === 1}" id="home" href="#scrollToHome" class="ham_nav_link" (click)="changeTab('home')">Home</a>
+
+      <a [ngClass]="{'ham_nav_active': currentActive === 2}" id="home" href="#scrollToAbout" class="ham_nav_link" (click)="changeTab('about')">About</a>
+
+      <a [ngClass]="{'ham_nav_active': currentActive === 3}" id="skills" href="#scrollToSkills" class="ham_nav_link" (click)="changeTab('skills')">Skills</a>
+      <a [ngClass]="{'ham_nav_active': currentActive === 4}" id="experience" href="#scrollToExperience" class="ham_nav_link" (click)="changeTab('experience')">Experience</a>
+      <a [ngClass]="{'ham_nav_active': currentActive === 5}" id="contact" href="#scrollToContact" class="ham_nav_link" (click)="changeTab('contact')">Contact</a>
+    </div>
+
+    <a href="javascript:void(0);" class="ham_icon" (click)="toggleHamburgerNavLinks()">
+      <fa-icon class="fa-1x d-flex justify-content-between" [icon]="hamburgerBarsIcon"></fa-icon>
+    </a>
+  </div>
+
+  <ng-container data-bs-spy="scroll" data-bs-target="#navbar">
+    <section class="about pt-5" id="scrollToAbout">
+      <div class="text-center">
+
+        <img src="assets/img/profile_pic.jpg" alt="profile_picture" class="profile_img">
+
           <p>Jared Simonelli</p>
           <span>Web Developer / Software Engineer</span>
           <!--<p>Cigna: Software Engineer Advisor </p>-->
@@ -104,8 +118,7 @@
               Inspired by the power to create an interactive user experience, I have spent the last 8 years developing a skill set that has allowed me to work across many (mediums) from game development to virtual reality, and on to full stack web development.
             </span>
           </div>
-        </ng-container>
-       
+
       </div>
     </section>
   </ng-container>
@@ -209,7 +222,7 @@
       </div>
       <div class="triangle_bottom_left"></div>
     </div>
-    
+
   </section>
 
   <section class="experience container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
@@ -291,7 +304,6 @@
 
   <section class="pr contact container-fluid px-0" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="contact_contianer text-center" id="scrollToContact">
-      <!--<div class="parallelogram"></div>-->
       <h2 class="header contact-header">CONTACT</h2>
       <div class="triangle_top_left"></div>
 
