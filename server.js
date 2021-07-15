@@ -11,3 +11,5 @@ app.get('/*', function (req, res) {
 
   res.sendFile(path.join(__dirname + '/dist/jared-portfolio/index.html'));
 });
+
+app.listen(process.env.PORT || 8080);
