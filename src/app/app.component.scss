@@ -12,9 +12,7 @@ xl: 1050px );
 
 $container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px, xxl: 1610px );
 
-@import '~bootstrap/dist/css/bootstrap.min.css';
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
-@import "bootstrap";
 @import './style-sheets/abstract.scss';
 
 .toggle_stylesheets {
