@@ -182,6 +182,10 @@ h2 {
   min-height: 800px;
 }
 
+.scroll-margin {
+  scroll-margin-top: 42px;
+}
+
 .about_me {
   width: 80%;
   height: 50%;
@@ -211,8 +215,8 @@ h2 {
 
 // -------- SKILLS SECTION --------
 .skills {
-  //height: 100vh;
-  height: 800px;
+  height: 100vh;
+  //height: 800px;
   min-height: 800px;
   background-color: #dedbd2;
   position: relative;
@@ -611,6 +615,10 @@ footer {
 }
 
 @media screen and (max-width: 1200px) {
+  .experience {
+    height: auto;
+  }
+
   .pod_exp_img {
     background-position: 31% !important;
   }

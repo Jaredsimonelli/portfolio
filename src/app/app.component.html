@@ -75,22 +75,22 @@
   </div>
 
   <ng-container data-bs-spy="scroll" data-bs-target="#navbar">
-    <section class="about pt-5" id="scrollToAbout">
+    <section [ngClass]="{'scroll-margin': currentActive === 1}" class="about pt-5" id="scrollToAbout">
       <div class="text-center">
 
         <img src="assets/img/profile_pic.jpg" alt="profile_picture" class="profile_img">
 
-          <p>Jared Simonelli</p>
-          <span>Web Developer / Software Engineer</span>
+        <p>Jared Simonelli</p>
+        <span>Web Developer / Software Engineer</span>
 
-          <div class="about_me">
-            <h2>About me</h2>
-          
-            <span>
-              Inspired by the power to create an interactive user experience, I have spent the last 9 years developing a skill set that has allowed me to work across many mediums from game development to full stack web development.
-              I'm an outgoing, adventurous person who thrives in collaborative and dynamic environments. 
-            </span>
-          </div>
+        <div class="about_me">
+          <h2>About me</h2>
+
+          <span>
+            Inspired by the power to create an interactive user experience, I have spent the last 9 years developing a skill set that has allowed me to work across many mediums from game development to full stack web development.
+            I'm an outgoing, adventurous person who thrives in collaborative and dynamic environments.
+          </span>
+        </div>
 
       </div>
     </section>
@@ -201,8 +201,8 @@
   <section class="experience container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
     <div class="text-center" id="scrollToExperience">
       <!--<h2 id="eHeader" class="hidden header pb-4"><u>EXPERIENCE</u></h2>-->
-      <h2 class="header pb-4">EXPERIENCE</h2>
-      <p>
+      <h2 class="header pb-2">EXPERIENCE</h2>
+      <p class="pb-3">
         Here are a few examples of what I've accomplished in my professional career thus far:
       </p>
 
@@ -251,8 +251,8 @@
         </div>
       </div>
 
-      <p>
-        click here to see my full resume
+      <p class="py-3">
+        checkout my full resume <a href="../assets/jaredResume.pdf" download="jaredSimonelliResume">here</a>
       </p>
     </div>
 
