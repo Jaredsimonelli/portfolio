@@ -10,6 +10,38 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    window.onload = function () {
+      var isIE = /*@cc_on!@*/false || !!document.documentMode;
+      if (isIE) {
+        var header = document.createElement("h2");
+        var topMsg = document.createElement("p");
+        var btmMsg = document.createElement("p");
+
+        header.innerHTML = "Sorry, Internet Explorer is not supported!";
+        topMsg.innerHTML = "Try use one of the broswers below"
+        btmMsg.innerHTML = "(Chrome, Safari, Edge or Firefox)"
+
+        header.style.marginTop = "5rem";
+        header.style.color = "#457b9d";
+        header.style.textAlign = "center";
+
+        topMsg.style.fontSize = "15px";
+        topMsg.style.textAlign = "center";
+        topMsg.style.marginBottom = "0";
+
+        btmMsg.style.fontSize = "14px";
+        btmMsg.style.textAlign = "center";
+      
+        document.body.appendChild(header);
+        document.body.appendChild(topMsg);
+        document.body.appendChild(btmMsg);
+
+        document.getElementsByTagName("BODY")[0].style.backgroundColor = '#dedbd2';
+      }
+    }
+
+  </script>
 </head>
 <body>
   <app-root></app-root>
