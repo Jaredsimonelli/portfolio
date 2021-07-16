@@ -60,6 +60,12 @@
   left: 145px;
 }
 
+@media screen and (max-width: 850px) {
+  .perspective-text {
+    margin-right: 34vw;
+  }
+}
+
 @media screen and (max-width: 775px) {
   .perspective-text {
     font-size: 6vw;
@@ -85,6 +91,24 @@
   }
 }
 
+@media screen and (max-width: 470px) {
+  .perspective-text {
+    margin-right: 48vw;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .perspective-text {
+    margin-right: 49vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .perspective-text {
+    margin-right: 51vw;
+  }
+}
+
 
 @media screen and (max-width: 400px) {
   .perspective-line:nth-child(odd) {
@@ -96,7 +120,7 @@
   }
 
   .perspective-line:nth-child(1) {
-    left: 40px;
+    left: 33px;
   }
 
   .perspective-line:nth-child(2) {
