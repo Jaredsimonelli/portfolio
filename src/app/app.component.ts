@@ -6,7 +6,7 @@ import * as canvasHelper from './helpers/canvas-helper';
 import * as data from './data/constants';
 
 
-import { faLaptopCode, faGamepad, faCodeBranch, faBars, faVrCardboard, faHeartbeat, faLaptop, faNetworkWired, faKeyboard } from '@fortawesome/free-solid-svg-icons';
+import { faLaptopCode, faGamepad, faBars, faVrCardboard, faHeartbeat, faLaptop, faKeyboard } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   // Icons
   fontEndIcon = faLaptopCode;
   gameDevIcon = faGamepad;
-  //generalIcon = faCodeBranch;
   generalIcon = faKeyboard;
   hamburgerBarsIcon = faBars;
   podIcon = faVrCardboard;
@@ -112,11 +111,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.homeOffset = this.getOffset(document.getElementById('scrollToHome').getBoundingClientRect().top);
-    this.aboutOffset = this.getOffset(document.getElementById('scrollToAbout').getBoundingClientRect().top);
-    this.skillsOffset = this.getOffset(document.getElementById('scrollToSkills').getBoundingClientRect().top);
-    this.expOffset = this.getOffset(document.getElementById('scrollToExperience').getBoundingClientRect().top);
-    this.contactOffset = this.getOffset(document.getElementById('scrollToContact').getBoundingClientRect().top);
+    this.setUpValues();
 
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
@@ -147,9 +142,16 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:scroll', ['$event'])
   checkOffsetTop() {
-    let yOffset = (window.pageYOffset + 50);
+    this.setUpValues();
 
-    //TODO: reduce down into function or fix CSS
+    let yOffset = (window.pageYOffset + 50);
+    console.log("Y: " + yOffset);
+    console.log("aboutOffset: " + this.aboutOffset);
+    console.log("skillsOffset: " + this.skillsOffset);
+    console.log("expOffset: " + this.expOffset);
+    console.log("contactOffset: " + this.contactOffset);
+
+
     this.homeLink.style.color = '#fff';
     this.aboutLink.style.color = '#fff';
     this.skillLink.style.color = '#fff';
@@ -208,6 +210,14 @@ export class AppComponent implements OnInit, AfterViewInit {
     //    eContainer.classList.add("slide-right");
     //  }
     //}
+  }
+
+  setUpValues() {
+    this.homeOffset = this.getOffset(document.getElementById('scrollToHome').getBoundingClientRect().top);
+    this.aboutOffset = this.getOffset(document.getElementById('scrollToAbout').getBoundingClientRect().top);
+    this.skillsOffset = this.getOffset(document.getElementById('scrollToSkills').getBoundingClientRect().top);
+    this.expOffset = this.getOffset(document.getElementById('scrollToExperience').getBoundingClientRect().top);
+    this.contactOffset = this.getOffset(document.getElementById('scrollToContact').getBoundingClientRect().top);
   }
 
   changeTab(tab: string) {
