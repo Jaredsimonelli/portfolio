@@ -145,11 +145,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.setUpValues();
 
     let yOffset = (window.pageYOffset + 50);
-    console.log("Y: " + yOffset);
-    console.log("aboutOffset: " + this.aboutOffset);
-    console.log("skillsOffset: " + this.skillsOffset);
-    console.log("expOffset: " + this.expOffset);
-    console.log("contactOffset: " + this.contactOffset);
 
 
     this.homeLink.style.color = '#fff';
