@@ -29,55 +29,138 @@
             <p></p>
           </div>
         </div>
-
       </div>
     </section>
   </ng-container>
 
   <!-- Regular Navigation Bar -->
-  <ul id="navbar" [ngClass]="{'fixed-top': currentActive !== 1}" class="nav justify-content-start">
+  <ul
+    id="navbar"
+    [ngClass]="{ 'fixed-top': currentActive !== 1 }"
+    class="nav justify-content-start"
+  >
     <li class="nav-item">
-      <a class="nav-link" id="home" href="#scrollToHome" (click)="changeTab('home')">Home</a>
+      <a
+        class="nav-link"
+        id="home"
+        href="#scrollToHome"
+        (click)="changeTab('home')"
+        >Home</a
+      >
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" id="about" href="#scrollToAbout" (click)="changeTab('about')">About</a>
+      <a
+        class="nav-link"
+        id="about"
+        href="#scrollToAbout"
+        (click)="changeTab('about')"
+        >About</a
+      >
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" id="skills" href="#scrollToSkills" (click)="changeTab('skills')">Skills</a>
+      <a
+        class="nav-link"
+        id="skills"
+        href="#scrollToSkills"
+        (click)="changeTab('skills')"
+        >Skills</a
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="experience" href="#scrollToExperience" (click)="changeTab('experience')">Experience</a>
+      <a
+        class="nav-link"
+        id="experience"
+        href="#scrollToExperience"
+        (click)="changeTab('experience')"
+        >Experience</a
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="contact" href="#scrollToContact" (click)="changeTab('contact')">Contact</a>
+      <a
+        class="nav-link"
+        id="contact"
+        href="#scrollToContact"
+        (click)="changeTab('contact')"
+        >Contact</a
+      >
     </li>
   </ul>
 
   <!-- Hamburger Navigation Menu -->
-  <div class="ham_nav" [ngClass]="{'fixed-top': currentActive !== 1}">
+  <div class="ham_nav" [ngClass]="{ 'fixed-top': currentActive !== 1 }">
     <div class="left_bar"></div>
     <div id="links" class="border-top">
-      <a [ngClass]="{'ham_nav_active': currentActive === 1}" id="home" href="#scrollToHome" class="ham_nav_link" (click)="changeTab('home')">Home</a>
+      <a
+        [ngClass]="{ ham_nav_active: currentActive === 1 }"
+        id="home"
+        href="#scrollToHome"
+        class="ham_nav_link"
+        (click)="changeTab('home')"
+        >Home</a
+      >
 
-      <a [ngClass]="{'ham_nav_active': currentActive === 2}" id="home" href="#scrollToAbout" class="ham_nav_link" (click)="changeTab('about')">About</a>
+      <a
+        [ngClass]="{ ham_nav_active: currentActive === 2 }"
+        id="home"
+        href="#scrollToAbout"
+        class="ham_nav_link"
+        (click)="changeTab('about')"
+        >About</a
+      >
 
-      <a [ngClass]="{'ham_nav_active': currentActive === 3}" id="skills" href="#scrollToSkills" class="ham_nav_link" (click)="changeTab('skills')">Skills</a>
-      <a [ngClass]="{'ham_nav_active': currentActive === 4}" id="experience" href="#scrollToExperience" class="ham_nav_link" (click)="changeTab('experience')">Experience</a>
-      <a [ngClass]="{'ham_nav_active': currentActive === 5}" id="contact" href="#scrollToContact" class="ham_nav_link" (click)="changeTab('contact')">Contact</a>
+      <a
+        [ngClass]="{ ham_nav_active: currentActive === 3 }"
+        id="skills"
+        href="#scrollToSkills"
+        class="ham_nav_link"
+        (click)="changeTab('skills')"
+        >Skills</a
+      >
+      <a
+        [ngClass]="{ ham_nav_active: currentActive === 4 }"
+        id="experience"
+        href="#scrollToExperience"
+        class="ham_nav_link"
+        (click)="changeTab('experience')"
+        >Experience</a
+      >
+      <a
+        [ngClass]="{ ham_nav_active: currentActive === 5 }"
+        id="contact"
+        href="#scrollToContact"
+        class="ham_nav_link"
+        (click)="changeTab('contact')"
+        >Contact</a
+      >
     </div>
 
-    <a href="javascript:void(0);" class="ham_icon" (click)="toggleHamburgerNavLinks()">
-      <fa-icon class="fa-1x d-flex justify-content-between" [icon]="hamburgerBarsIcon"></fa-icon>
+    <a
+      href="javascript:void(0);"
+      class="ham_icon"
+      (click)="toggleHamburgerNavLinks()"
+    >
+      <fa-icon
+        class="fa-1x d-flex justify-content-between"
+        [icon]="hamburgerBarsIcon"
+      ></fa-icon>
     </a>
   </div>
 
   <ng-container data-bs-spy="scroll" data-bs-target="#navbar">
-    <section [ngClass]="{'scroll-margin': currentActive === 1}" class="about pt-5" id="scrollToAbout">
+    <section
+      [ngClass]="{ 'scroll-margin': currentActive === 1 }"
+      class="about pt-5"
+      id="scrollToAbout"
+    >
       <div class="text-center">
-
-        <img src="assets/img/profile_pic.jpg" alt="profile_picture" class="profile_img" width="30%">
+        <img
+          src="assets/img/profile_pic.jpg"
+          alt="profile_picture"
+          class="profile_img"
+          width="30%"
+        />
 
         <p>Jared Simonelli</p>
         <span>Web Developer / Software Engineer</span>
@@ -86,16 +169,23 @@
           <h2>About me</h2>
 
           <span>
-            Inspired by the power to create an interactive user experience, I have spent the last 9 years developing a skill set that has allowed me to work across many mediums from game development to full stack web development.
-            I'm an outgoing, adventurous person who thrives in collaborative and dynamic environments.
+            Inspired by the power to create an interactive user experience, I
+            have spent the last 9 years developing a skill set that has allowed
+            me to work across many mediums from game development to full stack
+            web development. I'm an outgoing, adventurous person who thrives in
+            collaborative and dynamic environments.
           </span>
         </div>
-
       </div>
     </section>
   </ng-container>
 
-  <section id="skills_component" class="skills" data-bs-spy="scroll" data-bs-target="#navbar">
+  <section
+    id="skills_component"
+    class="skills"
+    data-bs-spy="scroll"
+    data-bs-target="#navbar"
+  >
     <div class="skills_container text-center" id="scrollToSkills">
       <!--<h2 id="sHeader" class="hidden header pb-4"><u>SKILLS</u></h2>-->
       <h2 class="header pb-4">SKILLS</h2>
@@ -111,11 +201,13 @@
           <h4 class="mb-4 fw-4">Front End</h4>
           <ng-container *ngFor="let skill of fontEndSkills; let i = index">
             <div class="skill_row">
-              <div class="skill_header">{{skill.name}} &nbsp;</div>
+              <div class="skill_header">{{ skill.name }} &nbsp;</div>
 
               <ng-container *ngIf="showProgressBar; else showBoxes">
                 <div class="progress" [attr.id]="'progressFront' + i">
-                  <div class="bar" [attr.id]="'barFront' + i">{{ skill.percentage }}%</div>
+                  <div class="bar" [attr.id]="'barFront' + i">
+                    {{ skill.percentage }}%
+                  </div>
                 </div>
               </ng-container>
 
@@ -141,11 +233,13 @@
 
           <ng-container *ngFor="let skill of generalSkills; let i = index">
             <div class="skill_row">
-              <div class="skill_header">{{skill.name}} &nbsp;</div>
+              <div class="skill_header">{{ skill.name }} &nbsp;</div>
 
               <ng-container *ngIf="showProgressBar; else showBoxes">
                 <div class="progress" [attr.id]="'progressGen' + i">
-                  <div class="bar" [attr.id]="'barGen' + i">{{ skill.percentage }}%</div>
+                  <div class="bar" [attr.id]="'barGen' + i">
+                    {{ skill.percentage }}%
+                  </div>
                 </div>
               </ng-container>
 
@@ -171,11 +265,13 @@
 
           <ng-container *ngFor="let skill of gameDevSkills; let i = index">
             <div class="skill_row">
-              <div class="skill_header">{{skill.name}} &nbsp;</div>
+              <div class="skill_header">{{ skill.name }} &nbsp;</div>
 
               <ng-container *ngIf="showProgressBar; else showBoxes">
                 <div class="progress" [attr.id]="'progressGame' + i">
-                  <div class="bar" [attr.id]="'barGame' + i">{{ skill.percentage }}%</div>
+                  <div class="bar" [attr.id]="'barGame' + i">
+                    {{ skill.percentage }}%
+                  </div>
                 </div>
               </ng-container>
 
@@ -194,93 +290,141 @@
       </div>
       <div class="triangle_bottom_left"></div>
     </div>
-
   </section>
 
-  <section class="experience container-fluid" data-bs-spy="scroll" data-bs-target="#navbar">
+  <section
+    class="experience container-fluid"
+    data-bs-spy="scroll"
+    data-bs-target="#navbar"
+  >
     <div class="text-center" id="scrollToExperience">
       <!--<h2 id="eHeader" class="hidden header pb-4"><u>EXPERIENCE</u></h2>-->
       <h2 class="header pb-2">EXPERIENCE</h2>
       <p class="pb-3">
-        Here are a few examples of what I've accomplished in my professional career thus far:
+        Here are a few examples of what I've accomplished in my professional
+        career thus far:
       </p>
 
       <!--<div id="eContainer" class="hidden experience_container d-flex justify-content-between fh">-->
       <div class="container">
         <div class="row">
-
           <div id="podGrid" class="col-xl px-0 block">
             <div class="exp_col pod_exp_img exp_pic">
               <h5>Virtual Relaxation Pod</h5>
-
             </div>
 
             <div class="exp_col text">
               <h5 class="mb-5">Virtual Relaxation Pod</h5>
               <fa-icon class="fa-3x" [icon]="podIcon"></fa-icon>
-              <div class="learn_more_btn" data-toggle="modal" data-target="#experienceModal" (click)="modalSelect('pod')">LEARN MORE</div>
+              <div
+                class="learn_more_btn"
+                data-toggle="modal"
+                data-target="#experienceModal"
+                (click)="modalSelect('pod')"
+              >
+                LEARN MORE
+              </div>
             </div>
           </div>
 
           <div id="cfcGrid" class="col-xl px-0 block">
             <div class="exp_col cfc_exp_img exp_pic">
               <h5>Global Fitness Challenge</h5>
-
             </div>
 
             <div class="exp_col text">
               <h5 class="mb-5">Global Fitness Challenge</h5>
               <fa-icon class="fa-3x" [icon]="cfcIcon"></fa-icon>
-              <div class="learn_more_btn" data-toggle="modal" data-target="#experienceModal" (click)="modalSelect('cfc')">LEARN MORE</div>
+              <div
+                class="learn_more_btn"
+                data-toggle="modal"
+                data-target="#experienceModal"
+                (click)="modalSelect('cfc')"
+              >
+                LEARN MORE
+              </div>
             </div>
           </div>
 
           <div id="chcpGrid" class="col-xl px-0 block">
             <div class="exp_col chcp_exp_img exp_pic">
               <h5>Cigna's Provider Portal</h5>
-
             </div>
 
             <div class="exp_col text">
               <h5 class="mb-5">Cigna's Provider Portal</h5>
               <fa-icon class="fa-3x" [icon]="chcpIcon"></fa-icon>
-              <div class="learn_more_btn" data-toggle="modal" data-target="#experienceModal" (click)="modalSelect('chcp')">LEARN MORE</div>
+              <div
+                class="learn_more_btn"
+                data-toggle="modal"
+                data-target="#experienceModal"
+                (click)="modalSelect('chcp')"
+              >
+                LEARN MORE
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <p class="py-3">
-        Check out my full resume <a href="../assets/jaredResume.pdf" download="jaredSimonelliResume">here</a>
+        Check out my full resume
+        <a href="../assets/jaredResume.pdf" download="jaredSimonelliResume"
+          >here</a
+        >
       </p>
-      <a routerLink="/canvas" routerLinkActive="active">click here for the playground</a>
+      <!-- <a routerLink="/canvas" routerLinkActive="active">click here for the playground</a> -->
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="experienceModal" tabindex="-1" role="dialog" aria-labelledby="experienceModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="experienceModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="experienceModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="experienceModalLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-
+            <button
+              type="button"
+              class="btn-close"
+              data-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-          <div class="modal-image">
-
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
+          <div class="modal-image"></div>
+          <div class="modal-body">...</div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button *ngIf="expModalType !== 'chcp'" type="button" class="btn btn-primary visit-site-btn" (click)="openLink(expModalType)">Visit Site</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              *ngIf="expModalType !== 'chcp'"
+              type="button"
+              class="btn btn-primary visit-site-btn"
+              (click)="openLink(expModalType)"
+            >
+              Visit Site
+            </button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="pr contact container-fluid px-0" data-bs-spy="scroll" data-bs-target="#navbar">
+  <section
+    class="pr contact container-fluid px-0"
+    data-bs-spy="scroll"
+    data-bs-target="#navbar"
+  >
     <div class="contact_contianer text-center" id="scrollToContact">
       <h2 class="header contact-header">Contact</h2>
       <div class="triangle_top_left"></div>
@@ -288,25 +432,33 @@
       <div class="pr">
         <form [formGroup]="contactForm" class="pt-4" (ngSubmit)="onSubmit()">
           <div class="form-group pb-3">
-            <input type="text" class="form-control" formControlName="name" placeholder="Name">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name"
+              placeholder="Name"
+            />
 
-            <div *ngIf="name.invalid && (name.dirty || name.touched)"
-                 class="alert alert-danger m-0 p-1">
-
-              <div *ngIf="name.errors?.required">
-                Required
-              </div>
+            <div
+              *ngIf="name.invalid && (name.dirty || name.touched)"
+              class="alert alert-danger m-0 p-1"
+            >
+              <div *ngIf="name.errors?.required">Required</div>
             </div>
           </div>
 
           <div class="form-group pb-3">
-            <textarea class="form-control" formControlName="message" rows="3" placeholder="Enter message"></textarea>
-            <div *ngIf="message.invalid && (message.dirty || message.touched)"
-                 class="alert alert-danger m-0 p-1">
-
-              <div *ngIf="message.errors?.required">
-                Required
-              </div>
+            <textarea
+              class="form-control"
+              formControlName="message"
+              rows="3"
+              placeholder="Enter message"
+            ></textarea>
+            <div
+              *ngIf="message.invalid && (message.dirty || message.touched)"
+              class="alert alert-danger m-0 p-1"
+            >
+              <div *ngIf="message.errors?.required">Required</div>
             </div>
           </div>
 
@@ -315,13 +467,16 @@
       </div>
 
       <div class="triangle_bottom_right"></div>
-
     </div>
   </section>
 
   <footer>
     <div class="pt-3 pb-2 d-flex justify-content-center">
-      <button type="button" class="btn btn-outline-dark me-3 footer_btn" (click)="openLink('linkedin')">
+      <button
+        type="button"
+        class="btn btn-outline-dark me-3 footer_btn"
+        (click)="openLink('linkedin')"
+      >
         <i class="bi bi-linkedin"></i>
       </button>
     </div>
