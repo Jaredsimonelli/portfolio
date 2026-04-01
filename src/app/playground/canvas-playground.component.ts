@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-canvas-playground',
-  templateUrl: './canvas-playground.component.html',
-  styleUrls: ['./canvas-playground.component.scss']
+    selector: 'app-canvas-playground',
+    templateUrl: './canvas-playground.component.html',
+    styleUrls: ['./canvas-playground.component.scss'],
+    standalone: false
 })
 export class CanvasPlaygroundComponent implements OnInit {
 

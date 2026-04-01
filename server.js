@@ -3,12 +3,11 @@ const path = require('path');
 
 const app = express();
 
-// Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/JaredPortfolio'));
+// Serve static Angular build output from docs
+app.use(express.static(path.join(__dirname, 'docs')));
 
 app.get('/*', function (req, res) {
-
-  res.sendFile(path.join(__dirname + '/dist/JaredPortfolio/src/index.html'));
+  res.sendFile(path.join(__dirname, 'docs', 'index.html'));
 });
 
 app.listen(process.env.PORT || 8080);

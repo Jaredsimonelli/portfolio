@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit, AfterViewInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 
 import { Skill } from './data/models';
 import * as canvasHelper from './helpers/canvas-helper';
@@ -9,9 +9,10 @@ import * as data from './data/constants';
 import { faLaptopCode, faGamepad, faBars, faVrCardboard, faHeartbeat, faLaptop, faKeyboard } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss', './style-sheets/abstract.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss', './style-sheets/abstract.scss'],
+    standalone: false
 })
 export class AppComponent implements OnInit, AfterViewInit {
   // Icons
@@ -80,12 +81,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   hamburgerLinks: HTMLElement;
   modal: HTMLElement;
 
-  contactForm: FormGroup;
+  contactForm: UntypedFormGroup;
 
   ngOnInit() {
-    this.contactForm = new FormGroup({
-      name: new FormControl("", Validators.required),
-      message: new FormControl("", Validators.required)
+    this.contactForm = new UntypedFormGroup({
+      name: new UntypedFormControl("", Validators.required),
+      message: new UntypedFormControl("", Validators.required)
     });
 
     // ---- FOR PARALLAX ----
@@ -140,7 +141,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.screenWidth = window.innerWidth;
   }
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll')
   checkOffsetTop() {
     this.setUpValues();
 
@@ -340,5 +341,4 @@ export class AppComponent implements OnInit, AfterViewInit {
   get name() { return this.contactForm.get('name'); }
   get message() { return this.contactForm.get('message'); }
 }
-
 
