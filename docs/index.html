@@ -1,50 +1,695 @@
 <!doctype html>
-<html lang="en" data-beasties-container>
-<head>
-  <meta charset="utf-8">
-  <title>Jared Simonelli</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="https://jared-simonelli-portfolio.herokuapp.com/favicon.ico">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jared Simonelli</title>
+    <meta
+      name="description"
+      content="An original, scene-based portfolio with playful retro-futurist energy, framed project artifacts, and dramatic section transitions."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Chakra+Petch:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="texture texture-grid" aria-hidden="true"></div>
+      <div class="texture texture-dots" aria-hidden="true"></div>
+      <div class="halo halo-a" aria-hidden="true"></div>
+      <div class="halo halo-b" aria-hidden="true"></div>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script type="text/javascript">
-    window.onload = function () {
-      var isIE = /*@cc_on!@*/false || !!document.documentMode;
-      if (isIE) {
-        var header = document.createElement("h2");
-        var topMsg = document.createElement("p");
-        var btmMsg = document.createElement("p");
+      <div class="topbar-shell">
+        <header class="topbar">
+          <a class="brand" href="#top">
+            <span class="brand-logo">JS</span>
+            <span class="brand-text">
+              <strong>Jared Simonelli</strong>
+              <span
+                >web developer, software engineer, and game-dev-minded
+                builder</span
+              >
+            </span>
+          </a>
 
-        header.innerHTML = "Sorry, Internet Explorer is not supported!";
-        topMsg.innerHTML = "Use one of the recommended broswers below"
-        btmMsg.innerHTML = "(Chrome, Safari, Edge or Firefox)"
+          <button
+            type="button"
+            class="nav-toggle"
+            data-mobile-nav-toggle
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="Open navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-        header.style.marginTop = "5rem";
-        header.style.color = "#457b9d";
-        header.style.textAlign = "center";
+          <nav class="nav" id="site-nav">
+            <a href="#work">work</a>
+            <a href="#skill">skills</a>
+            <a href="#about">about</a>
+            <a href="#interactive-lab">lab</a>
+            <a href="#contact">contact</a>
+          </nav>
+        </header>
+      </div>
 
-        topMsg.style.fontSize = "15px";
-        topMsg.style.textAlign = "center";
-        topMsg.style.marginBottom = "0";
+      <main id="top">
+        <section class="hero-scene scene">
+          <div class="hero-stars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
 
-        btmMsg.style.fontSize = "14px";
-        btmMsg.style.textAlign = "center";
+          <div class="hero-stage" data-parallax-root>
+            <div
+              class="floating-mark floating-mark-left"
+              data-depth="12"
+              aria-hidden="true"
+            ></div>
+            <div
+              class="floating-mark floating-mark-right"
+              data-depth="18"
+              aria-hidden="true"
+            ></div>
+            <div
+              class="floating-squiggle"
+              data-depth="24"
+              aria-hidden="true"
+            ></div>
 
-        document.body.appendChild(header);
-        document.body.appendChild(topMsg);
-        document.body.appendChild(btmMsg);
+            <article class="marquee-frame" data-depth="6">
+              <h1>
+                <span>JARED</span>
+                <span>SIMONELLI</span>
+              </h1>
+              <p class="hero-script">
+                Web Development × Software Engineering × Game Design
+              </p>
 
-        document.getElementsByTagName("BODY")[0].style.backgroundColor = '#dedbd2';
-      }
-    }
+              <div class="hero-actions">
+                <a
+                  class="button button-secondary"
+                  href="./assets/jaredResume.pdf"
+                  >view resume</a
+                >
+              </div>
+            </article>
 
-  </script>
-<style>:root{--bs-blue:#0d6efd;--bs-indigo:#6610f2;--bs-purple:#6f42c1;--bs-pink:#d63384;--bs-red:#dc3545;--bs-orange:#fd7e14;--bs-yellow:#ffc107;--bs-green:#198754;--bs-teal:#20c997;--bs-cyan:#0dcaf0;--bs-white:#fff;--bs-gray:#6c757d;--bs-gray-dark:#343a40;--bs-primary:#0d6efd;--bs-secondary:#6c757d;--bs-success:#198754;--bs-info:#0dcaf0;--bs-warning:#ffc107;--bs-danger:#dc3545;--bs-light:#f8f9fa;--bs-dark:#212529;--bs-font-sans-serif:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--bs-font-monospace:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--bs-gradient:linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0))}*,*:before,*:after{box-sizing:border-box}@media(prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:var(--bs-font-sans-serif);font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}</style><link rel="stylesheet" href="styles-TUYIELBQ.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-TUYIELBQ.css"></noscript></head>
-<body>
-  <app-root></app-root>
-<script src="polyfills-LI6MVZF3.js" type="module"></script><script src="main-OE3GDAMD.js" type="module"></script></body>
+            <article
+              class="side-object side-object-left panel-artifact"
+              data-depth="22"
+            >
+              <div class="artifact-label">current focus</div>
+              <div class="artifact-visual visual-thumb" aria-hidden="true">
+                <div class="visual-browser-chrome">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="visual-code-window">
+                  <span class="visual-code-line visual-code-line-tag"></span>
+                  <span class="visual-code-line visual-code-line-mid"></span>
+                  <span class="visual-code-line visual-code-line-short"></span>
+                  <div class="visual-code-type">
+                    <span
+                      class="visual-code-type-text"
+                      data-words="development,designs,interfaces"
+                      >components</span
+                    >
+                    <span class="visual-code-cursor"></span>
+                  </div>
+                </div>
+              </div>
+              <p>
+                Web development focused on polished front-end systems, clear
+                product interfaces, and thoughtful user experience.
+              </p>
+            </article>
+
+            <article
+              class="side-object side-object-right panel-artifact panel-artifact-accent"
+              data-depth="28"
+            >
+              <div class="artifact-label">core strengths</div>
+              <ul class="artifact-list">
+                <li>Angular & TypeScript</li>
+                <li>interaction-focused front end</li>
+                <li>product-minded execution</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <div class="scene-divider scene-divider-wave" aria-hidden="true">
+          <span></span>
+        </div>
+
+        <section id="work" class="work-scene scene">
+          <div class="section-heading">
+            <p class="eyebrow">selected work</p>
+            <p>
+              From Professional to Personal: A selection of projects that
+              represent the range of my work across different contexts,
+              technologies, and creative challenges.
+            </p>
+          </div>
+
+          <div class="artifact-grid">
+            <article
+              class="artifact-card reveal"
+              data-open-work-modal
+              data-work-title="Virtual Relaxation Pod"
+              data-work-meta="vr content / immersive experience"
+              data-work-image="artifact-image-photo"
+              data-work-link="https://www.medicaldaily.com/new-virtual-relaxation-pod-uses-oculus-rift-technology-enhance-mindfulness-370494"
+              data-work-link-label="Read article"
+              data-work-description="Built on a two-person team shaping the content for a mindfulness-focused VR relaxation pod. My work centered on curating calming environments and helping define the tone of an immersive experience meant to feel restorative instead of overstimulating."
+              data-work-highlights="Curated multiple scene directions including Japanese garden, beach, and underwater environments||Worked inside a very small team where content choices had a visible impact on the final experience"
+              role="button"
+              tabindex="0"
+            >
+              <div class="artifact-window">
+                <div class="artifact-image artifact-image-photo"></div>
+              </div>
+              <div class="artifact-copy">
+                <p class="artifact-meta">vr content / immersive experience</p>
+                <h3>Virtual Relaxation Pod</h3>
+                <p>
+                  Curated scenes for a two-person VR meditation project,
+                  including Japanese gardens, beach vacation, and underwater
+                  spaces.
+                </p>
+              </div>
+            </article>
+
+            <article
+              class="artifact-card reveal"
+              data-open-work-modal
+              data-work-title="Global Fitness Challenge"
+              data-work-meta="wellness platform / front-end + full stack"
+              data-work-image="artifact-image-fitness"
+              data-work-description="An employer wellness platform where I expanded from front-end contribution into broader full stack problem-solving. The project sharpened my ability to work across product surfaces, delivery needs, and technical depth while keeping the experience clear for everyday users."
+              data-work-highlights="Grew from front-end contributor into a wider implementation role across the stack||Worked on an activity-based wellness product with recurring user engagement needs||Balanced practical delivery work with interface clarity and product consistency"
+              data-work-note="Internal enterprise product. No public demo is available."
+              role="button"
+              tabindex="0"
+            >
+              <div class="artifact-window">
+                <div class="artifact-image artifact-image-fitness"></div>
+              </div>
+              <div class="artifact-copy">
+                <p class="artifact-meta">
+                  wellness platform / front-end + full stack
+                </p>
+                <h3>Global Fitness Challenge</h3>
+                <p>
+                  An activities-based employer wellness application where I grew
+                  from front-end contributor into full stack problem solver.
+                </p>
+              </div>
+            </article>
+
+            <article
+              class="artifact-card reveal"
+              data-open-work-modal
+              data-work-title="Cigna Provider Portal"
+              data-work-meta="enterprise front-end leadership"
+              data-work-image="artifact-image-provider"
+              data-work-window="prism"
+              data-work-description="Led front-end development for Benefits functionality inside a large internal insurance claims resource maintained across multiple global teams. The work demanded collaboration, consistency, and the ability to guide user-facing implementation inside a much larger enterprise system."
+              data-work-highlights="Led front-end delivery for Benefits functionality in an enterprise claims environment||Worked across multiple global teams and shared product surfaces||Focused on keeping complex internal workflows usable and consistent"
+              data-work-note="Internal enterprise product. No public demo is available."
+              role="button"
+              tabindex="0"
+            >
+              <div class="artifact-window">
+                <div class="artifact-image artifact-image-provider"></div>
+              </div>
+              <div class="artifact-copy">
+                <p class="artifact-meta">enterprise front-end leadership</p>
+                <h3>Cigna Provider Portal</h3>
+                <p>
+                  Led front-end development for Benefits functionality on a
+                  large internal insurance claims resource maintained by
+                  multiple global teams.
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <div class="work-modal" data-work-modal hidden>
+          <div class="work-modal-backdrop" data-close-work-modal></div>
+          <div
+            class="work-modal-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="work-modal-title"
+            aria-describedby="work-modal-description"
+            tabindex="-1"
+          >
+            <div class="work-modal-head">
+              <div>
+                <p class="work-modal-meta" data-work-modal-meta></p>
+                <h3 id="work-modal-title" data-work-modal-title></h3>
+              </div>
+              <button
+                type="button"
+                class="work-modal-close-chip"
+                data-close-work-modal
+                aria-label="Close work details"
+              >
+                close
+              </button>
+            </div>
+
+            <div class="work-modal-body">
+              <div class="work-modal-preview-shell">
+                <div class="artifact-window work-modal-window">                
+                  <div
+                    class="artifact-image work-modal-image"
+                    data-work-modal-image
+                  ></div>
+                </div>
+              </div>
+
+              <div class="work-modal-copy">
+                <p id="work-modal-description" data-work-modal-description></p>
+                <ul
+                  class="work-modal-highlights"
+                  data-work-modal-highlights
+                ></ul>
+                <p class="work-modal-note" data-work-modal-note hidden></p>
+              </div>
+            </div>
+
+            <div class="work-modal-actions">
+              <a
+                class="button work-modal-link"
+                data-work-modal-link
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                hidden
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="scene-divider scene-divider-band" aria-hidden="true">
+          <span></span>
+        </div>
+
+        <section id="skill" class="skill-scene scene">
+          <div class="section-heading">
+            <p class="eyebrow">Skills</p>
+            <p>
+              The work is only part of it. These are the skills behind the
+              build.
+            </p>
+          </div>
+
+          <div class="skill-layout">
+            <article class="skill-card skill-card-skills reveal">
+              <div class="skills-columns">
+                <section class="skills-cluster" style="--cluster-order: 0">
+                  <div class="skills-cluster-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" role="presentation">
+                      <rect x="14" y="16" width="36" height="24" rx="4"></rect>
+                      <path d="M24 27l5-5 5 5-5 5"></path>
+                      <path d="M39 22l-5 10"></path>
+                      <path d="M10 46h44"></path>
+                    </svg>
+                  </div>
+                  <h4>Front End</h4>
+
+                  <div class="skills-meter-list">
+                    <div class="skill-meter" data-value="85">
+                      <span class="skill-meter-name">HTML</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 85%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">85%</span>
+                    </div>
+                    <div class="skill-meter" data-value="85">
+                      <span class="skill-meter-name">JS/TS</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 85%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">85%</span>
+                    </div>
+                    <div class="skill-meter" data-value="80">
+                      <span class="skill-meter-name">Angular</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 80%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">80%</span>
+                    </div>
+                    <div class="skill-meter" data-value="70">
+                      <span class="skill-meter-name">CSS</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 70%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">70%</span>
+                    </div>
+                    <div class="skill-meter" data-value="45">
+                      <span class="skill-meter-name">React</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 45%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">45%</span>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="skills-cluster" style="--cluster-order: 1">
+                  <div class="skills-cluster-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" role="presentation">
+                      <rect x="12" y="18" width="40" height="28" rx="5"></rect>
+                      <path
+                        d="M19 26h4M27 26h4M35 26h4M43 26h2M19 33h6M29 33h6M39 33h6M19 40h10M31 40h14"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h4>General</h4>
+
+                  <div class="skills-meter-list">
+                    <div class="skill-meter" data-value="90">
+                      <span class="skill-meter-name">Git</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 90%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">90%</span>
+                    </div>
+                    <div class="skill-meter" data-value="60">
+                      <span class="skill-meter-name">C++</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 60%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">60%</span>
+                    </div>
+                    <div class="skill-meter" data-value="55">
+                      <span class="skill-meter-name">Python</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 55%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">55%</span>
+                    </div>
+                    <div class="skill-meter" data-value="45">
+                      <span class="skill-meter-name">Java</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 45%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">45%</span>
+                    </div>
+                    <div class="skill-meter" data-value="40">
+                      <span class="skill-meter-name">C</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 40%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">40%</span>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="skills-cluster" style="--cluster-order: 2">
+                  <div class="skills-cluster-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" role="presentation">
+                      <rect x="12" y="22" width="40" height="20" rx="10"></rect>
+                      <path d="M23 32h8M27 28v8M41 29h.01M46 35h.01"></path>
+                    </svg>
+                  </div>
+                  <h4>Game Development</h4>
+
+                  <div class="skills-meter-list">
+                    <div class="skill-meter" data-value="90">
+                      <span class="skill-meter-name">Unity</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 90%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">90%</span>
+                    </div>
+                    <div class="skill-meter" data-value="70">
+                      <span class="skill-meter-name">C#</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 70%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">70%</span>
+                    </div>
+                    <div class="skill-meter" data-value="35">
+                      <span class="skill-meter-name">Unreal</span>
+                      <div class="skill-meter-track">
+                        <span
+                          class="skill-meter-fill"
+                          style="width: 35%"
+                        ></span>
+                      </div>
+                      <span class="skill-meter-value">35%</span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </article>
+
+            <article class="skill-card skill-card-dark reveal">
+              <p class="skill-label">working style</p>
+              <h3>Creative interface thinking across multiple mediums.</h3>
+              <ul class="process-list">
+                <li>
+                  Front-end focused, with supporting full-stack experience when
+                  broader product needs arise.
+                </li>
+                <li>
+                  Strong emphasis on polished interfaces, clear hierarchy, and
+                  thoughtful user experience.
+                </li>
+                <li>
+                  Game-development instincts that focus on UX, responsiveness, and overall interaction quality.
+                </li>
+                <li>
+                  Professional experience spanning startups, innovation/research
+                  departments, and enterprise-scale projects.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="about" class="about-scene scene">
+          <div class="section-heading">
+            <p class="eyebrow">about</p>
+          </div>
+
+          <div class="about-layout">
+            <article class="about-panel reveal">
+              <div class="skill-label" style="font-size: 1.25em">profile</div>
+              <p>
+                Inspired by the power to create an interactive user experience,
+                I have spent the last 9 years developing a skill set that has
+                allowed me to work across many mediums from game development to
+                full stack web development.
+              </p>
+              <p>
+                I do my best work in collaborative, fast-paced environments
+                where curiosity, communication, and steady momentum drive strong
+                results.
+              </p>
+            </article>
+
+            <aside class="about-visual reveal" aria-hidden="true">
+              <div class="avatar-disc" data-depth="10"></div>
+              <div class="avatar-ring" data-depth="6"></div>
+              <img
+                class="profile-photo"
+                data-depth="14"
+                src="./assets/img/profile_pic.jpg"
+                alt="Portrait of Jared Simonelli"
+              />
+              <div class="avatar-card" data-depth="22">
+                <span style="font-size: small">Jared Simonelli</span>
+                <span style="font-size: medium">Software Engineer Advisor</span>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="interactive-lab" class="interactive-lab-scene scene">
+          <div class="section-heading">
+            <p class="eyebrow">interactive lab</p>
+            <p>
+              A small interactive scene woven into the portfolio, with a little more to uncover than it first suggests.
+            </p>
+          </div>
+
+          <div
+            class="sky-scene"
+            data-footer-scene
+            data-scene-mode="idle"
+            role="button"
+            tabindex="0"
+            aria-label="Interactive sky scene. Click once to start, move the cloud to cover the sun for rain, keep the rain going to grow the tree, bring back the sun to grow an apple, then shake the cloud to create wind and finish the scene."
+          >
+            <div class="sun-glow"></div>
+            <div class="sky-cloud-layer" aria-hidden="true">
+              <div class="sky-cloud sky-cloud-main">
+                <span class="sky-cloud-piece sky-cloud-body"></span>
+                <span
+                  class="sky-cloud-piece sky-cloud-lobe sky-cloud-lobe-left"
+                ></span>
+                <span
+                  class="sky-cloud-piece sky-cloud-lobe sky-cloud-lobe-right"
+                ></span>
+                <span class="sky-cloud-piece sky-cloud-merge"></span>
+              </div>
+            </div>
+            <div class="sky-rain-layer" aria-hidden="true">
+              <div class="sky-rain-source"></div>
+            </div>
+            <div class="sky-growth-layer" aria-hidden="true">
+              <div class="sky-horizon"></div>
+              <div class="wind-layer">
+                <span class="wind-gust wind-gust-1"></span>
+                <span class="wind-gust wind-gust-2"></span>
+                <span class="wind-gust wind-gust-3"></span>
+              </div>
+
+              <div
+                class="growth-plant-stage"
+                data-plant-stage
+                style="--plant-x: 50%"
+              >
+                <div class="growth-soil"></div>
+                <div class="tree-stage">
+                  <span class="tree-trunk"></span>
+                  <span class="tree-branch tree-branch-left"></span>
+                  <span class="tree-branch tree-branch-right"></span>
+                  <span class="tree-canopy tree-canopy-left"></span>
+                  <span class="tree-canopy tree-canopy-center"></span>
+                  <span class="tree-canopy tree-canopy-right"></span>
+                  <span class="tree-fruit"></span>
+                </div>
+                <span class="ground-fruit">
+                  <span class="ground-fruit-bite"></span>
+                </span>
+                <div class="animal-stage" data-animal-stage>
+                  <div class="animal-bunny">
+                    <span class="animal-body"></span>
+                    <span class="animal-head"></span>
+                    <span class="animal-eye"></span>
+                    <span class="animal-snout"></span>
+                    <span class="animal-ear animal-ear-back"></span>
+                    <span class="animal-ear animal-ear-front"></span>
+                    <span class="animal-tail"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sky-scene-hint" data-scene-hint aria-live="polite">
+              <div class="sky-scene-hint-head">
+                <span>interactive sky</span>
+                <div class="sky-scene-hint-actions">
+                  <button
+                    type="button"
+                    class="sky-scene-hint-toggle"
+                    data-scene-hint-toggle
+                    aria-expanded="true"
+                    aria-label="Hide interactive sky hints"
+                  >
+                    Hide hint
+                  </button>
+                  <button
+                    type="button"
+                    class="sky-scene-reset"
+                    data-scene-reset
+                    hidden
+                  >
+                    Reset scene
+                  </button>
+                </div>
+              </div>
+              <strong data-scene-status
+                >Click to start the sky interaction</strong
+              >
+            </div>
+          </div>
+
+          <div class="footer-wave" aria-hidden="true">
+            <span></span>
+          </div>
+        </section>
+
+        <section id="contact" class="footer-scene scene">
+          <div class="footer-inner reveal">
+            <p class="eyebrow">contact</p>
+            <div class="footer-links">
+              <a href="mailto:jaredsimonelliportfolio@gmail.com">email</a>
+              <a
+                href="https://linkedin.com/in/jared-simonelli-605289b9"
+                target="_blank"
+                rel="noopener noreferrer"
+                >linkedin</a
+              >
+              <a href="./assets/jaredResume.pdf">resume</a>
+            </div>
+            <p class="footer-note">
+              Web Developer / Software Engineer with front-end depth and
+              game-development mindset.
+            </p>
+            <p class="copyright">
+              &copy; <span id="year"></span> Jared Simonelli
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
 </html>
-
