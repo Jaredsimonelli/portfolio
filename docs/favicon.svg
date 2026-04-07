@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">JS favicon</title>
+  <desc id="desc">Dark navy tile with a neon gradient rounded square and bold JS lettering.</desc>
+  <defs>
+    <linearGradient id="badgeGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#ef8edb" />
+      <stop offset="52%" stop-color="#63f0cf" />
+      <stop offset="100%" stop-color="#9bc6ff" />
+    </linearGradient>
+  </defs>
+
+  <rect width="256" height="256" fill="#0b1220" />
+  <circle cx="102" cy="154" r="112" fill="none" stroke="#18354c" stroke-width="3" opacity="0.9" />
+  <rect x="58" y="38" width="160" height="160" rx="40" fill="url(#badgeGradient)" />
+  <text
+    x="138"
+    y="118"
+    fill="#08111b"
+    font-family="Arial Black, Helvetica Neue, Arial, sans-serif"
+    font-size="74"
+    font-weight="900"
+    letter-spacing="1"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >
+    JS
+  </text>
+</svg>
