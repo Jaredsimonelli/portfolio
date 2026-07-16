@@ -756,6 +756,14 @@ h3 {
   background-position: center;
 }
 
+.artifact-image-granny-theft-walker {
+  background:
+    linear-gradient(180deg, rgba(7, 11, 20, 0.02), rgba(7, 11, 20, 0.24)),
+    url("./projects/granny-theft-walker/game/assets/main-menu-background.png");
+  background-size: cover;
+  background-position: center;
+}
+
 .panel-artifact p,
 .artifact-list li {
   color: var(--text-soft);
@@ -817,6 +825,14 @@ h3 {
 .artifact-card {
   grid-column: span 4;
   cursor: pointer;
+}
+
+.artifact-card-row-center-left {
+  grid-column: 3 / span 4;
+}
+
+.artifact-card-row-center-right {
+  grid-column: 7 / span 4;
 }
 
 .artifact-window {
@@ -915,6 +931,8 @@ h3 {
 .work-modal-panel {
   position: relative;
   z-index: 1;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   width: min(100%, 920px);
   max-height: calc(100dvh - 2.8rem);
   padding: 1.2rem 1.2rem 1.1rem;
@@ -1000,10 +1018,17 @@ h3 {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   gap: 1rem;
+  min-height: 0;
   margin-bottom: 1rem;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   overscroll-behavior: contain;
   padding-right: 0.15rem;
+  scrollbar-gutter: stable;
+}
+
+.work-modal-preview-shell {
+  min-width: 0;
 }
 
 .work-modal-window {
@@ -1159,6 +1184,18 @@ body.is-work-modal-open {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   color: var(--skills-ink);
   transition: transform 0.35s ease, background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.skills-cluster-general {
+  order: 1;
+}
+
+.skills-cluster-front-end {
+  order: 2;
+}
+
+.skills-cluster-game-development {
+  order: 3;
 }
 
 .skills-cluster:nth-child(1) {
@@ -2521,6 +2558,14 @@ body.js-enhanced .skill-meter-fill.is-animated::after {
     grid-column: span 6;
   }
 
+  .artifact-card-row-center-left {
+    grid-column: 3 / span 4;
+  }
+
+  .artifact-card-row-center-right {
+    grid-column: 7 / span 4;
+  }
+
   .side-object-left {
     left: 1%;
   }
@@ -2702,6 +2747,11 @@ body.js-enhanced .skill-meter-fill.is-animated::after {
     grid-column: span 12;
   }
 
+  .artifact-card-row-center-left,
+  .artifact-card-row-center-right {
+    grid-column: span 12;
+  }
+
   .artifact-window {
     min-height: clamp(220px, 72vw, 360px);
     padding: 16px 12px 12px;
@@ -2739,7 +2789,8 @@ body.js-enhanced .skill-meter-fill.is-animated::after {
   }
 
   .work-modal-image {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
+    max-height: min(42dvh, 360px);
   }
 }
 
@@ -2937,6 +2988,10 @@ body.js-enhanced .skill-meter-fill.is-animated::after {
 
   .work-modal-head {
     margin-bottom: 0.85rem;
+  }
+
+  .work-modal-image {
+    max-height: 32dvh;
   }
 
   .work-modal-actions {

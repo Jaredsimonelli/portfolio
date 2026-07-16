@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Granny Theft Walker</title>
+    <link rel="stylesheet" href="./game/styles.css?v=20260715menucontrols" />
+  </head>
+  <body>
+    <main class="game-menu" id="gameMenu" tabindex="-1">
+      <section class="menu-stage" aria-labelledby="menuHeading">
+        <h1 id="menuHeading" class="sr-only">Granny Theft Walker Main Menu</h1>
+        <img
+          class="menu-art"
+          src="./game/assets/main-menu-background.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <nav class="title-menu" aria-label="Main menu">
+          <button class="title-button title-button-start is-selected" id="startButton" type="button">
+            <span>Start</span>
+          </button>
+          <button class="title-button title-button-load" id="loadButton" type="button">
+            <span>Load Level</span>
+          </button>
+          <button class="title-button title-button-controls" id="controlsButton" type="button">
+            <span>Controls</span>
+          </button>
+        </nav>
+      </section>
+
+      <section class="level-select-stage is-hidden" id="levelSelectStage" aria-labelledby="levelSelectHeading">
+        <h1 id="levelSelectHeading" class="sr-only">Select Level</h1>
+        <img
+          class="menu-art"
+          src="./game/assets/main-menu-background.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <nav class="level-select-menu" aria-label="Level select">
+          <button class="title-button title-button-level title-button-level-one" id="levelOneButton" type="button">
+            <span class="level-button-title">Level 1</span>
+            <span class="level-button-detail">Hallways / Ward</span>
+          </button>
+          <button class="title-button title-button-level title-button-level-two" id="levelTwoButton" type="button">
+            <span class="level-button-title">Level 2</span>
+            <span class="level-button-detail">Cafe / Kitchen</span>
+          </button>
+          <button class="title-button title-button-level title-button-level-three" id="levelThreeButton" type="button">
+            <span class="level-button-title">Level 3</span>
+            <span class="level-button-detail">Hell Hallway / Satan</span>
+          </button>
+          <button class="level-back" id="levelBackButton" type="button">Back</button>
+        </nav>
+      </section>
+
+      <section class="play-stage is-hidden" id="playStage" aria-label="Playable game">
+        <canvas id="gameCanvas" width="960" height="540" aria-label="Granny Theft Walker gameplay"></canvas>
+        <div class="play-panel">
+          <p class="play-status" id="gameStatus">Preparing demo level...</p>
+          <button class="menu-return" id="optionsButton" type="button">Options</button>
+        </div>
+        <section class="game-overlay is-hidden" id="optionsOverlay" role="dialog" aria-modal="true" aria-labelledby="optionsHeading">
+          <div class="overlay-panel">
+            <h2 id="optionsHeading">Options</h2>
+            <div class="overlay-controls" aria-label="Game controls">
+              <p><kbd>A</kbd> / <kbd>D</kbd> or <kbd>←</kbd> / <kbd>→</kbd><span>Move</span></p>
+              <p><kbd>Space</kbd> / <kbd>W</kbd> / <kbd>↑</kbd><span>Jump</span></p>
+              <p><kbd>J</kbd><span>Melee Attack</span></p>
+              <p><kbd>K</kbd><span>Throw Colostomy</span></p>
+              <p><kbd>S</kbd> / <kbd>↓</kbd><span>Crouch</span></p>
+              <p><kbd>L</kbd><span>Kick</span></p>
+              <p><kbd>S</kbd> / <kbd>↓</kbd> + <kbd>J</kbd><span>Jump Attack</span></p>
+              <p><kbd>P</kbd><span>Pause / Resume</span></p>
+              <p><kbd>R</kbd><span>Reset Scene</span></p>
+            </div>
+            <div class="overlay-actions">
+              <button class="overlay-button overlay-button-primary" id="resumeButton" type="button">Resume</button>
+              <button class="overlay-button" id="optionsMainMenuButton" type="button">Return to Main Menu</button>
+            </div>
+          </div>
+        </section>
+        <section class="game-overlay is-hidden" id="gameCompleteOverlay" role="dialog" aria-modal="true" aria-labelledby="gameCompleteHeading">
+          <div class="overlay-panel overlay-panel-complete">
+            <p class="overlay-kicker">Granny Made It</p>
+            <h2 id="gameCompleteHeading">Game Complete</h2>
+            <p>Satan is defeated. The hospital is finally behind you.</p>
+            <button class="overlay-button overlay-button-primary" id="victoryMainMenuButton" type="button">Return to Main Menu</button>
+          </div>
+        </section>
+        <section class="game-overlay is-hidden" id="gameOverOverlay" role="dialog" aria-modal="true" aria-labelledby="gameOverHeading">
+          <div class="overlay-panel overlay-panel-complete">
+            <p class="overlay-kicker">Granny Went Down</p>
+            <h2 id="gameOverHeading">Level Failed</h2>
+            <p>Restart from the beginning of this level.</p>
+            <button class="overlay-button overlay-button-primary" id="restartLevelButton" type="button">Restart Level</button>
+          </div>
+        </section>
+      </section>
+
+      <footer class="menu-footer" aria-label="Menu notes">
+        <p class="menu-footer-tag" id="menuStatus">Main Menu Prototype</p>
+      </footer>
+    </main>
+    <script src="./apps/shared/local-animation-overrides.js?v=20260508t"></script>
+    <script src="./apps/shared/granny-player.js?v=20260520a"></script>
+    <script src="./apps/shared/combat-balance.js?v=20260716rangedcadence"></script>
+    <script src="./game/app.js?v=20260716potdelay"></script>
+  </body>
+</html>
